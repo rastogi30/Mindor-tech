@@ -1,0 +1,71 @@
+<div class="contact-form">
+    <!-- FormSubmit.co Form - Just add action and method to your existing form -->
+    <form id="contactForm" action="https://formsubmit.co/info@mindor.tech" method="POST">
+        
+        <!-- FormSubmit Configuration (Hidden Fields) -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Strategy Call Request from Mindor Tech Website">
+        <input type="hidden" name="_next" value="https://mindor.tech//index.html#success">
+        
+        <!-- Your Existing Form Fields (Keep as is) -->
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" name="company" placeholder="Your Company Name">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" name="serviceInterest" placeholder="Service You're Interested In">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" name="bestTimeToCall" placeholder="Best Time to Call">
+        </div>
+        
+        <div class="form-group">
+            <textarea name="message" placeholder="How can we help you?" rows="4" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="radio-group-label">Preferred Contact Method:</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="contactPreference" value="email" checked>
+                    <span class="radio-custom"></span>
+                    Email
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="contactPreference" value="whatsapp">
+                    <span class="radio-custom"></span>
+                    WhatsApp
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-full">
+            Schedule Your Call
+        </button>
+    </form>
+</div>
+
+<!-- Add this JavaScript to handle success redirect -->
+<script>
+// Check if form was submitted successfully
+if (window.location.hash === '#success') {
+    // Show your existing success modal
+    document.getElementById('successModal').classList.add('show');
+    // Clean URL
+    history.replaceState(null, null, window.location.pathname);
+}
+</script> 
