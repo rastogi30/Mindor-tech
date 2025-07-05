@@ -1,8 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar.jsx';
 
 const AboutPage = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+
   const teamMembers = [
     {
       name: "Priya Sharma",
@@ -89,41 +99,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-background-light">
-      {/* Header */}
-      <motion.header
-        className="bg-white/95 backdrop-blur-md shadow-lg"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="container">
-          <div className="flex items-center justify-between h-20">
-            {/* Back to Home */}
-            <Link 
-              to="/"
-              className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors duration-300"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              <span className="font-medium">Back to Home</span>
-            </Link>
-
-            {/* Brand */}
-            <div className="text-2xl font-bold font-secondary text-primary">
-              Mindor Tech
-            </div>
-
-            {/* Contact CTA */}
-            <Link
-              to="/#contact"
-              className="btn btn-primary rounded-full px-6 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </motion.header>
+      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
 
       {/* Main Content */}
       <main className="py-24">
