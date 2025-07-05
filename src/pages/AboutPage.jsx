@@ -451,7 +451,7 @@ const AboutPage = () => {
                   Start Your Project
                 </Link>
                 <Link
-                  to="/faq"
+                  to="/#services"
                   className="btn btn-outline-white rounded-full px-8 py-3 font-semibold hover:bg-white hover:text-primary transition-all duration-300"
                 >
                   View Our Services
