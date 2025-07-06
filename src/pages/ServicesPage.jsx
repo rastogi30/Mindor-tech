@@ -127,42 +127,75 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background-light">
-      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
+    <div className="min-h-screen">
+      <Navbar scrollToSection={scrollToSection}/>
 
-      {/* Main Content */}
-      <main className="py-24">
-        <div className="container">
-          {/* Hero Section */}
+      {/* Hero Section with Hero background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+        {/* Background - same as Hero.jsx */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
+          <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
+          <div 
+            className="absolute inset-0 z-20"
+            style={{
+              background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="container relative z-30">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6">
-              Technology That Works for You
-            </h1>
-            <p className="text-xl text-text-secondary max-w-4xl mx-auto leading-relaxed mb-8">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="text-white">Technology That{' '}</span>
+              <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">Works for You</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               At Mindor Tech, we don't just write code. We build intelligent, scalable, and secure tech that
               transforms how your business operates. Explore our services across AI, automation, web
               development, and digital marketing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
               <Link
                 to="/#contact"
-                className="btn btn-primary rounded-full px-8 py-3 text-white font-semibold hover:shadow-lg transition-all duration-300"
+                className="bg-white text-primary rounded-full px-8 py-3 font-semibold hover:shadow-lg transition-all duration-300 hover:bg-gray-100"
               >
                 Get Started
               </Link>
               <Link
                 to="/case-studies"
-                className="btn btn-outline-primary rounded-full px-8 py-3 font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition-all duration-300"
               >
                 View Our Work
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="py-24 bg-gradient-to-br from-background to-background-light">
+        <div className="container">
 
           {/* Stats Section */}
           <motion.div
