@@ -1,41 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ scrollToSection }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const Navbar = ({ scrollToSection, forceVisible = false }) => {
+  const [isScrolled, setIsScrolled] = useState(forceVisible);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!forceVisible) {
+        setIsScrolled(window.scrollY > 50);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    // Set initial state based on forceVisible
+    if (forceVisible) {
+      setIsScrolled(true);
+    }
+
+    // Only add scroll listener if not forced visible
+    if (!forceVisible) {
+      window.addEventListener('scroll', handleScroll);
+    }
+    
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      if (!forceVisible) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobileMenuOpen, forceVisible]);
 
   const navLinks = [
-    { href: '#home', text: 'Home' },
-    { href: '#services', text: 'Services' },
-    { href: '#faq', text: 'FAQ' },
-    { href: '#contact', text: 'Contact' },
+    { href: '#home', text: 'Home', isRoute: false },
+    { href: '/services', text: 'Services', isRoute: true },
+    { href: '/case-studies', text: 'Case Studies', isRoute: true },
+    { href: '/about', text: 'About', isRoute: true },
+    { href: '/careers', text: 'Careers', isRoute: true },
+    { href: '#contact', text: 'Contact', isRoute: false },
   ];
 
-  const handleNavClick = (href) => {
-    scrollToSection(href.substring(1));
-    setIsMobileMenuOpen(false);
+  const handleNavClick = (link) => {
+    if (link.isRoute) {
+      // For route links, just close mobile menu
+      setIsMobileMenuOpen(false);
+    } else {
+      // For scroll links, check if we're on home page
+      if (location.pathname === '/') {
+        // If on home page, just scroll to section
+        scrollToSection(link.href.substring(1));
+      } else {
+        // If on other page, navigate to home page with hash
+        window.location.href = `/${link.href}`;
+      }
+      setIsMobileMenuOpen(false);
+    }
   };
+
+  // Debug logging
+  console.log('Navbar render:', { forceVisible, isScrolled, className: forceVisible || isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent' });
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+      className={`mobile-menu-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        forceVisible || isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container">
         <div className="flex items-center justify-between h-20">
@@ -46,7 +89,7 @@ const Navbar = ({ scrollToSection }) => {
             transition={{ duration: 0.2 }}
           >
             <span className={`text-2xl font-bold font-secondary ${
-              isScrolled ? 'text-primary' : 'text-white'
+              forceVisible || isScrolled ? 'text-primary' : 'text-white'
             }`}>
               Mindor Tech
             </span>
@@ -54,23 +97,55 @@ const Navbar = ({ scrollToSection }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className={`nav-link relative font-medium transition-colors duration-300 ${
-                  isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
-                }`}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-              >
-                {link.text}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
-              </motion.a>
+            {navLinks.map((link, index) => (
+              link.isRoute ? (
+                <motion.div 
+                  key={link.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                >
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`nav-link relative font-medium transition-colors duration-300 group ${
+                      forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
+                    } ${location.pathname === link.href ? 'text-primary' : ''}`}
+                  >
+                    {link.text}
+                    <motion.span 
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link);
+                  }}
+                  className={`nav-link relative font-medium transition-colors duration-300 group ${
+                    forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
+                  }`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                >
+                  {link.text}
+                  <motion.span 
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+              )
             ))}
           </nav>
 
@@ -92,42 +167,69 @@ const Navbar = ({ scrollToSection }) => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-text-primary' : 'bg-white'
+              forceVisible || isScrolled ? 'bg-text-primary' : 'bg-white'
             } ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-text-primary' : 'bg-white'
+              forceVisible || isScrolled ? 'bg-text-primary' : 'bg-white'
             } ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-text-primary' : 'bg-white'
+              forceVisible || isScrolled ? 'bg-text-primary' : 'bg-white'
             } ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
         </div>
 
+        {/* Mobile Menu Backdrop */}
+        {isMobileMenuOpen && (
+          <motion.div
+            className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile Menu */}
         <motion.nav
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          className={`lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-border/20 z-50 ${
+            isMobileMenuOpen ? 'block' : 'hidden'
           }`}
           initial={false}
+          animate={{ 
+            opacity: isMobileMenuOpen ? 1 : 0,
+            y: isMobileMenuOpen ? 0 : -10
+          }}
+          transition={{ duration: 0.3 }}
         >
-          <div className="py-4 space-y-4">
+          <div className="container py-6 space-y-4">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className={`block py-2 font-medium transition-colors duration-300 ${
-                  isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
-                }`}
-              >
-                {link.text}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light ${
+                    location.pathname === link.href ? 'text-primary bg-primary/10' : 'text-text-primary hover:text-primary'
+                  }`}
+                >
+                  {link.text}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link);
+                  }}
+                  className="block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light text-text-primary hover:text-primary"
+                >
+                  {link.text}
+                </a>
+              )
             ))}
             <button
-              className="btn btn-primary w-full rounded-full px-6 py-3 text-sm font-semibold"
+              className="btn btn-primary w-full rounded-full px-6 py-3 text-sm font-semibold mt-4"
               onClick={() => {
                 scrollToSection('contact');
                 setIsMobileMenuOpen(false);

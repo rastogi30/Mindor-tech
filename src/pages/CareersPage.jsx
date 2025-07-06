@@ -157,40 +157,117 @@ const CareersPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background-light">
-      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
+    <div className="min-h-screen">
+      <Navbar scrollToSection={scrollToSection} />
 
-      {/* Main Content */}
-      <main className="py-24">
-        <div className="container">
-          {/* Hero Section */}
+      {/* Hero Section with Hero background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background - same as Hero.jsx */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
+          <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
+          <div 
+            className="absolute inset-0 z-20"
+            style={{
+              background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="container relative z-30">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6">
-              Join Us. Let's Build What Matters.
-            </h1>
-            <p className="text-xl text-text-secondary max-w-4xl mx-auto leading-relaxed mb-8">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="text-white">Join Us. Let's Build{' '}</span>
+              <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">What Matters.</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               At Mindor Tech, you won't just punch code, you'll create solutions that matter. We're a lean, remote-first team with a builder mindset. If you're hungry to learn, ship fast, and solve real problems, we'd love to work with you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <motion.a
                 href="mailto:info@mindor.tech?subject=Job Application"
-                className="btn btn-primary rounded-full px-8 py-3 text-white font-semibold hover:shadow-lg transition-all duration-300"
+                className="btn btn-primary-large"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Apply Now
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="mailto:info@mindor.tech?subject=Resume Submission"
-                className="btn btn-outline-primary rounded-full px-8 py-3 font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                className="btn btn-secondary-large"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Send Resume
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </motion.div>
+        </div>
+
+        {/* Floating elements */}
+        <motion.div
+          className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/20 rounded-full blur-xl"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, -15, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <style jsx>{`
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px) translateX(0px);
+              opacity: 0;
+            }
+            50% {
+              transform: translateY(-20px) translateX(10px);
+              opacity: 1;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* Main Content */}
+      <main className="bg-gradient-to-br from-background to-background-light">
+        <div className="container py-24">
 
           {/* Culture Section */}
           <motion.section
