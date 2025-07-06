@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar.jsx';
 import Hero from '../components/Hero.jsx';
-import Services from '../components/Services.jsx';
+import WhyMindor from '../components/WhyMindor.jsx';
 import Contact from '../components/Contact.jsx';
 import Footer from '../components/Footer.jsx';
 import SuccessModal from '../components/SuccessModal.jsx';
@@ -17,6 +17,22 @@ const HomePage = () => {
       // Clean up the URL
       history.replaceState(null, null, window.location.pathname);
     }
+
+    // Handle hash navigation for sections
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (hash && hash !== '#success') {
+        const sectionId = hash.substring(1);
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    };
+
+    handleHashNavigation();
   }, []);
 
   const scrollToSection = (sectionId) => {
@@ -30,7 +46,7 @@ const HomePage = () => {
     <div className="App">
       <Navbar scrollToSection={scrollToSection} />
       <Hero scrollToSection={scrollToSection} />
-      <Services />
+      <WhyMindor />
       <Contact setShowSuccessModal={setShowSuccessModal} />
       <Footer />
       <SuccessModal 
