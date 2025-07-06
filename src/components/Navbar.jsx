@@ -40,6 +40,25 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
     };
   }, [isMobileMenuOpen, forceVisible]);
 
+  // Effect to handle hash changes for highlighting
+  useEffect(() => {
+    const handleHashChange = () => {
+      // Force re-render when hash changes
+      // This is handled by the location object from useLocation
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
+  // Effect to scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const navLinks = [
     { href: '#home', text: 'Home', isRoute: false },
     { href: '/services', text: 'Services', isRoute: true },
@@ -63,6 +82,16 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
         window.location.href = `/${link.href}`;
       }
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  // Function to check if a link should be highlighted
+  const isLinkActive = (link) => {
+    if (link.isRoute) {
+      return location.pathname === link.href;
+    } else {
+      // For scroll links, check if we're on home page and the hash matches
+      return location.pathname === '/' && location.hash === link.href;
     }
   };
 
@@ -110,12 +139,13 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`nav-link relative font-medium transition-colors duration-300 group ${
                       forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
-                    } ${location.pathname === link.href ? 'text-primary' : ''}`}
+                    } ${isLinkActive(link) ? 'text-primary' : ''}`}
                   >
                     {link.text}
                     <motion.span 
                       className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
-                      initial={{ width: 0 }}
+                      initial={{ width: isLinkActive(link) ? "100%" : 0 }}
+                      animate={{ width: isLinkActive(link) ? "100%" : 0 }}
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
                     />
@@ -131,7 +161,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                   }}
                   className={`nav-link relative font-medium transition-colors duration-300 group ${
                     forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
-                  }`}
+                  } ${isLinkActive(link) ? 'text-primary' : ''}`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -2 }}
@@ -140,7 +170,8 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                   {link.text}
                   <motion.span 
                     className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
-                    initial={{ width: 0 }}
+                    initial={{ width: isLinkActive(link) ? "100%" : 0 }}
+                    animate={{ width: isLinkActive(link) ? "100%" : 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
                   />
@@ -209,7 +240,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                   to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light ${
-                    location.pathname === link.href ? 'text-primary bg-primary/10' : 'text-text-primary hover:text-primary'
+                    isLinkActive(link) ? 'text-primary bg-primary/10' : 'text-text-primary hover:text-primary'
                   }`}
                 >
                   {link.text}
@@ -222,7 +253,9 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                     e.preventDefault();
                     handleNavClick(link);
                   }}
-                  className="block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light text-text-primary hover:text-primary"
+                  className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light ${
+                    isLinkActive(link) ? 'text-primary bg-primary/10' : 'text-text-primary hover:text-primary'
+                  }`}
                 >
                   {link.text}
                 </a>
