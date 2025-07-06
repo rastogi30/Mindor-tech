@@ -98,32 +98,65 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background-light">
-      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
+    <div className="min-h-screen">
+      <Navbar scrollToSection={scrollToSection} />
 
-      {/* Main Content */}
-      <main className="py-24">
-        <div className="container">
-          {/* Hero Section */}
+      {/* Hero Section with Hero background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+        {/* Background - same as Hero.jsx */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
+          <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
+          <div 
+            className="absolute inset-0 z-20"
+            style={{
+              background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="container relative z-30">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6">
-              We're Building the Future of Tech
-            </h1>
-            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">
-              To empower startups and businesses with intelligent tech—fast, affordable, and scalable.
-            </p>
-            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-8 text-white max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
-              <p className="text-lg leading-relaxed">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="text-white">We're Building the{' '}</span>
+              <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">Future of Tech.</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              To empower startups and businesses with intelligent tech—fast, affordable, and scalable. We're not just a dev shop—we're your growth tech partner.
+            </motion.p>
+            <motion.div
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/20"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <h2 className="text-2xl font-bold mb-4 text-white">Our Vision</h2>
+              <p className="text-lg leading-relaxed text-white/90">
                 To be India's most trusted AI + custom software partner for growth-stage companies.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="py-24 bg-gradient-to-br from-background to-background-light">
+        <div className="container">
 
           {/* Stats Section */}
           <motion.div
