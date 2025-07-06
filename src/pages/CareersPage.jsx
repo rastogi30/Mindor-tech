@@ -161,7 +161,7 @@ const CareersPage = () => {
       <Navbar scrollToSection={scrollToSection} />
 
       {/* Hero Section with Hero background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
         {/* Background - same as Hero.jsx */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
           <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
@@ -182,13 +182,15 @@ const CareersPage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="text-white">Join Us. Let's Build{' '}</span>
-              <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">What Matters.</span>
+              <div className="flex flex-col">
+                <span className="text-white whitespace-nowrap">Join Us. Let's Build</span>
+                <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent whitespace-nowrap">What Matters.</span>
+              </div>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
