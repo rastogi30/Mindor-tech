@@ -8,9 +8,23 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      if (!forceVisible) {
-        setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (!forceVisible) {
+            const currentScrollY = window.scrollY;
+            // Only update state if there's a significant change (more than 10px difference)
+            if (Math.abs(currentScrollY - lastScrollY) > 10) {
+              setIsScrolled(currentScrollY > 20); // Increased threshold to 20px
+              lastScrollY = currentScrollY;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -23,11 +37,14 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
     // Set initial state based on forceVisible
     if (forceVisible) {
       setIsScrolled(true);
+    } else {
+      // Set initial scroll state
+      setIsScrolled(window.scrollY > 20);
     }
 
     // Only add scroll listener if not forced visible
     if (!forceVisible) {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
     }
     
     document.addEventListener('click', handleClickOutside);
@@ -95,8 +112,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
     }
   };
 
-  // Debug logging
-  console.log('Navbar render:', { forceVisible, isScrolled, className: forceVisible || isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent' });
+
 
   return (
     <motion.header
