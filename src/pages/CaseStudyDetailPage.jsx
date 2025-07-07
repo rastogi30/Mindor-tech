@@ -219,34 +219,35 @@ const CaseStudyDetailPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar scrollToSection={scrollToSection} />
       
-      {/* Hero Section */}
-      <section className="pt-20 pb-12 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Breadcrumb */}
-            <nav className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm text-text-secondary">
-                <li><Link to="/" className="hover:text-primary">Home</Link></li>
-                <li>/</li>
-                <li><Link to="/case-studies" className="hover:text-primary">Case Studies</Link></li>
-                <li>/</li>
-                <li className="text-text-primary">{caseStudy.title}</li>
-              </ol>
-            </nav>
+      {/* Hero Section with Hero background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+        {/* Background - same as Hero.jsx */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
+          <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
+          <div 
+            className="absolute inset-0 z-20"
+            style={{
+              background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+            }}
+          ></div>
+        </div>
 
+        {/* Content */}
+        <div className="container relative z-30">
+          <div className="max-w-4xl mx-auto pt-20">
             {/* Header */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
                 <span>{caseStudy.category}</span>
                 <span>•</span>
                 <span>{caseStudy.duration}</span>
                 <span>•</span>
                 <span>{caseStudy.team}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                 {caseStudy.title}
               </h1>
-              <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 {caseStudy.subtitle}
               </p>
             </div>
