@@ -103,7 +103,7 @@ const AboutPage = () => {
       <Navbar scrollToSection={scrollToSection} />
 
       {/* Hero Section with Hero background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background - same as Hero.jsx */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
           <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
