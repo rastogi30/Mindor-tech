@@ -39,90 +39,46 @@ const Contact = ({ setShowSuccessModal }) => {
     return true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
     setError('');
 
-    try {
-      // Try FormSubmit.co AJAX first
-      const response = await fetch('https://formsubmit.co/ajax/info@mindor.tech', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || 'Not provided',
-          company: formData.company || 'Not provided',
-          serviceInterest: formData.serviceInterest || 'Not specified',
-          bestTimeToCall: formData.bestTimeToCall || 'Not specified',
-          message: formData.message,
-          contactPreference: formData.contactPreference,
-          _subject: `New Strategy Call Request from ${formData.name}`,
-          _captcha: "false",
-          _template: "table"
-        })
-      });
+    // Always use standard form submission
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://formsubmit.co/official.agarwal.1008@gmail.com';
+    form.style.display = 'none';
 
-      if (response.ok) {
-        const result = await response.json();
-        setShowSuccessModal(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          serviceInterest: '',
-          bestTimeToCall: '',
-          message: '',
-          contactPreference: 'email'
-        });
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      console.error('AJAX submission failed, trying standard form...');
-      
-      // Fallback to standard form submission
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://formsubmit.co/info@mindor.tech';
-      form.style.display = 'none';
+    const fields = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || 'Not provided',
+      company: formData.company || 'Not provided',
+      serviceInterest: formData.serviceInterest || 'Not specified',
+      bestTimeToCall: formData.bestTimeToCall || 'Not specified',
+      message: formData.message,
+      contactPreference: formData.contactPreference,
+      _subject: `New Strategy Call Request from ${formData.name}`,
+      _captcha: 'false',
+      _next: window.location.href + '#success',
+      _template: 'table'
+    };
 
-      const fields = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || 'Not provided',
-        company: formData.company || 'Not provided',
-        serviceInterest: formData.serviceInterest || 'Not specified',
-        bestTimeToCall: formData.bestTimeToCall || 'Not specified',
-        message: formData.message,
-        contactPreference: formData.contactPreference,
-        _subject: `New Strategy Call Request from ${formData.name}`,
-        _captcha: 'false',
-        _next: window.location.href + '#success',
-        _template: 'table'
-      };
+    Object.keys(fields).forEach(key => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = fields[key];
+      form.appendChild(input);
+    });
 
-      Object.keys(fields).forEach(key => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = fields[key];
-        form.appendChild(input);
-      });
-
-      document.body.appendChild(form);
-      form.submit();
-    } finally {
-      setIsSubmitting(false);
-    }
+    document.body.appendChild(form);
+    form.submit();
+    setIsSubmitting(false);
   };
 
   return (
