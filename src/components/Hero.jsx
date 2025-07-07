@@ -95,16 +95,17 @@ const Hero = ({ scrollToSection }) => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.div
+              className="w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link to="/services" className="btn btn-primary-large">
+              <Link to="/services" className="btn btn-primary-large w-full sm:w-auto">
                 Explore Services
               </Link>
             </motion.div>
             
             <motion.button
-              className="btn btn-secondary-large"
+              className="btn btn-secondary-large w-full sm:w-auto"
               onClick={() => scrollToSection('contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -142,7 +143,7 @@ const Hero = ({ scrollToSection }) => {
         }}
       />
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% {
             transform: translateY(0px) translateX(0px);
