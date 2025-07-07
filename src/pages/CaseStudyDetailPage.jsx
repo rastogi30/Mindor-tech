@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const CaseStudyDetailPage = () => {
   const { id } = useParams();
@@ -383,6 +384,7 @@ const CaseStudyDetailPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

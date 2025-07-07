@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
+import Footer from '../components/Footer.jsx';
 
 const CareersPage = () => {
   const [selectedRole, setSelectedRole] = useState(null);
@@ -485,6 +486,7 @@ const CareersPage = () => {
           </motion.div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
