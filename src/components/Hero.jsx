@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = ({ scrollToSection }) => {
   const particlesRef = useRef(null);
@@ -46,7 +47,7 @@ const Hero = ({ scrollToSection }) => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
         <div className="absolute inset-0 bg-gradient-hero opacity-50"></div>
@@ -88,19 +89,19 @@ const Hero = ({ scrollToSection }) => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <motion.button
-              className="btn btn-primary-large"
-              onClick={() => scrollToSection('services')}
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Explore Services
-            </motion.button>
+              <Link to="/services" className="btn btn-primary-large">
+                Explore Services
+              </Link>
+            </motion.div>
             
             <motion.button
               className="btn btn-secondary-large"
