@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const WhyMindor = () => {
   return (
     <section id="why-mindor" className="relative py-20 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
-      <div className="container mx-auto px-4">
+      <div className="w-full mx-auto px-4">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}

@@ -28,7 +28,7 @@ const socials = [
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white shadow-2xl rounded-t-3xl mt-16 overflow-hidden">
-      <div className="container px-6 py-12 flex flex-col md:flex-row md:justify-between md:items-center gap-10">
+      <div className="w-full px-6 py-12 flex flex-col md:flex-row md:justify-between md:items-center gap-10">
         {/* Brand/Logo */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <span className="text-2xl font-bold font-secondary tracking-tight gradient-text-hero">Mindor Tech</span>
