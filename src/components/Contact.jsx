@@ -278,17 +278,6 @@ const Contact = ({ setShowSuccessModal }) => {
                     />
                     <span className="text-text-secondary">Email</span>
                   </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="contactPreference"
-                      value="whatsapp"
-                      checked={formData.contactPreference === 'whatsapp'}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-primary focus:ring-primary/20"
-                    />
-                    <span className="text-text-secondary">WhatsApp</span>
-                  </label>
                 </div>
               </div>
 
