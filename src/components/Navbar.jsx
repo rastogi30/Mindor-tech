@@ -128,9 +128,10 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
       <div className="w-full flex items-center justify-between h-20 px-4 lg:px-8">
         {/* Brand */}
         <motion.div 
-          className="nav-brand"
+          className="nav-brand cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
+          onClick={() => window.location.href = '/'}
         >
           <span className={`text-2xl font-bold font-secondary ${
             forceVisible || isScrolled ? 'text-primary' : 'text-white'
