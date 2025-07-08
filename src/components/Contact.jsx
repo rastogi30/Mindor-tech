@@ -131,6 +131,33 @@ const Contact = ({ setShowSuccessModal }) => {
                 </div>
               </div>
             </div>
+
+            {/* Calendly Scheduling Option */}
+            <div className="mt-12 p-6 bg-gradient-to-r from-primary/10 to-primary-light/10 rounded-2xl border border-primary/20">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary-light rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+                  📅
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">Quick Schedule</h3>
+                  <p className="text-text-secondary mb-4">Book a strategy call directly through our calendar</p>
+                </div>
+              </div>
+              
+              <motion.a
+                href="https://calendar.app.google/c94YxYt7MYuphBsw6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-full flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+                </svg>
+                Schedule with Google Calendar
+              </motion.a>
+            </div>
           </motion.div>
 
           {/* Contact Form */}
