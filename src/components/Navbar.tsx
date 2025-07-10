@@ -3,9 +3,20 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const Navbar = ({ scrollToSection, forceVisible = false }) => {
-  const [isScrolled, setIsScrolled] = useState(forceVisible);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+interface NavbarProps {
+  scrollToSection?: (sectionId: string) => void;
+  forceVisible?: boolean;
+}
+
+interface NavLink {
+  href: string;
+  text: string;
+  isRoute: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }) => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(forceVisible);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -29,8 +40,9 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
       }
     };
 
-    const handleClickOutside = (event) => {
-      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMobileMenuOpen && !target.closest('.mobile-menu-container')) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -77,7 +89,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
     window.scrollTo(0, 0);
   }, [router.pathname]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { href: '#home', text: 'Home', isRoute: false },
     { href: '/services', text: 'Services', isRoute: true },
     { href: '/case-studies', text: 'Case Studies', isRoute: true },
@@ -86,7 +98,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
     { href: '#contact', text: 'Contact', isRoute: false },
   ];
 
-  const handleNavClick = (link) => {
+  const handleNavClick = (link: NavLink) => {
     if (link.isRoute) {
       // For route links, just close mobile menu
       setIsMobileMenuOpen(false);
@@ -104,7 +116,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
   };
 
   // Function to check if a link should be highlighted
-  const isLinkActive = (link) => {
+  const isLinkActive = (link: NavLink): boolean => {
     if (link.isRoute) {
       return router.pathname === link.href;
     } else {
@@ -115,8 +127,6 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
       return false;
     }
   };
-
-
 
   return (
     <motion.header
@@ -206,7 +216,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
           className={`hidden md:block btn btn-primary rounded-full px-6 py-2.5 text-sm font-semibold ${
             isScrolled ? 'shadow-md' : 'shadow-lg'
           }`}
-          onClick={() => scrollToSection('contact')}
+          onClick={() => scrollToSection && scrollToSection('contact')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -285,7 +295,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
           <button
             className="btn btn-primary w-full rounded-full px-6 py-3 text-sm font-semibold mt-4"
             onClick={() => {
-              scrollToSection('contact');
+              scrollToSection && scrollToSection('contact');
               setIsMobileMenuOpen(false);
             }}
           >

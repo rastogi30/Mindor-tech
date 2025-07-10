@@ -1,7 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 
-const socials = [
+interface Social {
+  name: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
+const socials: Social[] = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/company/mindortech/',
@@ -25,7 +31,7 @@ const socials = [
   }
 ];
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white shadow-2xl rounded-t-3xl mt-16 overflow-hidden">
       <div className="w-full px-6 py-12 flex flex-col md:flex-row md:justify-between md:items-center gap-10">

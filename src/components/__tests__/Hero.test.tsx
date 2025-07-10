@@ -7,17 +7,17 @@ import Hero from '../Hero'
 // Mock framer-motion to avoid animation issues in tests
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, whileHover, whileTap, initial, animate, transition, ...props }) => <div {...props}>{children}</div>,
-    h1: ({ children, initial, animate, transition, ...props }) => <h1 {...props}>{children}</h1>,
-    p: ({ children, initial, animate, transition, ...props }) => <p {...props}>{children}</p>,
-    button: ({ children, whileHover, whileTap, onClick, ...props }) => <button onClick={onClick} {...props}>{children}</button>,
-    a: ({ children, href, ...props }) => <a href={href} {...props}>{children}</a>,
-    span: ({ children, ...props }) => <span {...props}>{children}</span>,
+    div: ({ children, whileHover, whileTap, initial, animate, transition, ...props }: any) => <div {...props}>{children}</div>,
+    h1: ({ children, initial, animate, transition, ...props }: any) => <h1 {...props}>{children}</h1>,
+    p: ({ children, initial, animate, transition, ...props }: any) => <p {...props}>{children}</p>,
+    button: ({ children, whileHover, whileTap, onClick, ...props }: any) => <button onClick={onClick} {...props}>{children}</button>,
+    a: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,
+    span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
   },
 }))
 
 // Wrapper component to provide router context
-const renderWithRouter = (component) => {
+const renderWithRouter = (component: React.ReactElement) => {
   return render(
     <BrowserRouter>
       {component}

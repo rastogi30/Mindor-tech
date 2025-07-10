@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../src/components/Navbar.jsx';
-import Hero from '../src/components/Hero.jsx';
-import WhyMindor from '../src/components/WhyMindor.jsx';
-import Contact from '../src/components/Contact.jsx';
-import Footer from '../src/components/Footer.jsx';
-import SuccessModal from '../src/components/SuccessModal.jsx';
+import Navbar from '../src/components/Navbar';
+import Hero from '../src/components/Hero';
+import WhyMindor from '../src/components/WhyMindor';
+import Contact from '../src/components/Contact';
+import Footer from '../src/components/Footer';
+import SuccessModal from '../src/components/SuccessModal';
 
-const HomePage = () => {
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+const HomePage: React.FC = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
 
   useEffect(() => {
     // Check if user returned from FormSubmit.co
     if (window.location.hash === '#success') {
       setShowSuccessModal(true);
       // Clean up the URL
-      history.replaceState(null, null, window.location.pathname);
+      history.replaceState('', '', window.location.pathname);
     }
 
     // Handle hash navigation for sections
@@ -35,7 +35,7 @@ const HomePage = () => {
     handleHashNavigation();
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
       // Add a small offset to account for the fixed navbar

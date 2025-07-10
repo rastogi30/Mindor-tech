@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SuccessModal = ({ isOpen, onClose }) => {
+interface SuccessModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -15,7 +20,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   useEffect(() => {
-    const handleEscape = (e) => {
+    const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
       }

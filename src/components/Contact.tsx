@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
-const Contact = ({ setShowSuccessModal }) => {
-  const [formData, setFormData] = useState({
+interface ContactProps {
+  setShowSuccessModal: (show: boolean) => void;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  serviceInterest: string;
+  bestTimeToCall: string;
+  message: string;
+  contactPreference: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ setShowSuccessModal }) => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -12,10 +27,10 @@ const Contact = ({ setShowSuccessModal }) => {
     message: '',
     contactPreference: 'email'
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -23,7 +38,7 @@ const Contact = ({ setShowSuccessModal }) => {
     }));
   };
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
     if (!formData.name || !formData.email || !formData.message) {
       setError('Please fill in all required fields.');
       return false;
@@ -39,7 +54,7 @@ const Contact = ({ setShowSuccessModal }) => {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -72,7 +87,7 @@ const Contact = ({ setShowSuccessModal }) => {
       const input = document.createElement('input');
       input.type = 'hidden';
       input.name = key;
-      input.value = fields[key];
+      input.value = fields[key as keyof typeof fields];
       form.appendChild(input);
     });
 
@@ -256,7 +271,7 @@ const Contact = ({ setShowSuccessModal }) => {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="How can we help you?"
-                  rows="4"
+                  rows={4}
                   required
                   className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors duration-300 resize-none"
                 ></textarea>

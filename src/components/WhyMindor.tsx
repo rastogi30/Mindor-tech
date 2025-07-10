@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const WhyMindor = () => {
+const WhyMindor: React.FC = () => {
   return (
     <section id="why-mindor" className="relative py-20 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
       <div className="w-full mx-auto px-4">

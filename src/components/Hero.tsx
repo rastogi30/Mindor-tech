@@ -2,8 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const Hero = ({ scrollToSection }) => {
-  const particlesRef = useRef(null);
+interface HeroProps {
+  scrollToSection: (sectionId: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
+  const particlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const createParticle = () => {
