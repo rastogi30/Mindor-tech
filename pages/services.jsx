@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Link from 'next/link';
+import Navbar from '../src/components/Navbar.jsx';
+import Footer from '../src/components/Footer.jsx';
 
 const ServicesPage = () => {
   const scrollToSection = (sectionId) => {
@@ -178,13 +178,13 @@ const ServicesPage = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <Link
-                to="/#contact"
+                href="/#contact"
                 className="bg-white text-primary rounded-full px-8 py-3 font-semibold hover:shadow-lg transition-all duration-300 hover:bg-gray-100"
               >
                 Get Started
               </Link>
               <Link
-                to="/case-studies"
+                href="/case-studies"
                 className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition-all duration-300"
               >
                 View Our Work
@@ -298,7 +298,7 @@ const ServicesPage = () => {
                     {/* CTA Button */}
                     <div className="mt-6">
                       <Link
-                        to={`/services/${service.id}`}
+                        href={`/services/${service.id}`}
                         className="w-full btn btn-primary rounded-lg px-4 py-2 text-sm font-semibold text-center block"
                       >
                         Get Started
@@ -372,13 +372,13 @@ const ServicesPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/#contact"
+                  href="/#contact"
                   className="btn btn-white rounded-full px-8 py-3 text-primary font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Start Your Project
                 </Link>
                 <Link
-                  to="/case-studies"
+                  href="/case-studies"
                   className="btn btn-outline-white rounded-full px-8 py-3 font-semibold hover:bg-white hover:text-primary transition-all duration-300"
                 >
                   View Case Studies

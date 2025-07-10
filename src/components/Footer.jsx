@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const socials = [
   {
@@ -36,10 +36,10 @@ const Footer = () => {
         </div>
         {/* Quick Links */}
         <nav className="flex flex-wrap gap-6 justify-center md:justify-center text-base font-medium">
-          <Link to="/" className="hover:text-accent transition-colors">Home</Link>
-          <Link to="/services" className="hover:text-accent transition-colors">Services</Link>
-          <Link to="/about" className="hover:text-accent transition-colors">About</Link>
-          <Link to="/careers" className="hover:text-accent transition-colors">Careers</Link>
+          <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+          <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
+          <Link href="/about" className="hover:text-accent transition-colors">About</Link>
+          <Link href="/careers" className="hover:text-accent transition-colors">Careers</Link>
           <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
         </nav>
         {/* Socials */}

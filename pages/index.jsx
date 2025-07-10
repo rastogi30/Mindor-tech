@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar.jsx';
-import Hero from '../components/Hero.jsx';
-import WhyMindor from '../components/WhyMindor.jsx';
-import Contact from '../components/Contact.jsx';
-import Footer from '../components/Footer.jsx';
-import SuccessModal from '../components/SuccessModal.jsx';
+import Navbar from '../src/components/Navbar.jsx';
+import Hero from '../src/components/Hero.jsx';
+import WhyMindor from '../src/components/WhyMindor.jsx';
+import Contact from '../src/components/Contact.jsx';
+import Footer from '../src/components/Footer.jsx';
+import SuccessModal from '../src/components/SuccessModal.jsx';
 
 const HomePage = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);

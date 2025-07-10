@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navbar = ({ scrollToSection, forceVisible = false }) => {
   const [isScrolled, setIsScrolled] = useState(forceVisible);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
     let ticking = false;
@@ -74,7 +75,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
   // Effect to scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [router.pathname]);
 
   const navLinks = [
     { href: '#home', text: 'Home', isRoute: false },
@@ -91,12 +92,12 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
       setIsMobileMenuOpen(false);
     } else {
       // For scroll links, check if we're on home page
-      if (location.pathname === '/') {
+      if (router.pathname === '/') {
         // If on home page, just scroll to section
-        scrollToSection(link.href.substring(1));
+        scrollToSection && scrollToSection(link.href.substring(1));
       } else {
         // If on other page, navigate to home page with hash
-        window.location.href = `/${link.href}`;
+        router.push(`/${link.href}`);
       }
       setIsMobileMenuOpen(false);
     }
@@ -105,10 +106,13 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
   // Function to check if a link should be highlighted
   const isLinkActive = (link) => {
     if (link.isRoute) {
-      return location.pathname === link.href;
+      return router.pathname === link.href;
     } else {
-      // For scroll links, check if we're on home page and the hash matches
-      return location.pathname === '/' && location.hash === link.href;
+      // Only check window.location.hash on the client
+      if (typeof window !== 'undefined') {
+        return router.pathname === '/' && window.location.hash === link.href;
+      }
+      return false;
     }
   };
 
@@ -131,7 +135,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
           className="nav-brand cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
-          onClick={() => window.location.href = '/'}
+          onClick={() => router.push('/')}
         >
           <span className={`text-2xl font-bold font-secondary ${
             forceVisible || isScrolled ? 'text-primary' : 'text-white'
@@ -151,11 +155,12 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
               >
                 <Link
-                  to={link.href}
+                  href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`nav-link relative font-medium transition-colors duration-300 group ${
                     forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
                   } ${isLinkActive(link) ? 'text-primary' : ''}`}
+                  passHref
                 >
                   {link.text}
                   <motion.span 
@@ -253,7 +258,7 @@ const Navbar = ({ scrollToSection, forceVisible = false }) => {
             link.isRoute ? (
               <Link
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg hover:bg-background-light ${
                   isLinkActive(link) ? 'text-primary bg-primary/10' : 'text-text-primary hover:text-primary'

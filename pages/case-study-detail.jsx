@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Navbar from '../src/components/Navbar.jsx';
+import Footer from '../src/components/Footer.jsx';
 
 const CaseStudyDetailPage = () => {
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query;
   const [caseStudy, setCaseStudy] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -206,7 +208,7 @@ const CaseStudyDetailPage = () => {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-text-primary mb-4">Case Study Not Found</h1>
             <p className="text-text-secondary mb-6">The case study you're looking for doesn't exist.</p>
-            <Link to="/case-studies" className="btn btn-primary">
+            <Link href="/case-studies" className="btn btn-primary">
               Back to Case Studies
             </Link>
           </div>
@@ -368,13 +370,13 @@ const CaseStudyDetailPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
-                    to="/#contact"
+                    href="/#contact"
                     className="btn btn-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     Get Started
                   </Link>
                   <Link
-                    to="/case-studies"
+                    href="/case-studies"
                     className="btn btn-outline-white border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-primary transition-colors"
                   >
                     View More Projects

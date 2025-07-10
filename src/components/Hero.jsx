@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Hero = ({ scrollToSection }) => {
   const particlesRef = useRef(null);
@@ -99,7 +99,7 @@ const Hero = ({ scrollToSection }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link to="/services" className="btn btn-primary-large w-full sm:w-auto">
+              <Link href="/services" className="btn btn-primary-large w-full sm:w-auto">
                 Explore Services
               </Link>
             </motion.div>

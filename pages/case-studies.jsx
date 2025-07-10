@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
+import Link from 'next/link';
+import Navbar from '../src/components/Navbar.jsx';
+import Footer from '../src/components/Footer.jsx';
 
 const CaseStudiesPage = () => {
   const scrollToSection = (sectionId) => {
@@ -184,7 +184,7 @@ const CaseStudiesPage = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <Link
-                to="/#contact"
+                href="/#contact"
                 className="bg-white text-primary rounded-full px-8 py-3 font-semibold hover:shadow-lg transition-all duration-300 hover:bg-gray-100"
               >
                 Get a Custom Solution
@@ -322,13 +322,13 @@ const CaseStudiesPage = () => {
                     {/* CTA Buttons */}
                     <div className="flex gap-2">
                       <Link
-                        to={`/case-studies/${caseStudy.id}`}
+                        href={`/case-studies/${caseStudy.id}`}
                         className="flex-1 btn btn-primary rounded-lg px-4 py-2 text-sm font-semibold"
                       >
                         View Details
                       </Link>
                       <Link
-                        to="/#contact"
+                        href="/#contact"
                         className="flex-1 btn btn-outline-primary rounded-lg px-4 py-2 text-sm font-semibold"
                       >
                         Get Quote
@@ -393,7 +393,7 @@ const CaseStudiesPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/#contact"
+                  href="/#contact"
                   className="btn btn-white rounded-full px-8 py-3 text-primary font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Start Your Project

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
+import Link from 'next/link';
+import Navbar from '../src/components/Navbar.jsx';
+import Footer from '../src/components/Footer.jsx';
 
 const CareersPage = () => {
   const [selectedRole, setSelectedRole] = useState(null);
@@ -476,7 +476,7 @@ const CareersPage = () => {
                   Send Your Resume
                 </a>
                 <Link
-                  to="/about"
+                  href="/about"
                   className="btn btn-outline-white rounded-full px-8 py-3 font-semibold hover:bg-white hover:text-primary transition-all duration-300"
                 >
                   Learn About Us
