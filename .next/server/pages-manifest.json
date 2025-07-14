@@ -3,8 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/services": "pages/services.js",
-  "/careers": "pages/careers.js",
-  "/about": "pages/about.js",
   "/": "pages/index.js",
-  "/service-detail": "pages/service-detail.js"
+  "/service-detail": "pages/service-detail.js",
+  "/case-studies": "pages/case-studies.js"
 }
