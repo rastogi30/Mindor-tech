@@ -141,10 +141,19 @@ const CaseStudyDetailPage: React.FC = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+          {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
             <div className="absolute inset-0 bg-gradient-hero opacity-50"></div>
+            <div
+              id="case-study-hero-particles"
+              className="absolute inset-0"
+              style={{
+                background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+              }}
+            ></div>
           </div>
 
+          {/* Content */}
           <div className="container relative z-10">
             <motion.div
               className="text-center max-w-4xl mx-auto"
@@ -158,7 +167,15 @@ const CaseStudyDetailPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                {caseStudy.title}
+                {(() => {
+                  const words = caseStudy.title.split(' ');
+                  return (
+                    <>
+                      <span className="text-white">{words.slice(0, 2).join(' ')}</span>{' '}
+                      <span className="gradient-text-hero">{words.slice(2).join(' ')}</span>
+                    </>
+                  );
+                })()}
               </motion.h1>
               <motion.p
                 className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
@@ -186,41 +203,87 @@ const CaseStudyDetailPage: React.FC = () => {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* Floating elements */}
+          <motion.div
+            className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/20 rounded-full blur-xl"
+            animate={{
+              y: [0, 30, 0],
+              x: [0, -15, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <style>{`
+            @keyframes float {
+              0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0;
+              }
+              50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 1;
+              }
+            }
+          `}</style>
         </section>
 
         {/* Main Content */}
         <div className="py-24 bg-gradient-to-br from-background to-background-light">
-          <div className="container max-w-6xl">
+          <div className="container max-w-6xl space-y-24">
 
             {/* Project Overview */}
             <motion.section
-              className="mb-20"
+              className="mb-0"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-12 items-center rounded-2xl p-10 ">
                 <div>
-                  <h2 className="text-3xl font-bold text-text-primary mb-6">Project Overview</h2>
+                  <h2 className="text-3xl font-bold text-text-primary mb-6 flex items-center gap-2">
+                    <span>📋</span> Project Overview
+                  </h2>
                   <p className="text-lg text-text-secondary leading-relaxed mb-6">
                     {caseStudy.fullDescription}
                   </p>
-                  <div className="grid grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="font-semibold text-text-primary mb-2">Duration</h3>
-                      <p className="text-text-secondary">{caseStudy.duration}</p>
+                  <div className="grid grid-cols-2 gap-6 mt-8">
+                    <div className="flex items-center gap-3">
+                      <span className="text-primary text-2xl">⏳</span>
+                      <div>
+                        <h3 className="font-semibold text-text-primary mb-1">Duration</h3>
+                        <p className="text-text-secondary text-sm">{caseStudy.duration}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-text-primary mb-2">Budget</h3>
-                      <p className="text-text-secondary">{caseStudy.budget}</p>
+                    <div className="flex items-center gap-3">
+                      <span className="text-primary text-2xl">💰</span>
+                      <div>
+                        <h3 className="font-semibold text-text-primary mb-1">Budget</h3>
+                        <p className="text-text-secondary text-sm">{caseStudy.budget}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                   <img
                     src={caseStudy.image}
                     alt={caseStudy.title}
-                    className="w-full rounded-2xl shadow-lg"
+                    className="w-full max-w-md rounded-2xl shadow-lg border-4 border-primary-light"
                   />
                 </div>
               </div>
@@ -234,11 +297,11 @@ const CaseStudyDetailPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Technologies Used</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="flex gap-6 overflow-x-auto pb-2">
                 {caseStudy.technologies.map((tech, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 min-w-[160px] flex-shrink-0"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
@@ -307,8 +370,8 @@ const CaseStudyDetailPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Results & Impact</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <h2 className="text-3xl font-bold text-text-primary text-center mt-12">Results & Impact</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
                 {caseStudy.results.map((result, index) => (
                   <motion.div
                     key={index}
@@ -332,8 +395,8 @@ const CaseStudyDetailPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Project Team</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <h2 className="text-3xl font-bold text-text-primary text-center mt-12">Project Team</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
                 {caseStudy.team.map((member, index) => (
                   <motion.div
                     key={index}
@@ -356,14 +419,14 @@ const CaseStudyDetailPage: React.FC = () => {
               className="text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white">
+              <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white py-12 mt-12">
                 <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
                 <p className="text-xl mb-8 text-white/90">
                   Let's discuss how we can help you achieve similar results for your business.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex justify-center gap-4 mt-6">
                   <Link href="/contact" className="btn btn-secondary-large">
                     Get Started Today
                   </Link>
