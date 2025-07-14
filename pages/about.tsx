@@ -162,7 +162,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <span className="text-white">We're Building the{' '}</span>
-              <span className="gradient-text-hero bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">Future of Tech.</span>
+              <span className="gradient-text-hero ">Future of Tech.</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -218,38 +218,44 @@ const AboutPage: React.FC = () => {
 
           {/* Founder's Note Section */}
           <motion.section
-            className="mb-20"
+            className="px-4 sm:px-8 md:px-16 lg:px-24 mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-4">Founder's Note</h3>
-                  <blockquote className="text-lg leading-relaxed italic">
+            <div className="grid lg:grid-cols-2 gap-x-20 gap-y-12 items-start">
+              {/* Founder's Note */}
+              <div className="relative self-start">
+                <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 md:p-10 text-white shadow-lg">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Founder's Note</h3>
+                  <blockquote className="text-lg md:text-xl leading-relaxed italic">
                     "At Mindor Tech, we believe in agile execution, deep innovation, and results that speak louder than decks. We're not just a dev shop—we're your growth tech partner."
                   </blockquote>
                   <div className="mt-6">
-                    <div className="font-semibold">Priya Sharma</div>
-                    <div className="text-white/80">CEO & Founder, Mindor Tech</div>
+                    <div className="font-semibold text-lg">Priya Sharma</div>
+                    <div className="text-white/80 text-sm">CEO & Founder, Mindor Tech</div>
                   </div>
                 </div>
               </div>
-              <div>
-                <h2 className="text-4xl font-bold text-text-primary text-center mb-6">Our Story</h2>
-                <p className="text-lg text-text-secondary leading-relaxed mb-6">
+
+              {/* Our Story */}
+              <div className="mt-4 lg:mt-0 self-start">
+                <h2 className="text-3xl md:text-4xl font-bold text-text-primary lg:text-left mb-6">
+                  Our Story
+                </h2>
+                <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-5">
                   Founded in 2020, Mindor Tech emerged from a simple belief: that every business deserves access to world-class technology solutions without the enterprise price tag.
                 </p>
-                <p className="text-lg text-text-secondary leading-relaxed mb-6">
+                <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-5">
                   We started as a small team of passionate developers and designers, united by the vision of democratizing technology for startups and growing businesses.
                 </p>
-                <p className="text-lg text-text-secondary leading-relaxed">
+                <p className="text-base md:text-lg text-text-secondary leading-relaxed">
                   Today, we're proud to have helped over 30 companies transform their digital presence and scale their operations through intelligent technology solutions.
                 </p>
               </div>
             </div>
           </motion.section>
+
 
           {/* Values Section */}
           <motion.section
@@ -317,11 +323,11 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">
+            <h2 className="text-4xl font-bold text-text-primary text-center mt-12">
               Our Tech Stack
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center mt-12">
               {techStack.map((tech, index) => (
                 <motion.div
                   key={index}
@@ -348,11 +354,11 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">
+            <h2 className="text-4xl font-bold text-text-primary text-center mt-12">
               Industries We Serve
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
               {industryVerticals.map((industry, index) => (
                 <motion.div
                   key={index}
@@ -382,7 +388,7 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-8 sm:p-12 text-white">
+            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-8 sm:p-12 text-white mt-12">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
                 Ready to Build Something Amazing?
               </h2>
