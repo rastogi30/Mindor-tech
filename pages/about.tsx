@@ -139,7 +139,7 @@ const AboutPage: React.FC = () => {
         {/* Background - same as Hero.jsx */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light z-0">
           <div className="absolute inset-0 bg-gradient-hero opacity-50 z-10"></div>
-          <div 
+          <div
             className="absolute inset-0 z-20"
             style={{
               background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
@@ -253,25 +253,27 @@ const AboutPage: React.FC = () => {
 
           {/* Values Section */}
           <motion.section
-            className="mb-20 mt-20" // Added mt-20 for top margin
+            className="mb-20 py-16 bg-gradient-to-br from-background to-background-light rounded-3xl shadow-inner"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-4xl font-bold text-text-primary text-center mb-12 ">Our Values</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16"> 
+            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Our Values</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  className="w-48 h-48 text-center p-6 bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-300 flex flex-col items-center justify-center group"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ scale: 1.07 }}
                 >
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-text-primary mb-3">{value.title}</h3>
-                  <p className="text-text-secondary">{value.description}</p>
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-light to-primary/80 mb-4 shadow group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-4xl">{value.icon}</span>
+                  </div>
+                  <div className="text-lg font-bold text-text-primary mb-1">{value.title}</div>
+                  <div className="text-xs text-gray-400">{value.description}</div>
                 </motion.div>
               ))}
             </div>
@@ -309,14 +311,35 @@ const AboutPage: React.FC = () => {
           </motion.section>
 
           {/* Tech Stack Section */}
-         Remove-Item : A positional parameter cannot be found that accepts argument '/q'.
-At line:1 char:4
-+    rmdir /s /q .next
-+    ~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemC 
-   ommand
- 
+          <motion.section
+            className="mb-20 py-16 bg-gradient-to-br from-background to-background-light rounded-3xl shadow-inner"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">
+              Our Tech Stack
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
+              {techStack.map((tech, index) => (
+                <motion.div
+                  key={index}
+                  className="w-48 h-48 text-center p-6 bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-300 flex flex-col items-center justify-center group"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                  whileHover={{ scale: 1.07 }}
+                >
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-light to-primary/80 mb-4 shadow group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-4xl">{tech.icon}</span>
+                  </div>
+                  <div className={`text-lg font-bold ${tech.color} mb-1`}>{tech.name}</div>
+                  {/* Optional: <div className="text-xs text-gray-400">Description here</div> */}
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
 
           {/* Industry Verticals */}
           <motion.section
@@ -325,23 +348,32 @@ At line:1 char:4
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Industries We Serve</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">
+              Industries We Serve
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {industryVerticals.map((industry, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="w-full max-w-[250px] h-[180px] text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group border border-gray-100 hover:border-primary/20 flex flex-col justify-center items-center mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="text-2xl mb-2">{industry.icon}</div>
-                  <div className="font-medium text-text-primary">{industry.name}</div>
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:text-primary">
+                    {industry.icon}
+                  </div>
+                  <div className="font-medium text-text-primary text-base group-hover:text-primary transition-colors duration-300 truncate">
+                    {industry.name}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.section>
+
 
           {/* CTA Section */}
           <motion.section
@@ -350,16 +382,24 @@ At line:1 char:4
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white">
-              <h2 className="text-3xl font-bold mb-6">Ready to Build Something Amazing?</h2>
-              <p className="text-xl mb-8 text-white/90">
+            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-8 sm:p-12 text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+                Ready to Build Something Amazing?
+              </h2>
+              <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-white/90 max-w-2xl mx-auto">
                 Let's discuss how we can help transform your business with cutting-edge technology.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/services" className="btn btn-secondary-large">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/services"
+                  className="btn btn-secondary-large w-full sm:w-auto"
+                >
                   Explore Our Services
                 </Link>
-                <Link href="/contact" className="btn btn-primary-large">
+                <Link
+                  href="/contact"
+                  className="btn btn-primary-large w-full sm:w-auto"
+                >
                   Get Started Today
                 </Link>
               </div>
