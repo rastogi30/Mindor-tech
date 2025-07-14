@@ -296,8 +296,8 @@ const CaseStudyDetailPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Technologies Used</h2>
-              <div className="flex gap-6 overflow-x-auto pb-2">
+              <h2 className="text-4xl font-bold text-text-primary text-center mt-12">Technologies Used</h2>
+              <div className="flex gap-6 overflow-x-auto pb-2 mt-12">
                 {caseStudy.technologies.map((tech, index) => (
                   <motion.div
                     key={index}
@@ -321,44 +321,42 @@ const CaseStudyDetailPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="grid lg:grid-cols-2 gap-12">
-                <div>
-                  <h2 className="text-3xl font-bold text-text-primary mb-8">Challenges</h2>
-                  <div className="space-y-4">
-                    {caseStudy.challenges.map((challenge, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                      >
-                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold flex-shrink-0">
-                          !
-                        </div>
-                        <p className="text-text-secondary">{challenge}</p>
-                      </motion.div>
-                    ))}
-                  </div>
+              <div>
+                <h2 className="text-4xl text-center font-bold text-text-primary mt-12">Challenges</h2>
+                <div className="space-y-4 max-w-2xl mx-auto px-2 mt-12">
+                  {caseStudy.challenges.map((challenge, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    >
+                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold flex-shrink-0">
+                        !
+                      </div>
+                      <p className="text-text-secondary">{challenge}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-text-primary mb-8">Solutions</h2>
-                  <div className="space-y-4">
-                    {caseStudy.solutions.map((solution, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                      >
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold flex-shrink-0">
-                          ✓
-                        </div>
-                        <p className="text-text-secondary">{solution}</p>
-                      </motion.div>
-                    ))}
-                  </div>
+              </div>
+              <div className="mt-12">
+                <h2 className="text-4xl text-center font-bold text-text-primary mb-8">Solutions</h2>
+                <div className="space-y-4 max-w-2xl mx-auto px-2">
+                  {caseStudy.solutions.map((solution, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    >
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold flex-shrink-0">
+                        ✓
+                      </div>
+                      <p className="text-text-secondary">{solution}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </motion.section>
