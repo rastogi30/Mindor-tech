@@ -193,7 +193,7 @@ const AboutPage: React.FC = () => {
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+            className="flex flex-wrap justify-between items-center w-full gap-8 mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -237,7 +237,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-text-primary mb-6">Our Story</h2>
+                <h2 className="text-4xl font-bold text-text-primary text-center mb-6">Our Story</h2>
                 <p className="text-lg text-text-secondary leading-relaxed mb-6">
                   Founded in 2020, Mindor Tech emerged from a simple belief: that every business deserves access to world-class technology solutions without the enterprise price tag.
                 </p>
@@ -253,13 +253,13 @@ const AboutPage: React.FC = () => {
 
           {/* Values Section */}
           <motion.section
-            className="mb-20"
+            className="mb-20 mt-20" // Added mt-20 for top margin
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Our Values</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 className="text-4xl font-bold text-text-primary text-center mb-12 ">Our Values</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16"> 
               {values.map((value, index) => (
                 <motion.div
                   key={index}
@@ -284,27 +284,25 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Meet Our Team</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 className="text-4xl font-bold text-text-primary text-center mt-12">Meet Our Team</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 mt-12">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="text-center"
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6 flex flex-col items-center text-center cursor-pointer hover:-translate-y-2 transform"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.04 }}
                 >
-                  <div className="relative mb-6">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary-light/20"></div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-text-primary mb-2">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-text-secondary text-sm leading-relaxed">{member.description}</p>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-16 h-16 rounded-full object-cover mb-4 border-4 border-primary/20"
+                  />
+                  <h3 className="text-xl font-semibold text-text-primary mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium mb-2">{member.role}</p>
+                  <p className="text-text-secondary text-sm">{member.description}</p>
                 </motion.div>
               ))}
             </div>
