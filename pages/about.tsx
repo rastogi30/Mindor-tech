@@ -217,15 +217,10 @@ const AboutPage: React.FC = () => {
           </motion.div>
 
           {/* Founder's Note Section */}
-          <motion.section
-            className="px-4 sm:px-8 md:px-16 lg:px-24 mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="grid lg:grid-cols-2 gap-x-20 gap-y-12 items-start">
+          <motion.section className="px-4 sm:px-8 md:px-16 lg:px-24 mb-20" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+            <div className="flex flex-col lg:flex-row gap-32 lg:gap-x-32 lg:gap-y-0 ">
               {/* Founder's Note */}
-              <div className="relative self-start">
+              <div className="flex-1 relative order-1 lg:order-1">
                 <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 md:p-10 text-white shadow-lg">
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Founder's Note</h3>
                   <blockquote className="text-lg md:text-xl leading-relaxed italic">
@@ -237,12 +232,10 @@ const AboutPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-
               {/* Our Story */}
-              <div className="mt-4 lg:mt-0 self-start">
-                <h2 className="text-3xl md:text-4xl font-bold text-text-primary lg:text-left mb-6">
-                  Our Story
-                </h2>
+              <div className="flex-1 order-2 lg:order-2">
+                <h2 className="text-4xl md:text-4xl font-bold text-text-primary lg:text-left mb-6 text-center">
+                  Our Story                 </h2>
                 <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-5">
                   Founded in 2020, Mindor Tech emerged from a simple belief: that every business deserves access to world-class technology solutions without the enterprise price tag.
                 </p>
@@ -257,6 +250,7 @@ const AboutPage: React.FC = () => {
           </motion.section>
 
 
+
           {/* Values Section */}
           <motion.section
             className="mb-20 py-16 bg-gradient-to-br from-background to-background-light rounded-3xl shadow-inner"
@@ -264,7 +258,7 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Our Values</h2>
+            <h2 className="text-4xl font-bold text-text-primary text-center mb-12">Our Values</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
               {values.map((value, index) => (
                 <motion.div
