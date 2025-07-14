@@ -145,7 +145,7 @@ const CareersPage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
+      <Navbar scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
