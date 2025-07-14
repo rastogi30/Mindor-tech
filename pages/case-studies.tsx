@@ -146,7 +146,6 @@ const CaseStudiesPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
           <div className="absolute inset-0 bg-gradient-hero opacity-50"></div>
         </div>
-
         <div className="container relative z-10">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -160,8 +159,7 @@ const CaseStudiesPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Our{' '}
-              <span className="gradient-text-hero">Case Studies</span>
+              Real <span className="gradient-text-hero">Results</span>, Real <span className="gradient-text-hero">Impact</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -169,8 +167,21 @@ const CaseStudiesPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Discover how we've helped businesses transform their digital presence and achieve remarkable results through innovative technology solutions.
+              Explore how Mindor Tech has delivered rapid, scalable, and AI-first solutions across industries.
             </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <Link href="/services" className="btn btn-primary-large">
+                View Our Services
+              </Link>
+              <Link href="/careers" className="btn btn-secondary-large">
+                Explore Careers
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -181,7 +192,7 @@ const CaseStudiesPage: React.FC = () => {
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+            className="flex flex-wrap justify-between items-center w-full gap-8 mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -189,7 +200,7 @@ const CaseStudiesPage: React.FC = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center"
+                className="flex flex-col items-center flex-1 min-w-[140px] max-w-xs px-4"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
@@ -197,107 +208,90 @@ const CaseStudiesPage: React.FC = () => {
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-text-secondary font-medium">
+                <div className="text-text-secondary font-medium text-center">
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Case Studies Grid */}
           <motion.section
             className="mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Featured Projects</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {caseStudies.map((caseStudy, index) => (
-                <motion.div
-                  key={caseStudy.id}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={caseStudy.image}
-                      alt={caseStudy.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            <h2 className="text-4xl font-bold text-text-primary text-center mt-12">Featured Projects</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+              {caseStudies.map((caseStudy, index) => {
+                const limitedTechnologies = caseStudy.technologies.slice(0, 2);
+                const techMore = caseStudy.technologies.length - 2;
+                const limitedResults = caseStudy.results.slice(0, 2);
+                const resultsMore = caseStudy.results.length - 2;
+                return (
+                  <motion.div
+                    key={caseStudy.id}
+                    className="relative bg-white rounded-2xl p-4 border border-border/60 shadow-xl hover:shadow-2xl hover:border-primary/60 hover:scale-[1.04] transition-all duration-300 text-sm flex flex-col h-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    whileHover={{ y: -5 }}
+                  >
+
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-primary text-white px-3 py-0.5 rounded-full text-xs font-semibold shadow-md">
                         {caseStudy.industry}
                       </span>
                     </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-text-primary mb-2">{caseStudy.title}</h3>
-                    <p className="text-primary font-medium mb-3">{caseStudy.client}</p>
-                    <p className="text-text-secondary mb-4 leading-relaxed">{caseStudy.description}</p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-text-primary mb-2">Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {caseStudy.technologies.map((tech, techIndex) => (
-                          <span key={techIndex} className="bg-background-light px-2 py-1 rounded text-xs text-text-secondary">
-                            {tech}
-                          </span>
-                        ))}
+
+                    <div className="relative w-full h-32 rounded-xl overflow-hidden mb-2">
+                      <img
+                        src={caseStudy.image}
+                        alt={caseStudy.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+
+                    <h3 className="text-base font-bold text-text-primary mb-0.5">{caseStudy.title}</h3>
+                    <p className="text-primary font-bold mb-1">{caseStudy.client}</p>
+                    <p className="text-text-secondary mb-2 leading-snug line-clamp-2">{caseStudy.description}</p>
+
+                    <div className="flex items-center justify-between w-full pt-2 border-t border-border mt-auto mb-0 pb-0">
+                      <div className="flex flex-col">
+                        <span className="text-primary font-bold text-xs">{caseStudy.budget}</span>
+                        <span className="text-xs text-text-secondary">{caseStudy.duration}</span>
                       </div>
+                      <Link
+                        href={`/case-study-detail?id=${caseStudy.id}`}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-full px-6 py-1 text-base font-semibold shadow-lg transition-all duration-200 hover:from-primary-light hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary ml-2 whitespace-nowrap min-w-fit hover:scale-105 hover:shadow-xl"
+                      >
+                        View
+                      </Link>
                     </div>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-text-primary mb-2">Key Results:</h4>
-                      <ul className="space-y-1">
-                        {caseStudy.results.slice(0, 2).map((result, resultIndex) => (
-                          <li key={resultIndex} className="flex items-start gap-2 text-sm text-text-secondary">
-                            <span className="text-primary mt-1">✓</span>
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="flex justify-between items-center mb-4 text-sm text-text-secondary">
-                      <span>Duration: {caseStudy.duration}</span>
-                      <span>Budget: {caseStudy.budget}</span>
-                    </div>
-                    
-                    <Link 
-                      href={`/case-study-detail?id=${caseStudy.id}`}
-                      className="btn btn-primary w-full"
-                    >
-                      View Full Case Study
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.section>
 
           {/* CTA Section */}
           <motion.section
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white">
-              <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
-              <p className="text-xl mb-8 text-white/90">
-                Let's discuss how we can help you achieve similar results for your business.
-              </p>
-              <Link href="/contact" className="btn btn-secondary-large">
-                Get Started Today
-              </Link>
-            </div>
-          </motion.section>
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white py-12 mt-12">
+                  <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
+                  <p className="text-xl mb-8 text-white/90">
+                    Let's discuss how we can help you achieve similar results for your business.
+                  </p>
+                  <Link href="/contact" className="btn btn-secondary-large">
+                  Get Started Today
+                  </Link>
+                </div>
+              </motion.section>
         </div>
       </main>
 
