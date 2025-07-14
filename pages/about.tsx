@@ -285,7 +285,7 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <h2 className="text-4xl font-bold text-text-primary text-center mt-12">Meet Our Team</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 mt-12">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
@@ -309,29 +309,14 @@ const AboutPage: React.FC = () => {
           </motion.section>
 
           {/* Tech Stack Section */}
-          <motion.section
-            className="mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Our Tech Stack</h2>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8">
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="text-3xl mb-2">{tech.icon}</div>
-                  <div className={`font-semibold ${tech.color}`}>{tech.name}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
+         Remove-Item : A positional parameter cannot be found that accepts argument '/q'.
+At line:1 char:4
++    rmdir /s /q .next
++    ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemC 
+   ommand
+ 
 
           {/* Industry Verticals */}
           <motion.section
