@@ -138,8 +138,8 @@ const CaseStudiesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navbar scrollToSection={scrollToSection} />
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

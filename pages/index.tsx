@@ -50,16 +50,18 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className="min-h-screen flex flex-col">
       <Navbar scrollToSection={scrollToSection} />
-      <Hero scrollToSection={scrollToSection} />
-      <WhyMindor />
-      <Contact setShowSuccessModal={setShowSuccessModal} />
+      <main className="flex-grow">
+        <Hero scrollToSection={scrollToSection} />
+        <WhyMindor />
+        <Contact setShowSuccessModal={setShowSuccessModal} />
+        <SuccessModal 
+          isOpen={showSuccessModal} 
+          onClose={() => setShowSuccessModal(false)} 
+        />
+      </main>
       <Footer />
-      <SuccessModal 
-        isOpen={showSuccessModal} 
-        onClose={() => setShowSuccessModal(false)} 
-      />
     </div>
   );
 };
