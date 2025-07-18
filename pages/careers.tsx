@@ -231,19 +231,24 @@ const CareersPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white">
-              <h2 className="text-3xl font-bold text-center mb-12">Perks & Benefits</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-8 sm:p-12 text-white shadow-xl">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+                Perks & Benefits
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 {perks.map((perk, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3"
+                    className="flex items-start gap-4 p-4 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-white/90">{perk}</span>
+                    <div className="w-3 h-3 bg-white rounded-full flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300"></div>
+                    <span className="text-white/90 text-sm sm:text-base leading-relaxed group-hover:text-white transition-colors duration-300">
+                      {perk}
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -259,67 +264,74 @@ const CareersPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <h2 className="text-3xl font-bold text-text-primary text-center mb-12">Open Positions</h2>
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
               {jobPositions.map((job, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 hover:border-primary/20 overflow-hidden relative h-full flex flex-col"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-text-primary mb-2">{job.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-text-secondary">
-                        <span className="flex items-center gap-1">
-                          <span className="w-2 h-2 bg-primary rounded-full"></span>
-                          {job.type}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span className="w-2 h-2 bg-primary rounded-full"></span>
-                          {job.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span className="w-2 h-2 bg-primary rounded-full"></span>
-                          {job.experience}
-                        </span>
-                      </div>
+                  {/* Gradient overlay */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-light"></div>
+                  <div className="mb-5">
+                    <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
+                      {job.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 text-xs">
+                      <span className="bg-gradient-to-r from-primary/10 to-primary-light/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 font-medium">
+                        {job.type}
+                      </span>
+                      <span className="bg-gradient-to-r from-primary/10 to-primary-light/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 font-medium">
+                        {job.location}
+                      </span>
+                      <span className="bg-gradient-to-r from-primary/10 to-primary-light/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 font-medium">
+                        {job.experience}
+                      </span>
                     </div>
+                  </div>
+
+                  <p className="text-text-secondary text-sm mb-5 leading-relaxed line-clamp-3">
+                    {job.description}
+                  </p>
+
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-primary rounded-full"></span>
+                        Key Requirements
+                      </h4>
+                      <ul className="space-y-2">
+                        {job.requirements.slice(0, 3).map((req, reqIndex) => (
+                          <li key={reqIndex} className="flex items-start gap-2 text-xs text-text-secondary">
+                            <span className="text-primary mt-1 text-xs">✓</span>
+                            <span className="line-clamp-2">{req}</span>
+                          </li>
+                        ))}
+                        {job.requirements.length > 3 && (
+                          <li className="text-xs text-primary font-medium pl-4">+{job.requirements.length - 3} more requirements</li>
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3 mt-auto">
                     <motion.button
-                      className="btn btn-primary mt-4 lg:mt-0"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 bg-gradient-to-r from-primary to-primary-light text-white py-3 px-4 rounded-lg text-sm font-semibold hover:shadow-lg transition-all duration-300 group-hover:from-primary-dark group-hover:to-primary"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       Apply Now
                     </motion.button>
-                  </div>
-                  
-                  <p className="text-text-secondary mb-6 leading-relaxed">{job.description}</p>
-                  
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-lg font-semibold text-text-primary mb-4">Requirements</h4>
-                      <ul className="space-y-2">
-                        {job.requirements.map((req, reqIndex) => (
-                          <li key={reqIndex} className="flex items-start gap-2 text-text-secondary">
-                            <span className="text-primary mt-1">•</span>
-                            {req}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-text-primary mb-4">Benefits</h4>
-                      <ul className="space-y-2">
-                        {job.benefits.map((benefit, benefitIndex) => (
-                          <li key={benefitIndex} className="flex items-start gap-2 text-text-secondary">
-                            <span className="text-primary mt-1">•</span>
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <motion.button
+                      className="px-4 py-3 border border-primary text-primary rounded-lg text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      View Details
+                    </motion.button>
                   </div>
                 </motion.div>
               ))}
