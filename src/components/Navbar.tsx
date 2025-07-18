@@ -120,8 +120,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
     if (link.isRoute) {
       return router.pathname === link.href;
     } else {
-      // Only check window.location.hash on the client
       if (typeof window !== 'undefined') {
+        // Highlight Home tab if on '/' and (no hash or hash is '#home')
+        if (link.href === '#home') {
+          return router.pathname === '/' && (!window.location.hash || window.location.hash === '#home');
+        }
         return router.pathname === '/' && window.location.hash === link.href;
       }
       return false;
