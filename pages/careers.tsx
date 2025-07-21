@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '../src/components/Navbar';
-import Footer from '../src/components/Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../src/components/Footer'));
 
 interface JobPosition {
   title: string;

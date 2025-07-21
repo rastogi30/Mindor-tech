@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '../src/components/Navbar';
-import Footer from '../src/components/Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../src/components/Footer'));
 
 interface TeamMember {
   name: string;
@@ -218,7 +220,7 @@ const AboutPage: React.FC = () => {
 
           {/* Founder's Note Section */}
           <motion.section className="px-4 sm:px-8 md:px-16 lg:px-24 mb-20" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            <div className="flex flex-col lg:flex-row gap-32 lg:gap-x-32 lg:gap-y-0 ">
+            <div className="flex flex-col lg:flex-row gap-32 lg:gap-x-32 lg:gap-y-0 mt-12">
               {/* Founder's Note */}
               <div className="flex-1 relative order-1 lg:order-1">
                 <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 md:p-10 text-white shadow-lg">
@@ -233,7 +235,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </div>
               {/* Our Story */}
-              <div className="flex-1 order-2 lg:order-2">
+              <div className="flex-1 order-2 lg:order-2 mt-12">
                 <h2 className="text-4xl md:text-4xl font-bold text-text-primary lg:text-left mb-6 text-center">
                   Our Story                 </h2>
                 <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-5">
@@ -258,8 +260,8 @@ const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-4xl font-bold text-text-primary text-center mb-12">Our Values</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+            <h2 className="text-4xl font-bold text-text-primary text-center mt-12">Our Values</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-12">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
