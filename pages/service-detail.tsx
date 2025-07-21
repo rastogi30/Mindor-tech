@@ -211,7 +211,7 @@ const ServiceDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar scrollToSection={scrollToSection} forceVisible={true} />
+      <Navbar scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -264,6 +264,66 @@ const ServiceDetailPage: React.FC = () => {
               </Link>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* About This Service Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About This Service</h2>
+          <p className="text-lg text-gray-600 mb-10 max-w-4xl">Our blockchain development services help businesses leverage the power of decentralized technology to create secure, transparent, and efficient systems. From smart contracts that automate business logic to tokenized asset platforms that enable new business models, we build blockchain solutions that drive innovation and create competitive advantages.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* What We Offer */}
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl text-purple-500 mr-2">✔️</span>
+                <span className="text-xl font-bold text-gray-900">What We Offer</span>
+              </div>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>Smart contracts</li>
+                <li>Tokenized asset platforms</li>
+                <li>Blockchain for compliance & traceability</li>
+                <li>DeFi applications</li>
+              </ul>
+            </div>
+            {/* Key Benefits */}
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl text-purple-500 mr-2">⬆️</span>
+                <span className="text-xl font-bold text-gray-900">Key Benefits</span>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-purple-100 rounded-xl p-4 flex items-start gap-4">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 text-white font-bold">1</div>
+                  <div>
+                    <div className="font-semibold text-purple-900">Benefit 1</div>
+                    <div className="text-gray-700 text-sm">Enhanced security & transparency</div>
+                  </div>
+                </div>
+                <div className="bg-purple-100 rounded-xl p-4 flex items-start gap-4">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 text-white font-bold">2</div>
+                  <div>
+                    <div className="font-semibold text-purple-900">Benefit 2</div>
+                    <div className="text-gray-700 text-sm">Reduced transaction costs</div>
+                  </div>
+                </div>
+                <div className="bg-purple-100 rounded-xl p-4 flex items-start gap-4">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 text-white font-bold">3</div>
+                  <div>
+                    <div className="font-semibold text-purple-900">Benefit 3</div>
+                    <div className="text-gray-700 text-sm">Improved traceability</div>
+                  </div>
+                </div>
+                <div className="bg-purple-100 rounded-xl p-4 flex items-start gap-4">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 text-white font-bold">4</div>
+                  <div>
+                    <div className="font-semibold text-purple-900">Benefit 4</div>
+                    <div className="text-gray-700 text-sm">Faster settlements</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
