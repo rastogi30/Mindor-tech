@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Navbar from '../src/components/Navbar';
-import Hero from '../src/components/Hero';
-import WhyMindor from '../src/components/WhyMindor';
-import Contact from '../src/components/Contact';
-import Footer from '../src/components/Footer';
-import SuccessModal from '../src/components/SuccessModal';
+
+const Hero = dynamic(() => import('../src/components/Hero'));
+const WhyMindor = dynamic(() => import('../src/components/WhyMindor'));
+const Contact = dynamic(() => import('../src/components/Contact'));
+const Footer = dynamic(() => import('../src/components/Footer'));
+const SuccessModal = dynamic(() => import('../src/components/SuccessModal'));
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
