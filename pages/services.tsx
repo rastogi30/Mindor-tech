@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '../src/components/Navbar';
-import Footer from '../src/components/Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../src/components/Footer'));
 
 interface Service {
   id: string;
@@ -14,6 +16,7 @@ interface Service {
   price: string;
   duration: string;
   popular?: boolean;
+  heroImage?: string; // Added heroImage property
 }
 
 const ServicesPage: React.FC = () => {
@@ -30,6 +33,7 @@ const ServicesPage: React.FC = () => {
       title: 'Custom Web Development',
       description: 'Modern, responsive web applications built with cutting-edge technologies.',
       icon: '🌐',
+      heroImage: '/images/web-development-hero.png',
       features: [
         'Responsive design for all devices',
         'Modern React/Next.js frontend',
@@ -47,6 +51,7 @@ const ServicesPage: React.FC = () => {
       title: 'AI Chatbot Development',
       description: 'Intelligent chatbots powered by OpenAI and custom AI models.',
       icon: '🤖',
+      heroImage: '/images/ai-chatbot-hero.png',
       features: [
         'OpenAI GPT integration',
         'Custom training data',
@@ -65,6 +70,7 @@ const ServicesPage: React.FC = () => {
       title: 'Mobile App Development',
       description: 'Cross-platform mobile applications for iOS and Android.',
       icon: '📱',
+      heroImage: '/images/mobile-app-hero.png',
       features: [
         'Cross-platform development',
         'Native performance',
@@ -82,6 +88,7 @@ const ServicesPage: React.FC = () => {
       title: 'E-commerce Solutions',
       description: 'Complete online store solutions with payment integration.',
       icon: '🛒',
+      heroImage: '/images/ecommerce-hero.png',
       features: [
         'Product catalog management',
         'Payment gateway integration',
@@ -99,6 +106,7 @@ const ServicesPage: React.FC = () => {
       title: 'API Development',
       description: 'Robust RESTful and GraphQL APIs for your applications.',
       icon: '🔌',
+      heroImage: '/images/api-development-hero.png',
       features: [
         'RESTful API design',
         'GraphQL implementation',
@@ -116,6 +124,7 @@ const ServicesPage: React.FC = () => {
       title: 'Cloud Migration',
       description: 'Seamless migration to cloud platforms with optimization.',
       icon: '☁️',
+      heroImage: '/images/cloud-migration-hero.png',
       features: [
         'AWS/Azure/GCP migration',
         'Infrastructure as Code',
