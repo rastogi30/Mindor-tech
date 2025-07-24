@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -28,6 +28,57 @@ const CaseStudyDetailPage: React.FC = () => {
   const router = useRouter();
   const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
   const [loading, setLoading] = useState(true);
+  const particlesRef = useRef<HTMLDivElement>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload the background image
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageLoaded(false);
+    img.src = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80';
+  }, []);
+
+  useEffect(() => {
+    const createParticle = () => {
+      if (!particlesRef.current) return;
+
+      const particle = document.createElement('div');
+      particle.className = 'absolute w-1 h-1 bg-white/20 rounded-full';
+
+      // Random position
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+
+      particle.style.left = `${x}%`;
+      particle.style.top = `${y}%`;
+
+      // Random animation
+      const duration = 3 + Math.random() * 4;
+      const delay = Math.random() * 2;
+
+      particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
+
+      particlesRef.current.appendChild(particle);
+
+      // Remove particle after animation
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, (duration + delay) * 1000);
+    };
+
+    // Create particles periodically
+    const interval = setInterval(createParticle, 300);
+
+    // Create initial particles
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createParticle, i * 100);
+    }
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
@@ -141,22 +192,43 @@ const CaseStudyDetailPage: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section - New Design (Similar to Hero.tsx) */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
-            <div className="absolute inset-0 bg-gradient-hero opacity-50"></div>
+          <div className="absolute inset-0 z-0">
+            {/* Background Image */}
+            {imageLoaded ? (
+              <div 
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }}
+              />
+            ) : (
+              /* Fallback gradient background */
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-accent" />
+            )}
+            
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-primary-dark/95 to-black/90"></div>
+            
+            {/* Tech pattern overlay */}
+            <div className="absolute inset-0 opacity-10" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}></div>
+
+            {/* Particles */}
             <div
-              id="case-study-hero-particles"
+              ref={particlesRef}
               className="absolute inset-0"
-              style={{
-                background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
-              }}
             ></div>
           </div>
 
           {/* Content */}
-          <div className="container relative z-10">
+          <div className="container relative z-20">
             <motion.div
               className="text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 50 }}
@@ -164,7 +236,7 @@ const CaseStudyDetailPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat text-white mb-8 leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -174,11 +246,12 @@ const CaseStudyDetailPage: React.FC = () => {
                   return (
                     <>
                       <span className="text-white">{words.slice(0, 2).join(' ')}</span>{' '}
-                      <span className="gradient-text-hero">{words.slice(2).join(' ')}</span>
+                      <span className="text-primary-light">{words.slice(2).join(' ')}</span>
                     </>
                   );
                 })()}
               </motion.h1>
+              
               <motion.p
                 className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
@@ -187,8 +260,9 @@ const CaseStudyDetailPage: React.FC = () => {
               >
                 {caseStudy.description}
               </motion.p>
+              
               <motion.div
-                className="flex flex-wrap justify-center gap-4"
+                className="flex flex-wrap justify-center gap-4 mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -203,12 +277,39 @@ const CaseStudyDetailPage: React.FC = () => {
                   {caseStudy.duration}
                 </span>
               </motion.div>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                <motion.div
+                  className="w-full sm:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link href="/case-studies" className="btn btn-primary-large w-full sm:w-auto">
+                    View All Cases
+                  </Link>
+                </motion.div>
+                
+                <motion.div
+                  className="w-full sm:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link href="/contact" className="btn btn-secondary-large w-full sm:w-auto">
+                    Start Your Project
+                  </Link>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
 
           {/* Floating elements */}
           <motion.div
-            className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"
+            className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl z-10"
             animate={{
               y: [0, -20, 0],
               x: [0, 10, 0],
@@ -219,8 +320,9 @@ const CaseStudyDetailPage: React.FC = () => {
               ease: "easeInOut"
             }}
           />
+
           <motion.div
-            className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/20 rounded-full blur-xl"
+            className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/20 rounded-full blur-xl z-10"
             animate={{
               y: [0, 30, 0],
               x: [0, -15, 0],
@@ -231,6 +333,7 @@ const CaseStudyDetailPage: React.FC = () => {
               ease: "easeInOut"
             }}
           />
+
           <style>{`
             @keyframes float {
               0%, 100% {
