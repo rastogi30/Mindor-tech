@@ -443,16 +443,12 @@ const CaseStudiesPage: React.FC = () => {
                     <p className="text-primary font-bold mb-1">{caseStudy.client}</p>
                     <p className="text-text-secondary mb-2 leading-snug line-clamp-2">{caseStudy.description}</p>
 
-                    <div className="flex items-center justify-between w-full pt-2 border-t border-border mt-auto mb-0 pb-0">
-                      <div className="flex flex-col">
-                        <span className="text-primary font-bold text-xs">{caseStudy.budget}</span>
-                        <span className="text-xs text-text-secondary">{caseStudy.duration}</span>
-                      </div>
+                    <div className="flex justify-center w-full pt-2 border-t border-border mt-auto mb-0 pb-0">
                       <Link
                         href={`/case-study-detail?id=${caseStudy.id}`}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-full px-6 py-1 text-base font-semibold shadow-lg transition-all duration-200 hover:from-primary-light hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary ml-2 whitespace-nowrap min-w-fit hover:scale-105 hover:shadow-xl"
+                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-full px-6 mt-4 text-base font-semibold shadow-lg transition-all duration-200 hover:from-primary-light hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary/50 whitespace-nowrap hover:scale-105 hover:shadow-xl ml-2 min-w-fit"
                       >
-                        View
+                        View Details
                       </Link>
                     </div>
                   </motion.div>

@@ -368,20 +368,20 @@ const CaseStudyDetailPage: React.FC = () => {
                     {caseStudy.fullDescription}
                   </p>
                   <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="flex items-center gap-3">
+                    {/* <div className="flex items-center gap-3">
                       <span className="text-primary text-2xl">⏳</span>
                       <div>
                         <h3 className="font-semibold text-text-primary mb-1">Duration</h3>
                         <p className="text-text-secondary text-sm">{caseStudy.duration}</p>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-3">
+                    </div> */}
+                    {/* <div className="flex items-center gap-3">
                       <span className="text-primary text-2xl">💰</span>
                       <div>
                         <h3 className="font-semibold text-text-primary mb-1">Budget</h3>
                         <p className="text-text-secondary text-sm">{caseStudy.budget}</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
