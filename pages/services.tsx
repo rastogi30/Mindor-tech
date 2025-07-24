@@ -405,7 +405,7 @@ const ServicesPage: React.FC = () => {
                           )}
                         </ul>
                       </div>
-                      <div className="flex items-center justify-between w-full mt-auto pt-2 border-t border-border">
+                      <div className="flex items-center justify-center w-full mt-auto pt-2 border-t border-border">
                         {/* <div className="flex flex-col">
                           <span className="text-primary font-bold text-xs">{service.price}</span>
                           <span className="text-xs text-text-secondary">{service.duration}</span>
@@ -413,7 +413,7 @@ const ServicesPage: React.FC = () => {
 
                         <Link
                           href={`/service-detail?id=${service.id}`}
-                          className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-full px-6 py-1 text-base font-semibold shadow-lg transition-all duration-200 hover:from-primary-light hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary ml-2 whitespace-nowrap min-w-fit hover:scale-105 hover:shadow-xl"
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-full px-6 mt-4 text-base font-semibold shadow-lg transition-all duration-200 hover:from-primary-light hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary ml-2 whitespace-nowrap min-w-fit hover:scale-105 hover:shadow-xl"
                         >
                           Learn
                         </Link>
