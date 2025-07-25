@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <motion.div
+            {/* <motion.div
               className="w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -136,7 +136,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
               <Link href="/services" className="btn btn-primary-large w-full sm:w-auto">
                 Explore Services
               </Link>
-            </motion.div>
+            </motion.div> */}
 
             <motion.button
               className="btn btn-secondary-large w-full sm:w-auto"
