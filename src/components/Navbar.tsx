@@ -22,6 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
   useEffect(() => {
     let ticking = false;
     let lastScrollY = window.scrollY;
+    
 
     const handleScroll = () => {
       if (!ticking) {
