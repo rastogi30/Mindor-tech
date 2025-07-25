@@ -215,18 +215,6 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <motion.button
-          className={`hidden md:block btn btn-primary rounded-full px-6 py-2.5 text-sm font-semibold ${
-            isScrolled ? 'shadow-md' : 'shadow-lg'
-          }`}
-          onClick={() => scrollToSection && scrollToSection('contact')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get Started
-        </motion.button>
-
         {/* Mobile Menu Toggle */}
         <button
           className="lg:hidden flex flex-col space-y-1.5 p-2"
