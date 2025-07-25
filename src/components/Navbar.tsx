@@ -146,7 +146,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
       <div className="w-full flex items-center justify-between h-20 px-4 lg:px-8">
         {/* Brand */}
         <motion.div 
-          className="nav-brand cursor-pointer"
+          className="nav-brand cursor-pointer flex-shrink-0"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
           onClick={() => router.push('/')}
@@ -158,23 +158,50 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
           </span>
         </motion.div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          {navLinks.map((link, index) => (
-            link.isRoute ? (
-              <motion.div 
-                key={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-              >
-                <Link
+        {/* Desktop Navigation - Centered */}
+        <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
+          <div className="flex items-center space-x-8">
+            {navLinks.map((link, index) => (
+              link.isRoute ? (
+                <motion.div 
+                  key={link.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`nav-link relative font-medium transition-colors duration-300 group ${
+                      forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
+                    } ${isLinkActive(link) ? 'text-primary' : ''}`}
+                    passHref
+                  >
+                    {link.text}
+                    <motion.span 
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
+                      initial={{ width: isLinkActive(link) ? "100%" : 0 }}
+                      animate={{ width: isLinkActive(link) ? "100%" : 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.a
+                  key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link);
+                  }}
                   className={`nav-link relative font-medium transition-colors duration-300 group ${
                     forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
                   } ${isLinkActive(link) ? 'text-primary' : ''}`}
-                  passHref
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
                 >
                   {link.text}
                   <motion.span 
@@ -184,40 +211,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection, forceVisible = false }
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
                   />
-                </Link>
-              </motion.div>
-            ) : (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link);
-                }}
-                className={`nav-link relative font-medium transition-colors duration-300 group ${
-                  forceVisible || isScrolled ? 'text-text-primary hover:text-primary' : 'text-white hover:text-primary-light'
-                } ${isLinkActive(link) ? 'text-primary' : ''}`}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-              >
-                {link.text}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light"
-                  initial={{ width: isLinkActive(link) ? "100%" : 0 }}
-                  animate={{ width: isLinkActive(link) ? "100%" : 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
-            )
-          ))}
+                </motion.a>
+              )
+            ))}
+          </div>
         </nav>
+
+        {/* Spacer for mobile (invisible element to balance layout) */}
+        <div className="lg:hidden flex-shrink-0 w-10"></div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden flex flex-col space-y-1.5 p-2"
+          className="lg:hidden flex flex-col space-y-1.5 p-2 flex-shrink-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <span className={`block w-6 h-0.5 transition-all duration-300 ${
