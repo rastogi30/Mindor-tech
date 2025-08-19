@@ -14,8 +14,8 @@ const Founder: React.FC = () => {
                 </h1>
               </div>
               <div className="w-full max-w-md">
-                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center rounded-xl">
-                  <img src="/assets/ceo.jpg" alt="CEO Photo" className="object-cover w-full h-full" />
+                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center rounded-3xl">
+                  <img src="/assets/ceo.jpg" alt="CEO Photo" className="object-cover w-full h-full rounded-xl shadow-lg border border-gray-50" />
                 </div>
               </div>
             </div>
