@@ -10,6 +10,7 @@ const Footer = dynamic(() => import('../src/components/Footer'));
 const SuccessModal = dynamic(() => import('../src/components/SuccessModal'));
 const CTASection = dynamic(() => import('../src/components/CTASection'));
 const Founder = dynamic(() => import('../src/components/Founder'));
+const Business  = dynamic(() => import('../src/components/Business'));
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
@@ -65,6 +66,7 @@ const HomePage: React.FC = () => {
           onClose={() => setShowSuccessModal(false)} 
         />
       </main>
+      <Business />
       <Founder />
       <CTASection />
       <Footer />
