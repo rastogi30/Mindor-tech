@@ -27,19 +27,19 @@ const Founder: React.FC = () => {
                 </h2>
                 
                 <div className="space-y-4 text-gray-700 leading-relaxed">
-                  <p className="text-base md:text-lg">
+                  <p className="font-medium text-base md:text-lg" style={{color: "#484848"}}>
                     Anupama Sarraf is the founder and CEO of Mindor, with 8+ years of experience in 
                     technology, product strategy, and digital innovation. She leads with a mission to build 
                     smart, scalable digital solutions that solve real business challenges.
                   </p>
                   
-                  <p className="text-base md:text-lg">
+                   <p className="font-medium text-base md:text-lg" style={{color: "#484848"}}>
                     Her expertise spans mobile apps, AI, automation, blockchain, and digital marketing. 
                     Known for her clarity and execution, Anupama has helped startups and enterprises 
                     drive meaningful digital transformation.
                   </p>
                   
-                  <p className="text-base md:text-lg">
+                  <p className="font-medium text-base md:text-lg" style={{color: "#484848"}}>
                     She's also an active mentor in India's startup ecosystem, empowering businesses to 
                     grow through purpose-driven tech.
                   </p>
