@@ -12,6 +12,7 @@ const Founder = dynamic(() => import('../src/components/Founder'));
 const Business  = dynamic(() => import('../src/components/Business'));
 const Mindor = dynamic(() => import('../src/components/Mindor'));
 const Service = dynamic(() => import('../src/components/Service'));
+const LandingPage = dynamic(()=> import('../pages/landing')); 
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
@@ -57,22 +58,22 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar scrollToSection={scrollToSection} />
-      <main className="flex-grow">
-        <Hero scrollToSection={scrollToSection} />
-        <WhyMindor />
+      <main className="flex-1">
+        {/* <Hero scrollToSection={scrollToSection} /> */}
+        {/* <WhyMindor /> */}
         {/* <Contact setShowSuccessModal={setShowSuccessModal} /> */}
         <SuccessModal 
           isOpen={showSuccessModal} 
           onClose={() => setShowSuccessModal(false)} 
         />
+        <LandingPage />
+        <Mindor />
+        <Service />
+        <Business />
+        <Founder />
+        <CTASection />
+        <Footer />
       </main>
-      <Mindor />
-      <Service />
-      <Business />
-      <Founder />
-      <CTASection />
-      <Footer />
     </div>
   );
 };
