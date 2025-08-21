@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin, Github, Mail } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Github, Mail, MessageCircle } from 'lucide-react';
 import Logo from "../../public/assets/Logo.png"
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
             
             <div className="flex space-x-4 lg:ml-3">
               <Link href="#" className="text-gray-600 hover:text-purple-600 transition-colors duration-200">
-                <Facebook size={20} />
+               <MessageCircle size={20} />
               </Link>
               <Link href="#" className="text-gray-600 hover:text-purple-600 transition-colors duration-200">
                 <Twitter size={20} />
@@ -30,12 +30,7 @@ const Footer = () => {
               <Link href="#" className="text-gray-600 hover:text-purple-600 transition-colors duration-200">
                 <Linkedin size={20} />
               </Link>
-              <Link href="#" className="text-gray-600 hover:text-purple-600 transition-colors duration-200">
-                <Github size={20} />
-              </Link>
-              <Link href="#" className="text-gray-600 hover:text-purple-600 transition-colors duration-200">
-                <Mail size={20} />
-              </Link>
+
             </div>
           </div>
 
