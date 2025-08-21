@@ -2,7 +2,16 @@ import React from 'react';
 
 const MindorTechHomepage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden" style={{
+      background: `linear-gradient(180deg, #2E386E 0%, #2D3A87 100%), url(/assets/background.png)`,
+      backgroundSize: 'cover, cover',
+      backgroundPosition: 'center, center',
+      backgroundRepeat: 'no-repeat, no-repeat',
+      backgroundBlendMode: 'overlay'
+    }}>
+      
+      {/* Additional overlay for background image opacity */}
+      <div className="absolute inset-0 bg-black/20"></div>
       
       <div className="absolute inset-0">
         <div className="absolute top-32 right-32 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
