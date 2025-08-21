@@ -5,13 +5,13 @@ import Navbar from '../src/components/Navbar';
 
 const Hero = dynamic(() => import('../src/components/Hero'));
 const WhyMindor = dynamic(() => import('../src/components/WhyMindor'));
-const Contact = dynamic(() => import('../src/components/Contact'));
 const Footer = dynamic(() => import('../src/components/Footer'));
 const SuccessModal = dynamic(() => import('../src/components/SuccessModal'));
 const CTASection = dynamic(() => import('../src/components/CTASection'));
 const Founder = dynamic(() => import('../src/components/Founder'));
 const Business  = dynamic(() => import('../src/components/Business'));
 const Mindor = dynamic(() => import('../src/components/Mindor'));
+const Service = dynamic(() => import('../src/components/Service'));
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
@@ -61,13 +61,14 @@ const HomePage: React.FC = () => {
       <main className="flex-grow">
         <Hero scrollToSection={scrollToSection} />
         <WhyMindor />
-        <Contact setShowSuccessModal={setShowSuccessModal} />
+        {/* <Contact setShowSuccessModal={setShowSuccessModal} /> */}
         <SuccessModal 
           isOpen={showSuccessModal} 
           onClose={() => setShowSuccessModal(false)} 
         />
       </main>
       <Mindor />
+      <Service />
       <Business />
       <Founder />
       <CTASection />
