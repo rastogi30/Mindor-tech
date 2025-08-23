@@ -26,7 +26,7 @@ const CTASection: React.FC = () => {
 
                     <div className="flex-shrink-0 lg-mt-8 ">
                         <Link
-                            href="/consultation"
+                            href="https://calendar.app.google/c94YxYt7MYuphBsw6"
                             className="inline-block bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 whitespace-nowrap"
                         >
                             Get Free Consultation
