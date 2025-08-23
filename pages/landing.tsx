@@ -85,9 +85,11 @@ const MindorTechHomepage: React.FC = () => {
                 <p className="text-lg text-white leading-relaxed font-medium">
                   Great apps, seamless websites, intelligent automation and digital growth. Mindor delivers scalable digital solutions that transform ideas into results. We don't just build tech, we build what your business truly needs to grow.
                 </p>
+                 <a href="https://calendar.app.google/c94YxYt7MYuphBsw6" target="_blank" rel="noopener noreferrer">
                 <button className="bg-white text-blue-900 px-10 py-2 rounded-full font-bold text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
                   Get Free Consultation
                 </button>
+                </a>
               </div>
             </div>
           </div>
