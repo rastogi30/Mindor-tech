@@ -66,9 +66,11 @@ const Business: React.FC = () => {
             </p>
           </div>
           <div className="flex-shrink-0 py-10">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-full transition-colors duration-200" style={{backgroundColor: "#232D62"}}>
-              Get Free Consultation
-            </button>
+            <a href="https://calendar.app.google/c94YxYt7MYuphBsw6" target="_blank" rel="noopener noreferrer">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-full transition-colors duration-200" style={{backgroundColor: "#232D62"}}>
+                Get Free Consultation
+              </button>
+            </a>
           </div>
         </div>
 
