@@ -14,19 +14,17 @@ const Mindor = dynamic(() => import('../src/components/Mindor'));
 const Service = dynamic(() => import('../src/components/Service'));
 const LandingPage = dynamic(()=> import('../pages/landing')); 
 const Slider = dynamic(() => import('../src/components/Slider'));
+const Method = dynamic(() => import('../src/components/Method'));
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check if user returned from FormSubmit.co
     if (window.location.hash === '#success') {
       setShowSuccessModal(true);
-      // Clean up the URL
       history.replaceState('', '', window.location.pathname);
     }
 
-    // Handle hash navigation for sections
     const handleHashNavigation = () => {
       const hash = window.location.hash;
       if (hash && hash !== '#success') {
@@ -46,8 +44,7 @@ const HomePage: React.FC = () => {
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // Add a small offset to account for the fixed navbar
-      const navbarHeight = 80; // Approximate navbar height
+      const navbarHeight = 80; 
       const elementPosition = element.offsetTop - navbarHeight;
       
       window.scrollTo({
@@ -72,6 +69,7 @@ const HomePage: React.FC = () => {
         <Slider />
         <Service />
         <Business />
+        <Method />
         <Founder />
         <CTASection />
         <Footer />
