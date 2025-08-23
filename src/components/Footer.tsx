@@ -18,16 +18,16 @@ const Footer = () => {
             </p>
             
             <div className="flex space-x-4 lg:ml-3">
-              <Link href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services." target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-green-600 transition-colors duration-200">
-                <MessageCircle size={20} />
+              <Link href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services." target="_blank" rel="noopener noreferrer" className="transition-colors duration-200 hover:text-green-600">
+                <img src="/assets/whatsapp.png" alt="WhatsApp" className="w-6 h-6" />
               </Link>
-              <Link href="https://x.com/Mindor_Tech" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+              <Link href="https://x.com/Mindor_Tech" target="_blank" rel="noopener noreferrer" className=" hover:text-blue-600 transition-colors duration-200">
                 <Twitter size={20} />
               </Link>
-              <Link href="https://www.instagram.com/mindor_tech/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-pink-600 transition-colors duration-200">
+              <Link href="https://www.instagram.com/mindor_tech/" target="_blank" rel="noopener noreferrer" className=" hover:text-pink-600 transition-colors duration-200">
                 <Instagram size={20} />
               </Link>
-              <Link href="https://www.linkedin.com/company/mindortech" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-700 transition-colors duration-200">
+              <Link href="https://www.linkedin.com/company/mindortech" target="_blank" rel="noopener noreferrer" className=" hover:text-blue-700 transition-colors duration-200">
                 <Linkedin size={20} />
               </Link>
             </div>
