@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const MindorTechHomepage: React.FC = () => {
   const [navOpen, setNavOpen] = React.useState(false);
@@ -27,14 +28,32 @@ const MindorTechHomepage: React.FC = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-12">
-          <a href="#" className="text-white font-medium hover:text-blue-200 transition-colors text-lg">Home</a>
-          <a href="#" className="text-white/80 hover:text-white transition-colors text-md">Service</a>
-          <a href="#" className="text-white/80 hover:text-white transition-colors text-md">About</a>
-          <a href="#" className="text-white/80 hover:text-white transition-colors text-md">Blog</a>
+          <Link href="/" passHref>
+            <span className="text-white font-medium hover:text-blue-200 transition-colors text-lg cursor-pointer">Home</span>
+          </Link>
+          <Link href="/services">
+            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">Service</span>
+          </Link>
+          <Link href="/about" passHref>
+            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">About</span>
+          </Link>
+          <Link href="/blog" passHref>
+            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">Blog</span>
+          </Link>
         </div>
-        <button className="hidden md:block bg-white/20 backdrop-blur-md border border-white/30 px-12 py-1 rounded-full text-white hover:bg-white/30 transition-all text-lg font-medium shadow-lg">
-          Contact Us
-        </button>
+        <a
+          href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:block"
+        >
+          <button className="bg-white/20 backdrop-blur-md border border-white/30 px-12 py-1 rounded-full text-white hover:bg-white/30 transition-all text-lg font-medium shadow-lg flex items-center">
+            <span className="inline-flex items-center justify-center bg-white rounded-full mr-2" style={{ width: 28, height: 28 }}>
+              <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-5 h-5" />
+            </span>
+            Contact Us
+          </button>
+        </a>
         <button
           className="md:hidden flex items-center justify-center p-2 rounded focus:outline-none"
           aria-label="Open navigation menu"
@@ -56,13 +75,31 @@ const MindorTechHomepage: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <a href="#" className="text-white font-medium hover:text-blue-200 transition-colors text-2xl mb-8" onClick={() => setNavOpen(false)}>Home</a>
-            <a href="#" className="text-white/80 hover:text-white transition-colors text-xl mb-8" onClick={() => setNavOpen(false)}>Service</a>
-            <a href="#" className="text-white/80 hover:text-white transition-colors text-xl mb-8" onClick={() => setNavOpen(false)}>About</a>
-            <a href="#" className="text-white/80 hover:text-white transition-colors text-xl mb-8" onClick={() => setNavOpen(false)}>Blog</a>
-            <button className="bg-white/20 backdrop-blur-md border border-white/30 px-10 py-2 rounded-full text-white hover:bg-white/30 transition-all text-xl font-medium shadow-lg mt-8" onClick={() => setNavOpen(false)}>
-              Contact Us
-            </button>
+            <Link href="/" passHref>
+              <span className="text-white font-medium hover:text-blue-200 transition-colors text-2xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Home</span>
+            </Link>
+            <Link href="/service" passHref>
+              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Service</span>
+            </Link>
+            <Link href="/about" passHref>
+              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>About</span>
+            </Link>
+            <Link href="/blog" passHref>
+              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Blog</span>
+            </Link>
+            <a
+              href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8"
+            >
+              <button className="bg-white/20 backdrop-blur-md border border-white/30 px-10 py-2 rounded-full text-white hover:bg-white/30 transition-all text-xl font-medium shadow-lg flex items-center">
+                <span className="inline-flex items-center justify-center bg-white rounded-full mr-2" style={{ width: 28, height: 28 }}>
+                  <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-5 h-5" />
+                </span>
+                Contact Us
+              </button>
+            </a>
           </div>
         )}
       </nav>
