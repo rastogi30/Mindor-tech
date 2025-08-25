@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import Navbar from '../src/components/Navbar';
 
 const Hero = dynamic(() => import('../src/components/Hero'));
 const WhyMindor = dynamic(() => import('../src/components/WhyMindor'));
