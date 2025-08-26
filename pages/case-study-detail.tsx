@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Navbar from '../src/components/Navbar';
 import dynamic from 'next/dynamic';
 
 const Footer = dynamic(() => import('../src/components/Footer'));
@@ -190,7 +189,6 @@ const CaseStudyDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-grow">
         {/* Hero Section - New Design (Similar to Hero.tsx) */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
