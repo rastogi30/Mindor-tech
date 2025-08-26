@@ -13,7 +13,6 @@ const Mindor = dynamic(() => import('../src/components/Mindor'));
 const Service = dynamic(() => import('../src/components/Service'));
 const LandingPage = dynamic(()=> import('../pages/landing')); 
 const Slider = dynamic(() => import('../src/components/Slider'));
-const Method = dynamic(() => import('../src/components/Method'));
 
 const HomePage: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
@@ -68,7 +67,6 @@ const HomePage: React.FC = () => {
         <Slider />
         <Service />
         <Business />
-        <Method />
         <Founder />
         <CTASection />
         <Footer />
