@@ -220,7 +220,7 @@ const services: React.FC = () => {
                                     onClick={() => setActiveTab(item.id)}
                                     className={`w-full text-left p-4 rounded-lg transition-all duration-200 ${activeTab === item.id
                                         ? ' shadow-lg text-white'
-                                        : 'hover:bg-slate-700 hover:text-white'
+                                        : ' hover:text-white'
                                         }`}
 
                                     style={activeTab === item.id ? { backgroundColor: '#232D62' } : { color: "#102D47" }}
