@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 const MindorTechHomepage: React.FC = () => {
   const [navOpen, setNavOpen] = React.useState(false);
+  const [serviceDropdownOpen, setServiceDropdownOpen] = React.useState(false);
   return (
     <div className="min-h-screen text-white relative overflow-hidden" style={{
       background: `linear-gradient(180deg, #2E386E 0%, #2D3A87 100%), url(/assets/background.png)`,
@@ -31,9 +32,52 @@ const MindorTechHomepage: React.FC = () => {
           <Link href="/" passHref>
             <span className="text-white font-medium hover:text-blue-200 transition-colors text-lg cursor-pointer">Home</span>
           </Link>
-          <Link href="/services">
-            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">Service</span>
-          </Link>
+          <div 
+            className="relative group" 
+            onMouseEnter={() => setServiceDropdownOpen(true)} 
+            onMouseLeave={() => setServiceDropdownOpen(false)}
+          >
+            <div className="flex items-center space-x-1 text-white/80 hover:text-white transition-colors text-md cursor-pointer">
+              <span>Service</span>
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${serviceDropdownOpen ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-200 ${serviceDropdownOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'}`}>
+              <div className="py-2">
+                <Link href="/services/startups-scaleups">
+                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
+                    Mobile App Developement
+                  </span>
+                </Link>
+                <Link href="/services/e-commerce-retail">
+                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
+                    App Developement
+                  </span>
+                </Link>
+                <Link href="/services/healthcare-wellness">
+                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
+                    Blockchain Developement
+                  </span>
+                </Link>
+                <Link href="/services/education-elearning">
+                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
+                    Digital Marketing
+                  </span>
+                </Link>
+                <Link href="/services/finance-fintech">
+                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer">
+                    AI powered Solution
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
           <Link href="/about" passHref>
             <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">About</span>
           </Link>
@@ -104,6 +148,7 @@ const MindorTechHomepage: React.FC = () => {
         )}
       </nav>
 
+      {/* ...existing code... */}
       <div className="relative z-20 px-12 w-full mx-auto pt-20">
         <div className="grid grid-cols-1 gap-24 items-center min-h-[80vh]">
 
