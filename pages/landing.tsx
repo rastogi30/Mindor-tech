@@ -1,9 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
+import Navbar from './../src/components/Navbar';
 
 const MindorTechHomepage: React.FC = () => {
-  const [navOpen, setNavOpen] = React.useState(false);
-  const [serviceDropdownOpen, setServiceDropdownOpen] = React.useState(false);
   return (
     <div className="min-h-screen text-white relative overflow-hidden" style={{
       background: `linear-gradient(180deg, #2E386E 0%, #2D3A87 100%), url(/assets/background.png)`,
@@ -21,139 +19,13 @@ const MindorTechHomepage: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-3xl"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 md:px-12 py-2 w-full" style={{ backgroundColor: "#232D66" }}>
-        <div className="flex items-center space-x-3">
-          <div className="rounded-lg flex items-center justify-center">
-            <img src="/assets/Logo.png" alt="Mindor Tech Logo" className="w-[140px] h-[34px] sm:w-[180px] sm:h-[44px] md:w-[202px] md:h-[48.51px] brightness-0 invert cursor-pointer" />
-          </div>
-        </div>
+      <Navbar />
 
-        <div className="hidden md:flex items-center space-x-12">
-          <Link href="/" passHref>
-            <span className="text-white font-medium hover:text-blue-200 transition-colors text-lg cursor-pointer">Home</span>
-          </Link>
-          <div 
-            className="relative group" 
-            onMouseEnter={() => setServiceDropdownOpen(true)} 
-            onMouseLeave={() => setServiceDropdownOpen(false)}
-          >
-            <div className="flex items-center space-x-1 text-white/80 hover:text-white transition-colors text-md cursor-pointer">
-              <span>Service</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 ${serviceDropdownOpen ? 'rotate-180' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-            <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-200 ${serviceDropdownOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'}`}>
-              <div className="py-2">
-                <Link href="/services/startups-scaleups">
-                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
-                    Mobile App Developement
-                  </span>
-                </Link>
-                <Link href="/services/e-commerce-retail">
-                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
-                    App Developement
-                  </span>
-                </Link>
-                <Link href="/services/healthcare-wellness">
-                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
-                    Blockchain Developement
-                  </span>
-                </Link>
-                <Link href="/services/education-elearning">
-                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer border-b border-gray-50 last:border-b-0">
-                    Digital Marketing
-                  </span>
-                </Link>
-                <Link href="/services/finance-fintech">
-                  <span className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer">
-                    AI powered Solution
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Link href="/about" passHref>
-            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">About</span>
-          </Link>
-          <Link href="/blog" passHref>
-            <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">Blog</span>
-          </Link>
-        </div>
-        <a
-          href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:block"
-        >
-          <button className="bg-white/20 backdrop-blur-md border border-white/30 px-12 py-1 rounded-full text-white hover:bg-white/30 transition-all text-lg font-medium shadow-lg flex items-center">
-            <span className="inline-flex items-center justify-center bg-white rounded-full mr-2" style={{ width: 28, height: 28 }}>
-              <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-5 h-5" />
-            </span>
-            Contact Us
-          </button>
-        </a>
-        <button
-          className="md:hidden flex items-center justify-center p-2 rounded focus:outline-none"
-          aria-label="Open navigation menu"
-          onClick={() => setNavOpen(!navOpen)}
-        >
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        {navOpen && (
-          <div className="fixed top-0 left-0 w-full h-full bg-[#232D66] bg-opacity-95 z-[100] flex flex-col items-center justify-center transition-all">
-            <button
-              className="absolute top-6 right-6 p-2 text-white"
-              aria-label="Close navigation menu"
-              onClick={() => setNavOpen(false)}
-            >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <Link href="/" passHref>
-              <span className="text-white font-medium hover:text-blue-200 transition-colors text-2xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Home</span>
-            </Link>
-            <Link href="/service" passHref>
-              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Service</span>
-            </Link>
-            <Link href="/about" passHref>
-              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>About</span>
-            </Link>
-            <Link href="/blog" passHref>
-              <span className="text-white/80 hover:text-white transition-colors text-xl mb-8 cursor-pointer" onClick={() => setNavOpen(false)}>Blog</span>
-            </Link>
-            <a
-              href="https://wa.me/918928210967?text=Hi%20Mindor%20Team,%20I%20need%20assistance%20with%20your%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8"
-            >
-              <button className="bg-white/20 backdrop-blur-md border border-white/30 px-10 py-2 rounded-full text-white hover:bg-white/30 transition-all text-xl font-medium shadow-lg flex items-center">
-                <span className="inline-flex items-center justify-center bg-white rounded-full mr-2" style={{ width: 28, height: 28 }}>
-                  <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-5 h-5" />
-                </span>
-                Contact Us
-              </button>
-            </a>
-          </div>
-        )}
-      </nav>
-
-      {/* ...existing code... */}
       <div className="relative z-20 px-12 w-full mx-auto pt-20">
         <div className="grid grid-cols-1 gap-24 items-center min-h-[80vh]">
 
           <div className="space-y-10 pt-10">
-            <div className="inline-block  backdrop-blur-md border border-white/25 px-6 py-1 rounded-full text-base font-medium shadow-lg">
+            <div className="inline-block backdrop-blur-md border border-white/25 px-6 py-1 rounded-full text-base font-medium shadow-lg">
               AI & Software Solution
             </div>
 
@@ -167,17 +39,16 @@ const MindorTechHomepage: React.FC = () => {
                 <p className="text-lg text-white leading-relaxed font-medium">
                   Great apps, seamless websites, intelligent automation and digital growth. Mindor delivers scalable digital solutions that transform ideas into results. We don't just build tech, we build what your business truly needs to grow.
                 </p>
-                 <a href="https://calendar.app.google/c94YxYt7MYuphBsw6" target="_blank" rel="noopener noreferrer">
-                <button className="bg-white text-blue-900 px-10 py-2 rounded-full font-bold text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
-                  Get Free Consultation
-                </button>
+                <a href="https://calendar.app.google/c94YxYt7MYuphBsw6" target="_blank" rel="noopener noreferrer">
+                  <button className="bg-white text-blue-900 px-10 py-2 rounded-full font-bold text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
+                    Get Free Consultation
+                  </button>
                 </a>
               </div>
             </div>
           </div>
 
           <div className="relative flex items-center justify-center">
-
             <div className="absolute top-10 left-10 z-30">
               <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
                 <p className="text-white text-sm font-semibold">Website Development</p>
