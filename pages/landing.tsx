@@ -24,7 +24,7 @@ const MindorTechHomepage: React.FC = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 md:px-12 py-2 w-full" style={{ backgroundColor: "#232D66" }}>
         <div className="flex items-center space-x-3">
           <div className="rounded-lg flex items-center justify-center">
-            <img src="/assets/Logo.png" alt="Mindor Tech Logo" className="w-[140px] h-[34px] sm:w-[180px] sm:h-[44px] md:w-[202px] md:h-[48.51px] brightness-0 invert" />
+            <img src="/assets/Logo.png" alt="Mindor Tech Logo" className="w-[140px] h-[34px] sm:w-[180px] sm:h-[44px] md:w-[202px] md:h-[48.51px] brightness-0 invert cursor-pointer" />
           </div>
         </div>
 
