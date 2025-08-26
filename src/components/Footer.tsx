@@ -22,7 +22,7 @@ const Footer = () => {
                 <img src="/assets/whatsapp.png" alt="WhatsApp" className="w-6 h-6" />
               </Link>
               <Link href="https://x.com/Mindor_Tech" target="_blank" rel="noopener noreferrer" className=" hover:text-blue-600 transition-colors duration-200">
-                <Twitter size={20} />
+                <img src="/assets/x.png" alt="Twitter" className="w-6 h-6" />
               </Link>
               <Link href="https://www.instagram.com/mindor_tech/" target="_blank" rel="noopener noreferrer" className=" hover:text-pink-600 transition-colors duration-200">
                 <Instagram size={20} />
