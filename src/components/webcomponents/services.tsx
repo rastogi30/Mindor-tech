@@ -56,24 +56,20 @@ const services: React.FC = () => {
             content: [
                 {
                     title: 'Custom Online Stores',
-                    description: 'Tailored e-commerce platforms built to your specific business needs with advanced product management.'
+                    description: 'From design to checkout – we create intuitive online stores tailored to your unique business model, helping you sell effectively.'
                 },
                 {
-                    title: 'Payment Integration',
-                    description: 'Secure payment gateways supporting multiple currencies and payment methods for global reach.'
+                    title: 'Payment Gateway Integration',
+                    description: 'Secure and seamless payment experiences integrated with major providers like Razorpay, Stripe, and more.'
                 },
                 {
-                    title: 'Inventory Management',
-                    description: 'Advanced inventory tracking systems with real-time updates and automated stock notifications.'
+                    title: 'Product & Inventory Management',
+                    description: 'Easily manage stock levels, variants, and product details with custom dashboards'
                 },
                 {
-                    title: 'Mobile Commerce',
-                    description: 'Responsive mobile-first design ensuring seamless shopping experience across all devices.'
+                    title: 'Cart Systems, Coupons & Order Tracking',
+                    description: 'Smooth user journey with intelligent cart flows, discount systems, and real-time order status tracking.'
                 },
-                {
-                    title: 'Analytics & Reporting',
-                    description: 'Comprehensive sales analytics and customer behavior insights to drive business growth.'
-                }
             ]
         },
         applications: {
