@@ -209,7 +209,7 @@ const services: React.FC = () => {
     };
 
     return (
-        <div className=" bg-gray-50 p-6">
+        <div className="bg-gray-50 p-8">
             <div className="w-full mx-auto">
                 <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
                     Scalable Web Development Services Built for Your Growth
@@ -223,13 +223,13 @@ const services: React.FC = () => {
                                     key={item.id}
                                     onClick={() => setActiveTab(item.id)}
                                     className={`w-full text-left p-4 rounded-lg transition-all duration-200 ${activeTab === item.id
-                                            ? ' shadow-lg text-white'
-                                            : 'hover:bg-slate-700 hover:text-white'
+                                        ? ' shadow-lg text-white'
+                                        : 'hover:bg-slate-700 hover:text-white'
                                         }`}
 
                                     style={activeTab === item.id ? { backgroundColor: '#232D62' } : { color: "#102D47" }}
                                 >
-                                    <span className="text-sm font-medium leading-relaxed">
+                                    <span className="text-sm font-regular leading-relaxed">
                                         {item.label}
                                     </span>
                                 </button>
@@ -237,22 +237,20 @@ const services: React.FC = () => {
                         </div>
                     </div>
 
+                    <div className="hidden lg:block w-px bg-gray-300 mx-4"></div>
                     <div className="lg:w-2/3">
                         <div className=" p-8">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                                {tabContent[activeTab].title}
-                            </h2>
 
                             <div className="grid gap-6 md:grid-cols-2">
                                 {tabContent[activeTab].content.map((service, index) => (
                                     <div
                                         key={index}
-                                        className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border"
+                                        className="rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border" style={{ backgroundColor: '#C0C3D4', borderColor: '#000000' }}
                                     >
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#102D47' }}>
                                             {service.title}
                                         </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed">
+                                        <p className="font-regular text-sm leading-relaxed" style={{ color: '#102D47' }}>
                                             {service.description}
                                         </p>
                                     </div>
