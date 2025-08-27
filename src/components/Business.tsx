@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 };
 
 interface BusinessProps {
-  variant?: 'business' | 'services';
+  variant?: 'business' | 'services' | 'ai';
 }
 
 const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
@@ -82,7 +82,45 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     }
   ];
 
-  const currentData = variant === 'services' ? servicesData : businessData;
+  const aiData = [
+    {
+      icon: <img src="/assets/Brief.png" alt="Healthcare AI" className="w-5 h-5" />,
+      title: "Healthcare & Wellness",
+      description: "Platforms that simplify care, automate operations, and protect patient data. From telehealth to wellness apps, everything is built with empathy, security, and impact in mind."
+    },
+    {
+      icon: <img src="/assets/Finance.png" alt="Financial AI" className="w-5 h-5" />,
+      title: "Finance & Fintech",
+      description: "Modern fintech tools that are fast, secure, and built for trust. From payments to blockchain, solutions are made for transparency, compliance, and scale."
+    },
+    {
+      icon: <img src="/assets/Shopping.png" alt="Retail AI" className="w-5 h-5" />,
+      title: "E-Commerce & Retail",
+      description: "Mobile-first shopping experiences designed to convert, retain, and impress customers. Smart UX, AI-powered recommendations, and smooth checkouts help drive real revenue."
+    },
+    {
+      icon: <img src="/assets/Professional.png" alt="Manufacturing AI" className="w-5 h-5" />,
+      title: "Manufacturing",
+      description: " AI boosts productivity with predictive maintenance, defect detection, and supply chain intelligence. Automation and robotics drive precision, efficiency, and scalability across industrial operations."
+    },
+    {
+      icon: <img src="/assets/Transport.png" alt="Education AI" className="w-5 h-5" />,
+      title: "Logistics & Transportation",
+      description: "AI streamlines logistics with dynamic route optimization, real-time fleet tracking, and warehouse automation. It also enables demand prediction and powers the development of autonomous vehicles."
+    },
+        {
+      icon: <img src="/assets/Call.png" alt="Customer Service AI" className="w-5 h-5" />,
+      title: "Customer Service",
+      description: " AI-driven chatbots handle high volumes of queries with human-like responses. Sentiment analysis, intelligent ticket routing, and personalized support help elevate customer satisfaction and reduce response time."
+    },
+        {
+      icon: <img src="/assets/HR.png" alt="HR AI" className="w-5 h-5" />,
+      title: "HR & Recruitment",
+      description: " AI automates resume screening and candidate matching, improving hiring efficiency. It supports talent analytics, employee engagement strategies, and delivers more personalized workplace experiences."
+    }
+  ];
+
+  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : businessData;
   
   const headingData = {
     business: {
@@ -91,6 +129,10 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     },
     services: {
       title: "Custom Web Solutions for Every Industry",
+      description: "We at Mindor tailor digital solutions to meet the unique demands of various sectors."
+    },
+    ai: {
+      title: "Real-World AI Applications Across Industries",
       description: "We at Mindor tailor digital solutions to meet the unique demands of various sectors."
     }
   };
