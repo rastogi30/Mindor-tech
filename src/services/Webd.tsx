@@ -7,11 +7,13 @@ import ChooseUs from '@/components/webcomponents/chooseus';
 import Timeline from '@/components/webcomponents/timeline';
 import Business from '@/components/Business';
 import Mindor from '@/components/Mindor';
+import Landing from '@/components/webcomponents/landing';
 
 const Webd: React.FC = () => {
   return (
     <div className="mt-7">
       <Navbar />
+      <Landing />
       <Mindor variant="service" />
       <Services />
       <Timeline />
