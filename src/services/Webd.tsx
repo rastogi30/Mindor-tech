@@ -1,12 +1,15 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Services from '@/components/webcomponents/services';     
+import Services from '@/components/webcomponents/services';    
+import Footer from '@/components/Footer';
+
 
 const Webd: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+    <div className=" ">
       <Navbar />
       <Services />
+      <Footer/>
     </div>
   );
 };
