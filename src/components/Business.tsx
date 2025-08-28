@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 };
 
 interface BusinessProps {
-  variant?: 'business' | 'services' | 'ai';
+  variant?: 'business' | 'services' | 'ai' | 'blockchain';
 }
 
 const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
@@ -120,8 +120,51 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     }
   ];
 
-  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : businessData;
-  
+  const blockchain = [
+    {
+      icon: <img src="/assets/Finance.png" alt="Blockchain Development" className="w-5 h-5" />,
+      title: "Finance & Banking",
+      description: "Blockchain enables secure and transparent financial solutions like DeFi platforms, real-time settlements, and digital asset tracking. Our team specializes in building custom systems that reduce fraud and enhance transactional efficiency for banks and fintechs."
+    },
+    {
+      icon: <img src="/assets/Transport.png" alt="Blockchain Consulting" className="w-5 h-5" />,
+      title: "Supply Chain & Logistics",
+      description: "End-to-end supply chain visibility is made possible through blockchain applications. From verifying product origin to real-time shipment tracking, we implement solutions that boost operational trust and prevent counterfeit risks."
+    },
+    {
+      icon: <img src="/assets/Health.png" alt="Blockchain Auditing" className="w-5 h-5" />,
+      title: "Healthcare & Wellness",
+      description: "Medical data security and interoperability are critical in healthcare. Blockchain-based solutions developed by us allow for tamper-proof patient records, streamlined claims management, and regulatory compliance for health systems and providers."
+    },
+    {
+      icon: <img src="/assets/Real.png" alt="Blockchain Integration" className="w-5 h-5" />,
+      title: "Real Estate",
+      description: "Smart contracts bring automation to property transactions, leases, and ownership transfers. Our blockchain implementations help real estate firms eliminate paperwork, reduce fraud, and build trust in high-value transactions."
+    },
+    {
+      icon: <img src="/assets/Shopping.png" alt="Blockchain Development" className="w-5 h-5" />,
+      title: "E-Commerce & Retail",
+      description: "Product authenticity, loyalty programs, and digital payments are strengthened through blockchain. We create scalable solutions that elevate customer trust and improve backend transparency for retailers and marketplaces."
+    },
+    {
+      icon: <img src="/assets/Game.png" alt="Blockchain Consulting" className="w-5 h-5" />,
+      title: "Gaming & Entertainment",
+      description: "Blockchain is reshaping digital ownership in gaming and media. From NFT marketplaces to token economies, we help creators and studios launch immersive, monetized experiences with full control over intellectual property."
+    },
+    {
+      icon: <img src="/assets/Home.png" alt="Blockchain Auditing" className="w-5 h-5" />,
+      title: "Government & Public Sector",
+      description: "Digital identity verification, voting systems, and land registry platforms are being transformed through blockchain. Our solutions support transparency, reduce corruption, and improve the efficiency of public services."
+    },
+    {
+      icon: <img src="/assets/Education.png" alt="Blockchain Integration" className="w-5 h-5" />,
+      title: "Education & eLearning",
+      description: "Forgery-proof academic credentials and decentralized certificate verification are made possible with blockchain. We work with institutions and EdTech platforms to build secure systems that simplify authentication and improve employer trust."
+    }
+  ]
+
+  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : variant === 'blockchain' ? blockchain : businessData;
+
   const headingData = {
     business: {
       title: "Built for Every Business",
@@ -134,6 +177,10 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     ai: {
       title: "Real-World AI Applications Across Industries",
       description: "We at Mindor tailor digital solutions to meet the unique demands of various sectors."
+    },
+    blockchain:{
+      title: "Blockchain Services Tailored for Every Industry",
+      description: "We at Mindor leverage blockchain technology to create secure, transparent, and efficient solutions for businesses across various industries."
     }
   };
 
@@ -170,11 +217,11 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 pointer-events-none">
+      <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden">
         <img
           src="/assets/Ellipse.png"
           alt="Ellipse decoration"
-          className="w-80 h-80"
+          className="w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 opacity-50"
         />
       </div>
     </section>
