@@ -6,12 +6,14 @@ import Business from '@/components/Business';
 import Process from '@/components/aicomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import Services from '@/components/aicomponents/services';
+import AIDevelopmentSuccess from '@/components/aicomponents/developement';
 
 const AI: React.FC = () => {
     return (
         <div className='mt-7'>
             <Navbar />
             <Landing variant="ai" />
+            <AIDevelopmentSuccess />
             <Services />
             <Choose variant="ai" />
             <Business variant="ai" />
