@@ -139,6 +139,7 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
 
                         <form onSubmit={handleSubmit} className="space-y-3">
                             <div>
+                                <h1>Name</h1>
                                 <input
                                     type="text"
                                     name="name"
@@ -151,6 +152,7 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
                             </div>
 
                             <div>
+                                <h1>Email</h1>
                                 <input
                                     type="email"
                                     name="email"
@@ -162,19 +164,9 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
                                 />
                             </div>
 
-                            <div>
-                                <textarea
-                                    name="message"
-                                    placeholder="Message"
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 resize-none"
-                                    required
-                                />
-                            </div>
 
                             <div>
+                                <h1>WhatsApp</h1>
                                 <input
                                     type="tel"
                                     name="whatsappNumber"
