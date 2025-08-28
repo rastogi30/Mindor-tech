@@ -76,7 +76,7 @@ const Process: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex-shrink-0 w-96">
+      <div className="flex-shrink-0 w-96 relative">
         <img
           src="/assets/Process.png"
           alt="AI Solution Development Process"
@@ -84,6 +84,24 @@ const Process: React.FC = () => {
           height={500}
           className="w-full h-auto"
         />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="flex flex-col items-center gap-2">
+            <img
+              src="/assets/Process2.png"
+              alt="Process 2 overlay"
+              width={140}
+              height={140}
+              className="h-auto"
+            />
+            <img
+              src="/assets/Process1.png"
+              alt="Process 1 overlay"
+              width={140}
+              height={140}
+              className="h-auto"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
