@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Landing from '@/components/webcomponents/landing';
 import Choose from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
+import Process from '@/components/aicomponents/process';
 
 const AI: React.FC = () => {
     return (
@@ -11,6 +12,7 @@ const AI: React.FC = () => {
             <Landing variant="ai" />
             <Choose variant="ai" />
             <Business variant="ai" />
+            <Process />
         </div>
     );
 };
