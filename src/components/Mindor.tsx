@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MindorProps {
-  variant?: 'default' | 'service';
+  variant?: 'default' | 'service' | 'blockchain';
 }
 
 const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
@@ -17,6 +17,12 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
             description: "Most off-the-shelf solutions force companies to compromise, leading to workarounds, limitations, and inefficiencies that become part of the daily workflow. At Mindor, we build bespoke web platforms that align perfectly with your unique business, not someone else’s template. We empower businesses with solutions that drive growth.",
             image: "/assets/web.png",
             alt: "Mindor Services"
+        },
+        blockchain: {
+            title: "Unlock the Potential of Decentralized Applications with Blockchain Development",
+            description: "In the era of digital transformation, blockchain stands out as a revolutionary technology. At Mindor, we offer comprehensive blockchain development services that empower businesses to leverage the benefits of decentralization, transparency, and security.",
+            image: "/assets/block.png",
+            alt: "Mindor Blockchain"
         }
     };
 
