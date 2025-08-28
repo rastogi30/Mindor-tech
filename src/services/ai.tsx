@@ -4,6 +4,7 @@ import Landing from '@/components/webcomponents/landing';
 import Choose from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
 import Process from '@/components/aicomponents/process';
+import FAQ from '@/components/webcomponents/faq';
 
 const AI: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const AI: React.FC = () => {
             <Choose variant="ai" />
             <Business variant="ai" />
             <Process />
+            <FAQ variant="ai" />
         </div>
     );
 };

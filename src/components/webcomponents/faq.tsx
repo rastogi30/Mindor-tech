@@ -9,10 +9,16 @@ interface FAQItem {
     answer: string;
 }
 
-const FAQ: React.FC = () => {
-    const [openItems, setOpenItems] = useState<string[]>(['custom-web-dev']);
+type FAQVariant = 'web' | 'ai';
 
-    const faqData: FAQItem[] = [
+interface FAQProps {
+    variant?: FAQVariant;
+}
+
+const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
+    const [openItems, setOpenItems] = useState<string[]>([variant === 'web' ? 'custom-web-dev' : 'what-is-ai']);
+
+    const webFaqData: FAQItem[] = [
         {
             id: 'custom-web-dev',
             question: 'What is custom web development?',
@@ -45,6 +51,41 @@ const FAQ: React.FC = () => {
         }
     ];
 
+    const aiFaqData: FAQItem[] = [
+        {
+            id: 'what-is-ai',
+            question: 'What is AI solution development?',
+            answer: 'AI solution development involves creating custom artificial intelligence applications tailored to your business needs. This includes machine learning models, natural language processing, computer vision, predictive analytics, and automation systems designed to solve specific business challenges.'
+        },
+        {
+            id: 'ai-implementation-time',
+            question: 'How long does it take to implement an AI solution?',
+            answer: 'AI implementation timelines vary based on complexity and data availability. Simple AI integrations may take 2-4 weeks, while complex custom models can take 3-6 months including data preparation, model training, testing, and deployment phases.'
+        },
+        {
+            id: 'data-requirements',
+            question: 'What data do I need for AI development?',
+            answer: 'Data requirements depend on your specific AI application. Generally, you need clean, relevant, and sufficient data for training. We help assess your data quality, identify gaps, and implement data collection strategies if needed.'
+        },
+        {
+            id: 'ai-cost-factors',
+            question: 'What factors influence AI development costs?',
+            answer: 'AI development costs depend on project complexity, data volume and quality, required accuracy levels, infrastructure needs, ongoing training requirements, and the specific AI technologies used.'
+        },
+        {
+            id: 'ai-maintenance',
+            question: 'Do AI models require ongoing maintenance?',
+            answer: 'Yes, AI models need continuous monitoring and maintenance. This includes performance tracking, model retraining with new data, accuracy optimization, and updates to handle changing business requirements or data patterns.'
+        },
+        {
+            id: 'ai-integration',
+            question: 'Can AI solutions integrate with existing systems?',
+            answer: 'Absolutely! We design AI solutions to seamlessly integrate with your existing software, databases, and workflows. Our team ensures minimal disruption during implementation and provides comprehensive integration support.'
+        }
+    ];
+
+    const faqData = variant === 'web' ? webFaqData : aiFaqData;
+
     const toggleItem = (itemId: string) => {
         setOpenItems(prev =>
             prev.includes(itemId)
@@ -54,7 +95,7 @@ const FAQ: React.FC = () => {
     };
 
     return (
-        <div className=" py-10  px-6">
+        <div className="py-10 px-6">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ color: '#102D47' }}>
                     Frequently Asked Questions
