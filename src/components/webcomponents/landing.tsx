@@ -157,7 +157,7 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm">
+                    <div className="bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm mb-10 lg:mb-0">
                         <div className="text-white px-6 py-4 rounded-t-xl -mx-8 -mt-8 mb-6" style={{ backgroundColor: '#4252AD' }}>
                             <h3 className="text-xl font-semibold text-center">Get in Touch with Us</h3>
                         </div>
