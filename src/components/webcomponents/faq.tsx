@@ -9,7 +9,7 @@ interface FAQItem {
     answer: string;
 }
 
-type FAQVariant = 'web' | 'ai';
+type FAQVariant = 'web' | 'ai' | 'blockchain';
 
 interface FAQProps {
     variant?: FAQVariant;
@@ -84,7 +84,31 @@ const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
         }
     ];
 
-    const faqData = variant === 'web' ? webFaqData : aiFaqData;
+    const blockchain: FAQItem[] = [
+        {
+            id: 'what-is-blockchain',
+            question: 'What is blockchain development?',
+            answer: 'Blockchain development involves creating decentralized applications (dApps) and smart contracts on blockchain platforms. It enables secure, transparent, and tamper-proof transactions without the need for intermediaries.'
+        },
+        {
+            id: 'blockchain-use-cases',
+            question: 'What are the use cases for blockchain technology?',
+            answer: 'Blockchain technology can be used in various industries including finance (cryptocurrencies), supply chain (tracking goods), healthcare (secure patient data), and more. Its key benefits are transparency, security, and decentralization.'
+        },
+        {
+            id: 'blockchain-implementation-time',
+            question: 'How long does it take to develop a blockchain solution?',
+            answer: 'The timeline for developing a blockchain solution depends on the project complexity. Simple applications may take a few weeks, while more complex solutions can take several months to design, develop, and deploy.'
+        },
+        {
+            id: 'blockchain-security',
+            question: 'How secure are blockchain applications?',
+            answer: 'Blockchain applications are highly secure due to their decentralized nature and cryptographic techniques. However, security also depends on proper implementation and ongoing maintenance to address potential vulnerabilities.'
+        }
+    ]
+
+    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : blockchain;
+
 
     const toggleItem = (itemId: string) => {
         setOpenItems(prev =>
@@ -128,8 +152,8 @@ const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
 
                             <div
                                 className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.includes(item.id)
-                                        ? 'max-h-96 opacity-100'
-                                        : 'max-h-0 opacity-0'
+                                    ? 'max-h-96 opacity-100'
+                                    : 'max-h-0 opacity-0'
                                     }`}
                             >
                                 <div className="px-6 pb-6">
