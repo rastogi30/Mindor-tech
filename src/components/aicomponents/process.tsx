@@ -2,7 +2,7 @@ import React from 'react';
 
 const Process: React.FC = () => {
   return (
-    <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-16">
+    <div className="flex items-center justify-between w-full mx-auto px-6 py-16">
       <div className="flex-1 pr-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-12">
           Our AI Solution Development Process
