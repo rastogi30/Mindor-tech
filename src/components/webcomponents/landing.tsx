@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface LandingProps {
-    variant?: 'web' | 'ai' | 'blockchain';
+    variant?: 'web' | 'ai' | 'blockchain' | 'rpa';
 }
 
 const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
@@ -88,6 +88,31 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
             features: null,
             cta: {
                 text: "Get Blockchain Consultation",
+                className: "bg-white text-black hover:bg-blue-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            }
+        },
+        rpa: {
+            badge: {
+                text: "Streamline Business Operations with Smart Automation",
+                className: "backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/30"
+            },
+            title: (
+                <>
+                    Robotic Process Automation Services
+                </>
+            ),
+            description: "Tired of repetitive, manual tasks slowing down your team? Our Robotic Process Automation (RPA) services help streamline operations by automating routine processes and reducing costly errors. We use industry-leading RPA tools to free up your team for high-value work and fast-track your digital transformation — across any industry.",
+            background: "linear-gradient(135deg, #232D62 0%, #4A5DB8 100%), url(/assets/background.png)",
+            floatingElements: (
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/3 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                </div>
+            ),
+            features: null,
+            cta: {
+                text: "Get RPA Consultation",
                 className: "bg-white text-black hover:bg-blue-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             }
         }
