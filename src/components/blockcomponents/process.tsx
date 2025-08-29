@@ -6,8 +6,12 @@ interface ProcessStep {
   description: string;
 }
 
-const BlockchainProcess: React.FC = () => {
-  const processSteps: ProcessStep[] = [
+interface ProcessProps {
+  variant?: 'blockchain' | 'rpa';
+}
+
+const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) => {
+  const blockchainSteps: ProcessStep[] = [
     {
       number: "01",
       title: "Discovery & Planning",
@@ -30,12 +34,38 @@ const BlockchainProcess: React.FC = () => {
     }
   ];
 
+  const rpaSteps: ProcessStep[] = [
+    {
+      number: "01",
+      title: "Process Discovery & Planning",
+      description: "We start by identifying repetitive, rule-based processes ideal for automation. Through stakeholder interviews and workflow audits, we assess feasibility, define goals, and prioritize tasks to build a solid automation roadmap."
+    },
+    {
+      number: "02",
+      title: "Design & Development",
+      description: "Our team designs the automation workflow and selects the best-fit RPA tools. Bots are then developed and configured to execute tasks accurately - integrating with systems, following business logic, and ensuring compliance."
+    },
+    {
+      number: "03",
+      title: "Testing & Deployment",
+      description: "Each bot is rigorously tested in real-world scenarios to ensure accuracy and integration. After successful user acceptance, bots are deployed into your live environment with minimal disruption to your operations."
+    },
+    {
+      number: "04",
+      title: "Monitoring & Optimization",
+      description: "Post-deployment, we provide ongoing monitoring to ensure performance and stability. As your business evolves, we continuously refine and scale the automation to maximize ROI and uncover new opportunities."
+    }
+  ];
+
+  const processSteps = variant === 'rpa' ? rpaSteps : blockchainSteps;
+  const title = variant === 'rpa' ? 'Our RPA Implementation Process' : 'Our Blockchain Development Process';
+
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Blockchain Development Process
+            {title}
           </h2>
         </div>
 
