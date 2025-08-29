@@ -7,6 +7,7 @@ import Process from '@/components/blockcomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import ChooseUs from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
+import AIDevelopmentSuccess from '@/components/aicomponents/developement';
 
 const RPA: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const RPA: React.FC = () => {
       <Navbar />
       <Landing variant="rpa" />
       <Mindor variant="rpa" />
+      <AIDevelopmentSuccess variant="rpa" />
       <Slider variant="rpa" />
       <ChooseUs variant="rpa" />
       <Business variant="rpa" />    
