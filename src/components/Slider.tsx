@@ -8,7 +8,7 @@ interface PromiseItem {
 }
 
 interface PromiseProgressProps {
-  variant?: 'web' | 'ai' | 'blockchain';
+  variant?: 'web' | 'ai' | 'blockchain' | 'rpa';
 }
 
 const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) => {
@@ -141,6 +141,45 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
     }
   ];
 
+  const rpaItems: PromiseItem[] = [
+    {
+      id: 1,
+      title: "Process Automation Strategy",
+      description: "Thoroughly analyze current workflows to identify repetitive, rule-based tasks that are ripe for automation. We then design efficient business logic, configure RPA, and implement intelligent bots to streamline operations and boost productivity.",
+      bgColor: "bg-violet-200"
+    },
+    {
+      id: 2,
+      title: "RPA Consulting & Roadmapping",
+      description: "Our expert guidance on identifying the right RPA tools, building a realistic deployment, and fostering a successful automation. The roadmap includes time frames in addition to the budget and expected ROI, so you know what to expect from day one to analytics.",
+      bgColor: "bg-indigo-200"
+    },
+    {
+      id: 3,
+      title: "Custom Bot Design & Development",
+      description: "We create intelligent automation bots tailored to your specific business processes. From simple task automation to AI and integration, every bot is programmed for reliability, scalability, and seamless integration business tools.",
+      bgColor: "bg-purple-200"
+    },
+    {
+      id: 4,
+      title: "Intelligent Document Processing (IDP)",
+      description: "Elevate document-heavy tasks with intelligent document processing that automatically extracts, reads, processes, and analyzes data from invoices, emails, forms, and contracts, eliminating the need for manual data entry.",
+      bgColor: "bg-pink-200"
+    },
+    {
+      id: 5,
+      title: "RPA Implementation & Integration",
+      description: "Seamlessly deploy bots into your ecosystem, live ERP, CRM, HRIS, and other business applications. Our approach ensures smooth integration with your existing processes and systems, with optimizations for process workflows.",
+      bgColor: "bg-fuchsia-200"
+    },
+    {
+      id: 6,
+      title: "Ongoing Support & Maintenance",
+      description: "Your RPA infrastructure requires consistent monitoring and optimization to keep your automation processes running smoothly. We provide ongoing maintenance, updates, and 24/7 support to keep your automation programs within your business needs.",
+      bgColor: "bg-rose-200"
+    }
+  ];
+
   const getContent = () => {
     switch (variant) {
       case 'blockchain':
@@ -154,6 +193,12 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
           items: aiItems,
           title: "AI Innovation. Your Transformation.",
           subtitle: "We create intelligent AI solutions that automate processes, unlock insights, and drive innovation across your entire business ecosystem."
+        };
+      case 'rpa':
+        return {
+          items: rpaItems,
+          title: "End-to-End RPA Development Services to Transform Your Business",
+          subtitle: ""
         };
       default:
         return {
