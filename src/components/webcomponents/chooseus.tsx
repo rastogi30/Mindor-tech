@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ChooseUsProps {
-  variant?: 'web' | 'ai';
+  variant?: 'web' | 'ai'| 'rpa';
 }
 
 interface Card {
@@ -13,7 +13,7 @@ interface Card {
 }
 
 const ChooseUs: React.FC<ChooseUsProps> = ({ variant = 'web' }) => {
-  const content: { web: { title: string; subtitle: string; cards: Card[] }; ai: { title: string; subtitle: string; cards: Card[] } } = {
+  const content: { web: { title: string; subtitle: string; cards: Card[] }; ai: { title: string; subtitle: string; cards: Card[] }; rpa: { title: string; subtitle: string; cards: Card[] } } = {
     web: {
       title: "Why Our Custom Web Development Services Stand Out",
       subtitle: "Choose Mindor for unparalleled dedication and expertise.",
@@ -75,6 +75,36 @@ const ChooseUs: React.FC<ChooseUsProps> = ({ variant = 'web' }) => {
           title: "End to End Partnership",
           description: "From strategy and development to deployment and continuous improvement, we are with you at every stage of your AI journey.",
           icon: "🤝"
+        }
+      ]
+    },
+    rpa: {
+      title: "Why Choose Us for Robotic Process Automation Services",
+      subtitle: "Unlock the full potential of automation with our expert RPA services.",
+      cards: [
+        {
+          number: 1,
+          color: "bg-purple-500",
+          title: "Built for Scale and Complexity",
+          description: "We specialize in delivering automation solutions that work seamlessly across diverse systems and modern platforms. Our experience with enterprise-grade projects means your RPA initiatives are built to be secure, scalable, and optimized to achieve your digital transformation goals."
+        },
+        {
+          number: 2,
+          color: "bg-purple-500",
+          title: "Fast, Flexible Deployment",
+          description: "Using agile methodologies, we create quick rollouts and smooth implementation timelines. Whether you're automating a single task or scaling across departments, our modular approach allows you to expand at your pace."
+        },
+        {
+          number: 3,
+          color: "bg-pink-500",
+          title: "Tailored for Your Industry",
+          description: "Every RPA solution is designed with a deep understanding of your business processes, compliance requirements, and human-specific workflows and compliance needs, we help you unlock greater efficiency and measurable impact."
+        },
+        {
+          number: 4,
+          color: "bg-teal-500",
+          title: "Transparency at Every Step",
+          description: "We believe in clear communication and measurable success. From planning through deployment, you'll receive regular updates, detailed reports, and performance metrics that show exactly how automation is driving value."
         }
       ]
     }
