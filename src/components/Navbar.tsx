@@ -75,6 +75,11 @@ const Navbar: React.FC = () => {
                   AI Powered Solutions
                 </span>
               </Link>
+              <Link href="/services/rpa">
+                <span className={`block px-4 py-3 transition-colors cursor-pointer ${isActive('/services/rpa') ? 'bg-blue-50 text-blue-600' : 'text-gray-800 hover:bg-blue-50 hover:text-blue-600'}`}>
+                  Robotic Process Automation
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -186,6 +191,11 @@ const Navbar: React.FC = () => {
                     <div className={`text-base py-2 px-2 rounded transition-colors cursor-pointer ${isActive('/services/ai-powered-solutions') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5'}`} onClick={() => setNavOpen(false)}>
                       AI Powered Solutions
                     </div>
+                  </Link>
+                  <Link href="/services/rpa">
+                    <span className={`block px-4 py-3 transition-colors cursor-pointer ${isActive('/services/rpa') ? 'bg-blue-50 text-blue-600' : 'text-gray-800 hover:bg-blue-50 hover:text-blue-600'}`}>
+                      Robotic Process Automation
+                    </span>
                   </Link>
                 </div>
               </div>
