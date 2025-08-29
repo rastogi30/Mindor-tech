@@ -9,7 +9,7 @@ interface FAQItem {
     answer: string;
 }
 
-type FAQVariant = 'web' | 'ai' | 'blockchain';
+type FAQVariant = 'web' | 'ai' | 'blockchain' | 'rpa';
 
 interface FAQProps {
     variant?: FAQVariant;
@@ -107,7 +107,30 @@ const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
         }
     ]
 
-    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : blockchain;
+    const rpa: FAQItem[] = [
+        {
+            id: 'rpa-what-is',
+            question: 'What is RPA?',
+            answer: 'Robotic Process Automation (RPA) is a technology that uses software robots to automate repetitive, rule-based tasks traditionally performed by humans. RPA can improve efficiency, reduce errors, and free up human workers for more value-added activities.'
+        },
+        {
+            id: 'rpa-use-cases',
+            question: 'What are common use cases for RPA?',
+            answer: 'RPA is commonly used in areas such as data entry, invoice processing, customer onboarding, and IT support. Virtually any repetitive task that involves digital data can be a candidate for RPA.'
+        },
+        {
+            id: 'rpa-implementation-time',
+            question: 'How long does it take to implement RPA?',
+            answer: 'RPA implementation timelines can vary widely based on the complexity of the processes being automated. Simple automations can be deployed in a few weeks, while more complex projects may take several months.'
+        },
+        {
+            id: 'rpa-security',
+            question: 'Is RPA secure?',
+            answer: 'RPA can enhance security by reducing human intervention in sensitive processes. However, it is crucial to implement proper governance, access controls, and monitoring to mitigate risks associated with automation.'
+        }
+    ];
+
+    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : variant === 'blockchain' ? blockchain : rpa;
 
 
     const toggleItem = (itemId: string) => {
