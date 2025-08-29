@@ -6,7 +6,7 @@ interface CardData {
 }
 
 interface DevelopmentProps {
-  variant?: 'ai' | 'rpa';
+  variant?: 'ai' | 'rpa' | 'blockchain';
 }
 
 const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) => {
@@ -60,8 +60,54 @@ const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) =>
     }
   ];
 
-  const currentCards = variant === 'rpa' ? rpaCards : aiCards;
-  const title = variant === 'rpa' ? 'Driving Growth with Robotic Process Automation' : 'How AI Development Accelerates Success';
+  const blockchainCards: CardData[] = [
+    {
+      title: "Custom Blockchain App Development",
+      description: "Tailored mobile applications built from scratch to meet your unique business model, goals, and technical requirements. We focus on creating scalable, secure, and user-friendly solutions that grow with your business.",
+    },
+    {
+      title: "Smart Contract Development and Audit",
+      description: "We create smart contracts that execute automatically without human intervention and are thoroughly tested and audited. All developed with a strong focus on accuracy and security. Every smart contract goes through rigorous testing protocols to identify vulnerabilities, prevent bugs, and ensure blockchain compliance.",
+    },
+    {
+      title: "Private Blockchain Development",
+      description: "For businesses that require more control over access, data, and transactions, we offer private or consortium blockchain solutions. These permissioned blockchain networks that provide enterprises-level security, efficiency, and privacy, making them ideal for healthcare, supply chain, and finance.",
+    },
+    {
+      title: "Cryptocurrency Wallet Development",
+      description: "We develop secure, user-friendly cryptocurrency wallets for storing and managing digital assets. Our wallets support multi-currency storage, two-factor authentication, real-time notifications and seamless integration with blockchain networks for both web and mobile platforms.",
+    },
+    {
+      title: "NFT Marketplace Development",
+      description: "We help you launch full-featured NFT marketplaces for digital assets such as art, music, gaming items, and collectibles. Our NFT platforms include minting tools, listing and trading features, secure payment gateways, social integration, and support for multiple blockchain networks like Ethereum and Polygon.",
+    },
+    {
+      title: "DeFi Application Development",
+      description: "We build decentralized finance (DeFi) platforms that support core functionalities like lending, borrowing, and yield farming, token swapping, and liquidity mining. These applications use innovative smart contract architecture, liquidity management, and user-friendly dashboards for seamless financial operations and services.",
+    }
+  ];
+
+  const getCardsAndTitle = () => {
+    switch (variant) {
+      case 'rpa':
+        return {
+          cards: rpaCards,
+          title: 'Driving Growth with Robotic Process Automation'
+        };
+      case 'blockchain':
+        return {
+          cards: blockchainCards,
+          title: 'Our Blockchain Development Services Include'
+        };
+      default:
+        return {
+          cards: aiCards,
+          title: 'How AI Development Accelerates Success'
+        };
+    }
+  };
+
+  const { cards: currentCards, title } = getCardsAndTitle();
 
   return (
     <div 
