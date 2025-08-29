@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MindorProps {
-  variant?: 'default' | 'service' | 'blockchain';
+  variant?: 'default' | 'service' | 'blockchain' | 'rpa';
 }
 
 const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
@@ -23,6 +23,12 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
             description: "In the era of digital transformation, blockchain stands out as a revolutionary technology. At Mindor, we offer comprehensive blockchain development services that empower businesses to leverage the benefits of decentralization, transparency, and security.",
             image: "/assets/block.png",
             alt: "Mindor Blockchain"
+        },
+        rpa: {
+            title: "Streamline Business Operations with Smart Automation",
+            description: "Tired of repetitive, manual tasks slowing down your team? Our Robotic Process Automation (RPA) services help streamline operations by automating routine processes and reducing costly errors. We use industry-leading RPA tools to free up your team for high-value work and fast-track your digital transformation — across any industry.",
+            image: "/assets/block.png",
+            alt: "Mindor RPA"
         }
     };
 
