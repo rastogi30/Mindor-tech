@@ -5,6 +5,7 @@ import Mindor from '@/components/Mindor';
 import FAQ from '@/components/webcomponents/faq';
 import Business from '@/components/Business';
 import Process from '@/components/blockcomponents/process';
+import Slider from '@/components/Slider';
 
 const Block: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Block: React.FC = () => {
       <Navbar />
       <Landing variant="blockchain" />
       <Mindor variant="blockchain" />
+      <Slider variant="blockchain" />
       <Process/>
       <Business variant="blockchain" />
       <FAQ variant="blockchain" />
