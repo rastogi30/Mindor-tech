@@ -11,7 +11,7 @@ import AIDevelopmentSuccess from '@/components/aicomponents/developement';
 
 const RPA: React.FC = () => {
   return (
-    <div>
+    <div className='mt-7'>
       <Navbar />
       <Landing variant="rpa" />
       <Mindor variant="rpa" />
