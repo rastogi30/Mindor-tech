@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 };
 
 interface BusinessProps {
-  variant?: 'business' | 'services' | 'ai' | 'blockchain';
+  variant?: 'business' | 'services' | 'ai' | 'blockchain' | 'rpa';
 }
 
 const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
@@ -161,9 +161,48 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
       title: "Education & eLearning",
       description: "Forgery-proof academic credentials and decentralized certificate verification are made possible with blockchain. We work with institutions and EdTech platforms to build secure systems that simplify authentication and improve employer trust."
     }
-  ]
+  ];
 
-  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : variant === 'blockchain' ? blockchain : businessData;
+  const rpa = [
+    {
+      icon: <img src="/assets/Finance.png" alt="Finance & Banking" className="w-5 h-5" />,
+      title: "Finance & Banking",
+      description: "Automate loan processing, compliance like KYC verification, regulatory compliance checks, loan disbursement and transaction verification. RPA helps financial institutions streamline operations, reduce processing times, and improve accuracy with audit trail capabilities."
+    },
+    {
+      icon: <img src="/assets/Health.png" alt="Healthcare & Wellness" className="w-5 h-5" />,
+      title: "Healthcare & Wellness",
+      description: "Streamline patient processes such as appointment scheduling, billing, insurance claim processing, medical record management. This not only improves operational efficiency but also enhances patient satisfaction by reducing wait times and improving data flow."
+    },
+    {
+      icon: <img src="/assets/Shopping.png" alt="E-Commerce & Retail" className="w-5 h-5" />,
+      title: "E-Commerce & Retail",
+      description: "Handle order processing, customer inquiries, inventory management, price updates, and return processing. RPA ensures accurate, real-time updates and helps retailers respond swiftly to market shifts and customer demands."
+    },
+    {
+      icon: <img src="/assets/Real.png" alt="Real Estate" className="w-5 h-5" />,
+      title: "Real Estate",
+      description: "Automation can assist in lead management, property transaction, leases, and ownership transfers. Our blockchain implementations help real estate firms eliminate paperwork, reduce fraud, and build trust in high-value transactions."
+    },
+    {
+      icon: <img src="/assets/Insurance.png" alt="Insurance" className="w-5 h-5" />,
+      title: "Insurance",
+      description: "Automate claims processing, policy administration, and customer onboarding. With RPA, insurers can handle high-volume document processing and analysis of repetitive tasks with consistent accuracy and reduced operational costs."
+    },
+    {
+      icon: <img src="/assets/Call.png" alt="Telecom" className="w-5 h-5" />,
+      title: "Telecom",
+      description: "Automate lines like subscriber onboarding, service provisioning, usage tracking, and customer query resolution. RPA provides delivery boost service automation and improves customer experience."
+    },
+    {
+      icon: <img src="/assets/HR.png" alt="HR & Recruitment" className="w-5 h-5" />,
+      title: "HR & Recruitment",
+      description: "Simplify resume screening, candidate shortlisting, employee onboarding, and payroll processing. RPA allows HR teams to focus on strategic talent management while bots handle time-consuming admin tasks efficiently."
+    }
+  ];
+
+
+  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : variant === 'blockchain' ? blockchain : variant === 'rpa' ? rpa : businessData;
 
   const headingData = {
     business: {
@@ -181,6 +220,10 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     blockchain:{
       title: "Blockchain Services Tailored for Every Industry",
       description: "We at Mindor leverage blockchain technology to create secure, transparent, and efficient solutions for businesses across various industries."
+    },
+    rpa: {
+      title: "RPA Services Tailored for Every Industry",
+      description: ""
     }
   };
 

@@ -6,6 +6,7 @@ import Slider from '@/components/Slider';
 import Process from '@/components/blockcomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import ChooseUs from '@/components/webcomponents/chooseus';
+import Business from '@/components/Business';
 
 const RPA: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const RPA: React.FC = () => {
       <Mindor variant="rpa" />
       <Slider variant="rpa" />
       <ChooseUs variant="rpa" />
+      <Business variant="rpa" />    
       <Process variant="rpa" />
       <FAQ variant="rpa" />
     </div>
