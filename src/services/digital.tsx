@@ -6,6 +6,7 @@ import Process from '@/components/blockcomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import Chooseus from '@/components/digitalcomponents/Chooseus';
 import Need from '@/components/digitalcomponents/Need';
+import Home from '@/components/digitalcomponents/Solution';
 
 const Digital: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Digital: React.FC = () => {
       <Navbar />
       <Landing variant='digital' />
       <Need/>
+      <Home />
       <Slider variant='digital' />
       <Process variant='digital' />
       <Chooseus />
