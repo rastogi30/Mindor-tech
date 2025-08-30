@@ -5,16 +5,18 @@ import Slider from '@/components/Slider';
 import Process from '@/components/blockcomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import Chooseus from '@/components/digitalcomponents/Chooseus';
+import Need from '@/components/digitalcomponents/Need';
 
 const Digital: React.FC = () => {
   return (
     <div className='mt-7'>
       <Navbar />
-      <Landing variant='digital'/>
+      <Landing variant='digital' />
+      <Need/>
+      <Slider variant='digital' />
+      <Process variant='digital' />
       <Chooseus />
-      <Slider variant='digital'/>
-      <Process variant='digital'/>
-      <FAQ variant='digital'/>
+      <FAQ variant='digital' />
     </div>
   );
 };
