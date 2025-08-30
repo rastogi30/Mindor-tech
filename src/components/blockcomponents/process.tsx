@@ -7,7 +7,7 @@ interface ProcessStep {
 }
 
 interface ProcessProps {
-  variant?: 'blockchain' | 'rpa';
+  variant?: 'blockchain' | 'rpa' | 'digital';
 }
 
 const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) => {
@@ -57,8 +57,42 @@ const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) =
     }
   ];
 
-  const processSteps = variant === 'rpa' ? rpaSteps : blockchainSteps;
-  const title = variant === 'rpa' ? 'Our RPA Implementation Process' : 'Our Blockchain Development Process';
+  const digitalSteps: ProcessStep[] = [
+    {
+      number: "01",
+      title: "Process Discovery & Planning",
+      description: "We start by understanding your business, goals, and target audience. Through market research, competitor analysis, and audience insights, we identify growth opportunities and set clear KPIs to guide every campaign."
+    },
+    {
+      number: "02",
+      title: "Strategy & Setup",
+      description: "Using the insights gathered, we design a tailored strategy covering SEO, social media, PPC, content, and email/Whatsapp marketing. Campaigns are set up with precise targeting, compelling creatives, and optimized landing pages to ensure maximum impact."
+    },
+    {
+      number: "03",
+      title: "Launch & Optimize",
+      description: "Campaigns go live across Google, Instagram, LinkedIn, and TikTok. We continuously monitor performance, test different approaches, and refine strategies to improve engagement, drive conversions, and maximize ROI."
+    },
+    {
+      number: "04",
+      title: "Report & Grow",
+      description: "You receive transparent reports with key metrics and actionable insights. We use this data to refine campaigns, drive sustained growth, increase visibility, and help your business outperform competitors."
+    }
+  ];
+
+  const processSteps =
+    variant === 'digital'
+      ? digitalSteps
+      : variant === 'rpa'
+      ? rpaSteps
+      : blockchainSteps;
+
+  const title =
+    variant === 'digital'
+      ? 'Our Digital Marketing Service Process'
+      : variant === 'rpa'
+      ? 'Our RPA Implementation Process'
+      : 'Our Blockchain Development Process';
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
