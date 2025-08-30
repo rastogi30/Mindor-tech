@@ -9,7 +9,7 @@ interface FAQItem {
     answer: string;
 }
 
-type FAQVariant = 'web' | 'ai' | 'blockchain' | 'rpa';
+type FAQVariant = 'web' | 'ai' | 'blockchain' | 'rpa' | 'digital';
 
 interface FAQProps {
     variant?: FAQVariant;
@@ -130,7 +130,40 @@ const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
         }
     ];
 
-    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : variant === 'blockchain' ? blockchain : rpa;
+    const digitalFaqData: FAQItem[] = [
+    {
+        id: 'digital-what-is',
+        question: 'What is digital marketing?',
+        answer: 'Digital marketing is the use of online channels and strategies—such as search engines, social media, email, and websites—to promote products, services, or brands and connect with potential customers.'
+    },
+    {
+        id: 'digital-benefits',
+        question: 'What are the main benefits of digital marketing?',
+        answer: 'Digital marketing helps businesses reach a wider audience, target specific customer segments, measure campaign performance in real time, and achieve cost-effective growth compared to traditional marketing methods.'
+    },
+    {
+        id: 'digital-services',
+        question: 'What digital marketing services do you offer?',
+        answer: 'We offer a full suite of services including SEO, PPC advertising, social media management, content marketing, email campaigns, online reputation management, and analytics/reporting.'
+    },
+    {
+        id: 'digital-results',
+        question: 'How soon can I expect results from digital marketing?',
+        answer: 'Results depend on your goals and chosen strategies. Some channels like PPC can deliver quick results, while SEO and content marketing may take several months to show significant impact. We provide transparent reporting so you can track progress at every stage.'
+    },
+    {
+        id: 'digital-budget',
+        question: 'How much should I budget for digital marketing?',
+        answer: 'Budget varies based on your business size, goals, and competition. We help you create a tailored plan that maximizes ROI, whether you’re a startup or an established brand.'
+    },
+    {
+        id: 'digital-customization',
+        question: 'Can digital marketing be customized for my industry?',
+        answer: 'Absolutely! We tailor strategies to your industry, target audience, and business objectives to ensure your campaigns deliver relevant results and sustainable growth.'
+    }
+];
+
+    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : variant === 'blockchain' ? blockchain : variant === 'rpa' ? rpa : digitalFaqData;
 
 
     const toggleItem = (itemId: string) => {

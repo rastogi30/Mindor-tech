@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Landing from '@/components/webcomponents/landing';
 import Slider from '@/components/Slider';
 import Process from '@/components/blockcomponents/process';
+import FAQ from '@/components/webcomponents/faq';
 
 const Digital: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Digital: React.FC = () => {
       <Landing variant='digital'/>
       <Slider variant='digital'/>
       <Process variant='digital'/>
+      <FAQ variant='digital'/>
     </div>
   );
 };
