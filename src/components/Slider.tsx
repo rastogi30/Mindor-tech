@@ -8,7 +8,7 @@ interface PromiseItem {
 }
 
 interface PromiseProgressProps {
-  variant?: 'web' | 'ai' | 'blockchain' | 'rpa';
+  variant?: 'web' | 'ai' | 'blockchain' | 'rpa' | 'digital';
 }
 
 const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) => {
@@ -51,7 +51,7 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
     }
   ];
 
-    const blockchainItems: PromiseItem[] = [
+  const blockchainItems: PromiseItem[] = [
     {
       id: 1,
       title: "Expertise Across Top Platforms",
@@ -180,6 +180,45 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
     }
   ];
 
+    const digitalItems: PromiseItem[] = [
+    {
+      id: 1,
+      title: "Small Businesses and Startups",
+      description: "With limited budgets and high competition, small businesses and startups can leverage digital marketing to level the playing field. Digital channels provide cost-effective ways to build brand awareness, attract local customers, and generate leads quickly. From local SEO to social media marketing, startups can create strong initial momentum without overspending.",
+      bgColor: "bg-purple-100"
+    },
+    {
+      id: 2,
+      title: "E-Commerce Companies",
+      description: "Online retailers rely heavily on digital marketing to drive traffic and conversions. Paid ads, retargeting campaigns, and email marketing help e-commerce businesses reach shoppers at different stages of the buying journey, increase average order value, and build customer loyalty. With detailed analytics, e-commerce brands can continuously optimize their marketing efforts for maximum ROI.",
+      bgColor: "bg-purple-200"
+    },
+    {
+      id: 3,
+      title: "Professional Services",
+      description: "Doctors, lawyers, consultants, and other professionals can use digital marketing to showcase their expertise and connect with potential clients. Content marketing, SEO, and LinkedIn advertising can build credibility, educate audiences, and generate high-quality inquiries.",
+      bgColor: "bg-purple-300"
+    },
+    {
+      id: 4,
+      title: "Established Businesses and Enterprises",
+      description: "Even established companies need to adapt to evolving consumer behaviors. Digital marketing helps these businesses enter new markets, launch new products, and maintain customer engagement. Advanced strategies such as data-driven advertising and influencer collaborations support sustained growth.",
+      bgColor: "bg-purple-200"
+    },
+    {
+      id: 5,
+      title: "Nonprofits and Educational Institutions",
+      description: "Organizations that rely on public support or enrollment benefit from digital marketing by spreading their messaging, raising awareness, and encouraging action. Storytelling through social media, email campaigns, and search marketing enables nonprofits and schools to connect emotionally and build supportive communities.",
+      bgColor: "bg-purple-100"
+    },
+    {
+      id: 6,
+      title: "Local Brick and Mortar Stores",
+      description: "Physical stores that depend on local foot traffic can benefit greatly from digital marketing techniques such as local SEO, Google My Business optimization, and targeted social media advertising. These help attract nearby customers searching for relevant products or services, improving visibility and driving in-store visits.",
+      bgColor: "bg-purple-200"
+    }
+  ];
+
   const getContent = () => {
     switch (variant) {
       case 'blockchain':
@@ -199,6 +238,12 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
           items: rpaItems,
           title: "End-to-End RPA Development Services to Transform Your Business",
           subtitle: ""
+        };
+      case 'digital':
+        return {
+          items: digitalItems,
+          title: "Who Can Benefit from Digital Marketing Services?",
+          subtitle: "Digital marketing is no longer a luxury reserved for large corporations — it's an essential strategy for any business or organization aiming to grow, compete, and stay relevant in today's digital-first world."
         };
       default:
         return {
@@ -230,7 +275,7 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
               <div
                 key={item.id}
                 className={`sticky rounded-2xl p-8 mb-8 shadow-lg transition-all duration-300 hover:shadow-xl ${item.bgColor}`}
-                style={{ 
+                style={{
                   top: `${4}rem`,
                   zIndex: index + 1
                 }}
