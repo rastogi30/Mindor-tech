@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface LandingProps {
-    variant?: 'web' | 'ai' | 'blockchain' | 'rpa';
+    variant?: 'web' | 'ai' | 'blockchain' | 'rpa'| 'digital';
 }
 
 const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
@@ -115,7 +115,47 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
                 text: "Get RPA Consultation",
                 className: "bg-white text-black hover:bg-blue-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             }
-        }
+        },
+                digital: {
+            badge: {
+                text: "Digital Marketing",
+                className: "backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/30"
+            },
+            title: (
+                <>
+                    Digital Marketing Services That Drive Business Growth
+                </>
+            ),
+            description: "At Mindor, we don't just “do” digital marketing. We help businesses like yours turn visibility into trust, clicks into customers, and strategies into scalable growth. Whether you're launching, growing, or reinventing, we bring the right mix of creativity, data, and performance to move your brand forward with purpose and impact.",
+            background: "linear-gradient(135deg, #232D62 0%, #4A5DB8 100%), url(/assets/background.png)",
+            floatingElements: (
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/3 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                </div>
+            ),
+            features: (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-white text-lg font-medium">
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-300 text-xl font-bold">✓</span> Strengthen Online Presence
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-300 text-xl font-bold">✓</span> Increase Website Traffic
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-300 text-xl font-bold">✓</span> Boost Brand Authority
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-300 text-xl font-bold">✓</span> Drive Consistent Growth
+                    </div>
+                </div>
+            ),
+            cta: {
+                text: "Get Free Consultation",
+                className: "bg-white text-black hover:bg-blue-50 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            }
+        },
     };
 
     const currentContent = content[variant];
