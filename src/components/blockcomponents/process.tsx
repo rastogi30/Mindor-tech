@@ -7,7 +7,7 @@ interface ProcessStep {
 }
 
 interface ProcessProps {
-  variant?: 'blockchain' | 'rpa' | 'digital';
+  variant?: 'blockchain' | 'rpa' | 'digital' | 'app';
 }
 
 const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) => {
@@ -80,11 +80,46 @@ const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) =
     }
   ];
 
-  const processSteps =
+   const appSteps: ProcessStep[] = [
+    {
+      number: "01",
+      title: "Discovery & Planning",
+      description: "We begin with focused discussions to understand your business goals, target users, and technical needs. This helps us define the right features and product strategy before we write any code."
+    },
+    {
+      number: "02",
+      title: "UI/UX Wireframing",
+      description: "Next, we create wireframes and interactive prototypes to map out the user experience. This stage gives you a visual feel of the app’s flow and helps validate key screens before design and development."
+    },
+    {
+      number: "03",
+      title: "Agile Development",
+      description: "Our developers work in structured sprints, giving you regular updates, working builds, and room to iterate. We prioritize progress transparency and flexibility throughout the build."
+    },
+    {
+      number: "04",
+      title: "Testing & Quality Assurance",
+      description: "We test your app across devices, screen sizes, and real-world scenarios. Our QA process ensures bug-free performance, smooth interactions, and secure architecture."
+    },
+    {
+      number: "05",
+      title: "Launch & Deployment",
+      description: "We manage the entire release process from app store submissions to backend deployment, ensuring your app is production-ready and optimized at launch."
+    },
+    {
+      number: "06",
+      title: "Post-Launch Support",
+      description: "After your app goes live, we stick around. From updates and bug fixes to feature enhancements and scaling, we provide ongoing support to help your app evolve with your users."
+    }
+  ];
+
+const processSteps =
     variant === 'digital'
       ? digitalSteps
       : variant === 'rpa'
       ? rpaSteps
+      : variant === 'app'
+      ? appSteps
       : blockchainSteps;
 
   const title =
@@ -92,6 +127,8 @@ const BlockchainProcess: React.FC<ProcessProps> = ({ variant = 'blockchain' }) =
       ? 'Our Digital Marketing Service Process'
       : variant === 'rpa'
       ? 'Our RPA Implementation Process'
+      : variant === 'app'
+      ? 'Our Mobile App Development Process'
       : 'Our Blockchain Development Process';
 
   return (
