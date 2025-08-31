@@ -138,16 +138,28 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
             features: (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-white text-lg font-medium">
                     <div className="flex items-center gap-2">
-                        <span className="text-green-300 text-xl font-bold">✓</span> Strengthen Online Presence
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                            <span className="text-green-400 text-xl font-bold">✓</span>
+                        </span>
+                        Strengthen Online Presence
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="text-green-300 text-xl font-bold">✓</span> Increase Website Traffic
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                            <span className="text-green-400 text-xl font-bold">✓</span>
+                        </span>
+                        Increase Website Traffic
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="text-green-300 text-xl font-bold">✓</span> Boost Brand Authority
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                            <span className="text-green-400 text-xl font-bold">✓</span>
+                        </span>
+                        Boost Brand Authority
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="text-green-300 text-xl font-bold">✓</span> Drive Consistent Growth
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                            <span className="text-green-400 text-xl font-bold">✓</span>
+                        </span>
+                        Drive Consistent Growth
                     </div>
                 </div>
             ),
