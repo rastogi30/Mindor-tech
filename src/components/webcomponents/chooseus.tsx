@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ChooseUsProps {
-  variant?: 'web' | 'ai'| 'rpa';
+  variant?: 'web' | 'ai'| 'rpa'|'app';
 }
 
 interface Card {
@@ -13,7 +13,7 @@ interface Card {
 }
 
 const ChooseUs: React.FC<ChooseUsProps> = ({ variant = 'web' }) => {
-  const content: { web: { title: string; subtitle: string; cards: Card[] }; ai: { title: string; subtitle: string; cards: Card[] }; rpa: { title: string; subtitle: string; cards: Card[] } } = {
+  const content: { web: { title: string; subtitle: string; cards: Card[] }; ai: { title: string; subtitle: string; cards: Card[] }; rpa: { title: string; subtitle: string; cards: Card[] }; app: { title: string; subtitle: string; cards: Card[] } } = {
     web: {
       title: "Why Our Custom Web Development Services Stand Out",
       subtitle: "Choose Mindor for unparalleled dedication and expertise.",
@@ -105,6 +105,36 @@ const ChooseUs: React.FC<ChooseUsProps> = ({ variant = 'web' }) => {
           color: "bg-teal-500",
           title: "Transparency at Every Step",
           description: "We believe in clear communication and measurable success. From planning through deployment, you'll receive regular updates, detailed reports, and performance metrics that show exactly how automation is driving value."
+        }
+      ]
+    },
+     app: {
+      title: "What Sets Our Mobile App Development Services Apart",
+      subtitle: "",
+      cards: [
+        {
+          number: 1,
+          color: "bg-purple-500",
+          title: "Built Around Your Vision",
+          description: "Every great product starts with a clear vision. That’s why we begin by listening. We take time to understand your goals, users, and market before writing a single line of code. By defining the core problem and aligning with your business model, we ensure every feature has purpose and drives meaningful results."
+        },
+        {
+          number: 2,
+          color: "bg-purple-500",
+          title: "Obsessed With User Experience",
+          description: "We don’t just design interfaces; we design experiences. Every screen, gesture, and interaction is carefully crafted to feel natural, intuitive, and delightful. Our design process is backed by real user research, UI principles, and accessibility standards to ensure your app isn’t just usable but unforgettable."
+        },
+        {
+          number: 3,
+          color: "bg-pink-500",
+          title: "Always in Sync",
+          description: "You’ll never wonder what’s happening or where things stand. Our workflow is built on radical transparency and proactive communication. From weekly sprint reviews to shared project boards and real-time feedback loops, we keep you informed, involved, and in control at every step of the journey."
+        },
+        {
+          number: 4,
+          color: "bg-teal-500",
+          title: "Launch Smart, Scale Fast",
+          description: "We build for impact and speed. Using cross-platform frameworks like Flutter and React Native, we help you launch faster and reach a wider audience without sacrificing quality. Whether it’s an MVP or a full-scale product, our codebase is built to scale as your user base grows."
         }
       ]
     }
