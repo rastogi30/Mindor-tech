@@ -6,7 +6,7 @@ interface CardData {
 }
 
 interface DevelopmentProps {
-  variant?: 'ai' | 'rpa' | 'blockchain';
+  variant?: 'ai' | 'rpa' | 'blockchain' | 'app';
 }
 
 const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) => {
@@ -34,7 +34,7 @@ const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) =>
     {
       title: "Mitigate Risks",
       description: "Deploy AI automation to handle time-consuming, rule-based activities such as data entry, basic customer inquiries, and report generation. This not only reduces manual workload but also minimizes errors and increases overall efficiency, allowing teams to focus on strategic, goals and high-value innovation.",
-    }   
+    }
   ];
 
   const rpaCards: CardData[] = [
@@ -87,12 +87,44 @@ const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) =>
     }
   ];
 
+  const appCards: CardData[] = [
+    {
+      title: "Custom App Development",
+      description: "Tailored mobile applications built from scratch to meet your unique business needs, goals, and technical requirements. We focus on creating scalable, secure, and future-ready apps that grow with your business.",
+    },
+    {
+      title: "Cross-Platform Development",
+      description: "Build once, deploy everywhere. We use modern frameworks to create apps that run smoothly on both iOS and Android with a single codebase. This approach helps reduce development time and cost while ensuring consistent user experiences.",
+    },
+    {
+      title: "iOS / Android Native Apps",
+      description: "For projects that need platform-specific performance or features, we develop fully native apps using Swift, Kotlin, and Java. Native apps provide better speed, hardware access, and integration with device-specific functionalities.",
+    },
+    {
+      title: "Custom App Development",
+      description: "Tailored mobile applications built from scratch to meet your unique business needs, goals, and technical requirements. We focus on creating scalable, secure, and future-ready apps that grow with your business.",
+    },
+    {
+      title: "Cross-Platform Development",
+      description: "Build once, deploy everywhere. We use modern frameworks to create apps that run smoothly on both iOS and Android with a single codebase. This approach helps reduce development time and cost while ensuring consistent user experiences.",
+    },
+    {
+      title: "iOS / Android Native Apps",
+      description: "For projects that need platform-specific performance or features, we develop fully native apps using Swift, Kotlin, and Java. Native apps provide better speed, hardware access, and integration with device-specific functionalities.",
+    }
+  ];
+
   const getCardsAndTitle = () => {
     switch (variant) {
       case 'rpa':
         return {
           cards: rpaCards,
           title: 'Driving Growth with Robotic Process Automation'
+        };
+      case 'app':
+        return {
+          cards: appCards,
+          title: 'Our Mobile App Development Capabilities'
         };
       case 'blockchain':
         return {
@@ -110,7 +142,7 @@ const AIDevelopmentSuccess: React.FC<DevelopmentProps> = ({ variant = 'ai' }) =>
   const { cards: currentCards, title } = getCardsAndTitle();
 
   return (
-    <div 
+    <div
       className="min-h-screen py-16 px-4"
       style={{
         background: 'linear-gradient(108.05deg, #FBFCFF 7.09%, #FFFFFF 68.38%, #C6CDF4 114.73%)'
