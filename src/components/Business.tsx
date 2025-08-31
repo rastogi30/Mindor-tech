@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 };
 
 interface BusinessProps {
-  variant?: 'business' | 'services' | 'ai' | 'blockchain' | 'rpa';
+  variant?: 'business' | 'services' | 'ai' | 'blockchain' | 'rpa' | 'app';
 }
 
 const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
@@ -108,12 +108,12 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
       title: "Logistics & Transportation",
       description: "AI streamlines logistics with dynamic route optimization, real-time fleet tracking, and warehouse automation. It also enables demand prediction and powers the development of autonomous vehicles."
     },
-        {
+    {
       icon: <img src="/assets/Call.png" alt="Customer Service AI" className="w-5 h-5" />,
       title: "Customer Service",
       description: " AI-driven chatbots handle high volumes of queries with human-like responses. Sentiment analysis, intelligent ticket routing, and personalized support help elevate customer satisfaction and reduce response time."
     },
-        {
+    {
       icon: <img src="/assets/HR.png" alt="HR AI" className="w-5 h-5" />,
       title: "HR & Recruitment",
       description: " AI automates resume screening and candidate matching, improving hiring efficiency. It supports talent analytics, employee engagement strategies, and delivers more personalized workplace experiences."
@@ -201,8 +201,58 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
     }
   ];
 
+  const appData = [
+    {
+      icon: <img src="/assets/Health.png" alt="Healthcare & Wellness" className="w-7 h-7" />,
+      title: "Healthcare & Wellness",
+      description: "Platforms that simplify care, automate operations, and protect patient data. From telehealth to wellness apps, everything is built with empathy, security, and impact in mind."
+    },
+    {
+      icon: <img src="/assets/Finance.png" alt="Finance & Fintech" className="w-7 h-7" />,
+      title: "Finance & Fintech",
+      description: "Modern fintech tools that are fast, secure, and built for trust. From payments to blockchain, solutions are made for transparency, compliance, and scale."
+    },
+    {
+      icon: <img src="/assets/Shopping.png" alt="E-Commerce & Retail" className="w-7 h-7" />,
+      title: "E-Commerce & Retail",
+      description: "Mobile-first shopping experiences designed to convert, retain, and impress customers. Smart UX, AI-powered recommendations, and smooth checkouts help drive real revenue."
+    },
+    {
+      icon: <img src="/assets/Vector.png" alt="SaaS & Internal Tools" className="w-7 h-7" />,
+      title: "SaaS & Internal Tools",
+      description: "Have a workflow problem? We solve it with mobile-first tools — CRMs, dashboards, reporting apps, and task managers built to fit your process, your data, and your team's daily rhythm."
+    },
+    {
+      icon: <img src="/assets/Transport.png" alt="Logistics & Transportation" className="w-7 h-7" />,
+      title: "Logistics & Transportation",
+      description: "AI streamlines logistics with dynamic route optimization, real-time fleet tracking, and warehouse automation. It also enables demand prediction and powers the development of autonomous vehicles."
+    },
+    {
+      icon: <img src="/assets/Education.png" alt="Education & eLearning" className="w-7 h-7" />,
+      title: "Education & eLearning",
+      description: "We build engaging learning platforms for educators, startups, and institutions. Whether it’s live classes, quizzes, course management, or progress tracking — we help turn passive learning into active growth."
+    },
+    {
+      icon: <img src="/assets/Media.png" alt="Media & Content Platforms" className="w-7 h-7" />,
+      title: "Media & Content Platforms",
+      description: "We help creators and publishers deliver engaging content on the go. From streaming apps and podcast players to subscriber models and event platforms — we build for scale, performance, and seamless media delivery."
+    }
+  ];
 
-  const currentData = variant === 'ai' ? aiData : variant === 'services' ? servicesData : variant === 'blockchain' ? blockchain : variant === 'rpa' ? rpa : businessData;
+
+
+  const currentData =
+    variant === 'app'
+      ? appData
+      : variant === 'ai'
+        ? aiData
+        : variant === 'services'
+          ? servicesData
+          : variant === 'blockchain'
+            ? blockchain
+            : variant === 'rpa'
+              ? rpa
+              : businessData;
 
   const headingData = {
     business: {
@@ -217,13 +267,18 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
       title: "Real-World AI Applications Across Industries",
       description: "We at Mindor tailor digital solutions to meet the unique demands of various sectors."
     },
-    blockchain:{
+    blockchain: {
       title: "Blockchain Services Tailored for Every Industry",
       description: "We at Mindor leverage blockchain technology to create secure, transparent, and efficient solutions for businesses across various industries."
     },
     rpa: {
       title: "RPA Services Tailored for Every Industry",
       description: ""
+    },
+    app: {
+      title: "Industries We Serve",
+      description:
+        "We turn ideas into impactful mobile apps — no matter what industry you're in. You bring the domain expertise. We bring the design, development, and delivery. From customer-facing products to internal tools, we've helped businesses across sectors build mobile experiences that drive results."
     }
   };
 

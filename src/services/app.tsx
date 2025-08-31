@@ -6,6 +6,7 @@ import Process from '@/components/blockcomponents/process'
 import FAQ from '@/components/webcomponents/faq'
 import AIDevelopmentSuccess from '@/components/aicomponents/developement'
 import Mindor from '@/components/Mindor'
+import Business from '@/components/Business'
 
 const App: React.FC = () => {
     return(
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <AIDevelopmentSuccess variant='app'/>
             <ChooseUs variant='app'/>
             <Process variant='app'/>
+            <Business variant='app'/>
             <FAQ variant='app'/>
         </div>
     )
