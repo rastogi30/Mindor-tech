@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Landing from '@/components/webcomponents/landing'
 import ChooseUs from '@/components/webcomponents/chooseus'
 import Process from '@/components/blockcomponents/process'
+import FAQ from '@/components/webcomponents/faq'
 
 const App: React.FC = () => {
     return(
@@ -11,6 +12,7 @@ const App: React.FC = () => {
             <Landing variant='app'/>
             <ChooseUs variant='app'/>
             <Process variant='app'/>
+            <FAQ variant='app'/>
         </div>
     )
 }

@@ -9,7 +9,7 @@ interface FAQItem {
     answer: string;
 }
 
-type FAQVariant = 'web' | 'ai' | 'blockchain' | 'rpa' | 'digital';
+type FAQVariant = 'web' | 'ai' | 'blockchain' | 'rpa' | 'digital' | 'app';
 
 interface FAQProps {
     variant?: FAQVariant;
@@ -163,7 +163,40 @@ const FAQ: React.FC<FAQProps> = ({ variant = 'web' }) => {
     }
 ];
 
-    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : variant === 'blockchain' ? blockchain : variant === 'rpa' ? rpa : digitalFaqData;
+const appData: FAQItem[] = [
+    {
+        id: 'app-what-is',
+        question: 'What is mobile app development?',
+        answer: 'Mobile app development is the process of creating software applications that run on mobile devices. It involves designing, coding, testing, and deploying apps for platforms like iOS and Android.'
+    },
+    {
+        id: 'app-benefits',
+        question: 'What are the benefits of having a mobile app?',
+        answer: 'Mobile apps offer several benefits, including increased accessibility, improved user engagement, personalized experiences, and the ability to leverage device features like GPS and push notifications.'
+    },
+    {
+        id: 'app-process',
+        question: 'What is your mobile app development process?',
+        answer: 'Our process includes discovery and planning, UI/UX design, agile development, testing and quality assurance, launch and deployment, and post-launch support.'
+    },
+    {
+        id: 'app-maintenance',
+        question: 'How do you handle app maintenance and updates?',
+        answer: 'We provide ongoing maintenance and support services to ensure your app remains functional and up-to-date. This includes bug fixes, performance optimization, and feature enhancements.'
+    },
+    {
+        id: 'app-cost',
+        question: 'How much does it cost to develop a mobile app?',
+        answer: 'App development costs vary based on factors like complexity, features, and platform. We offer tailored quotes based on your specific requirements.'
+    },
+    {
+        id: 'app-customization',
+        question: 'Can you customize the app for my business needs?',
+        answer: 'Absolutely! We work closely with you to understand your business goals and customize the app to meet your specific needs and requirements.'
+    }
+];
+
+    const faqData = variant === 'web' ? webFaqData : variant === 'ai' ? aiFaqData : variant === 'blockchain' ? blockchain : variant === 'rpa' ? rpa : variant === 'app' ? appData : digitalFaqData;
 
 
     const toggleItem = (itemId: string) => {
