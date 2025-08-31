@@ -5,37 +5,37 @@ const services = [
     title: "Search Engine Optimization",
     description:
       "Get found when it matters most. We optimize your website for both search engines and users, using a full-stack SEO approach—from keyword research and technical fixes to content optimization and backlinks. The goal? Higher rankings, more organic traffic, and better-quality leads over time.",
-    image: "/seo.png",
+    image: "/assets/seo.png",
   },
   {
     title: "Social Media Marketing",
     description:
       "Social isn’t just for likes — it’s for building trust and community. We create scroll-stopping content, manage your profiles, and run targeted campaigns.",
-    image: "/social-media.png",
+    image: "/assets/social.png",
   },
   {
     title: "Paid Marketing Campaigns",
     description:
       "Reach your audience fast and stay ahead of the competition. From Google Search to Facebook and Instagram Ads, we run high-performance campaigns.",
-    image: "/paid-marketing.png",
+    image: "/assets/paid.png",
   },
   {
     title: "Content Marketing",
     description:
       "Great content builds authority and trust. We help you craft blogs, website content, landing pages, product descriptions, and copy that educates and converts.",
-    image: "/content-marketing.png",
+    image: "/assets/content.png",
   },
   {
     title: "Email Marketing",
     description:
       "Your best leads are the ones who already know you. We help you reach them with email strategies that include list building, automated workflows, and more.",
-    image: "/email-marketing.png",
+    image: "/assets/email.png",
   },
   {
     title: "Online Reputation Management",
     description:
       "People often judge your brand before they ever visit your website—through reviews, search results, and social feedback. We monitor, protect, and enhance your reputation.",
-    image: "/reputation-management.png",
+    image: "/assets/Offline.png",
   },
 ];
 
