@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MindorProps {
-  variant?: 'default' | 'service' | 'blockchain' | 'rpa';
+    variant?: 'default' | 'service' | 'blockchain' | 'rpa' | 'app';
 }
 
 const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
@@ -29,7 +29,16 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
             description: "Tired of repetitive, manual tasks slowing down your team? Our Robotic Process Automation (RPA) services help streamline operations by automating routine processes and reducing costly errors. We use industry-leading RPA tools to free up your team for high-value work and fast-track your digital transformation — across any industry.",
             image: "/assets/block.png",
             alt: "Mindor RPA"
-        }
+        },
+        app: {
+            title: "End to End Mobile App Development Services",
+            description: `Bringing a mobile app idea to life takes more than just writing code. It requires smart strategy, thoughtful design, and strong technical execution. Every stage, from the first sketch to the final launch, is handled by our in-house team.
+This includes product planning, UI/UX design, development, testing, deployment, and long-term support. Whether you’re building a new product or upgrading an existing one, we create solutions tailored to your goals and your users.
+Each app is built to be scalable, secure, and high-performing. It works seamlessly across both iOS and Android platforms. We use modern technologies like Flutter and React Native to ensure your app is future-ready.
+With agile sprints and real-time updates, you’ll always know what’s happening. Our process is transparent, collaborative, and designed to keep you involved every step of the way.`,
+            image: "/assets/App.png",
+            alt: "Mobile App Development"
+        },
     };
 
     const currentContent = content[variant];
