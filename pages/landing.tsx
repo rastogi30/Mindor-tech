@@ -26,14 +26,12 @@ const MindorTechHomepage: React.FC = () => {
 
           <div className="space-y-10 pt-10">
             <div className="inline-block backdrop-blur-md border border-white/25 px-6 py-1 rounded-full text-base font-medium shadow-lg">
-              AI & Software Solution
+              One Partner. Infinite Possibilities.
             </div>
 
             <div className="lg:flex lg:items-start lg:justify-between mt-5">
               <h1 className="text-4xl xl:text-5xl font-semibold leading-tight tracking-tight lg:max-w-[55%]" style={{ color: 'ffffff' }}>
-                Your on demand AI &<br />
-                Software<br />
-                Development Partner
+                Web, Mobile, AI & Digital Solutions to power smarter enterprises.
               </h1>
               <div className="mt-6 lg:mt-0 lg:max-w-[40%] lg:text-right">
                 <p className="text-lg text-white leading-relaxed font-medium">
