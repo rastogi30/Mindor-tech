@@ -234,6 +234,32 @@ const Landing: React.FC<LandingProps> = ({ variant = 'web' }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Format the message
+        const message = `New ${currentContent.badge.text} Inquiry:
+        
+Name: ${formData.name}
+Email: ${formData.email}
+WhatsApp: ${formData.whatsappNumber}
+
+Service Interested: ${currentContent.badge.text}`;
+
+        // WhatsApp number to send to
+        const whatsappNumber = '918928210967'; // +91 89282 10967
+
+        // Create WhatsApp URL
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        // Open WhatsApp
+        window.open(whatsappURL, '_blank');
+
+        // Reset form
+        setFormData({
+            name: '',
+            email: '',
+            message: '',
+            whatsappNumber: ''
+        });
     };
 
     return (
