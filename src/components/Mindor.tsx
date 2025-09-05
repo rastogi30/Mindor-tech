@@ -14,7 +14,7 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
         },
         service: {
             title: "Tailored Web Applications Designed for Your Business Needs Perfectly",
-            description: "Most off-the-shelf solutions force companies to compromise, leading to workarounds, limitations, and inefficiencies that become part of the daily workflow. At Mindor, we build bespoke web platforms that align perfectly with your unique business, not someone else’s template. We empower businesses with solutions that drive growth.",
+            description: "Most off-the-shelf solutions force companies to compromise, leading to workarounds, limitations, and inefficiencies that become part of the daily workflow. At Mindor, we build bespoke web platforms that align perfectly with your unique business, not someone else's template. We empower businesses with solutions that drive growth.",
             image: "/assets/web.png",
             alt: "Mindor Services"
         },
@@ -33,9 +33,9 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
         app: {
             title: "End to End Mobile App Development Services",
             description: `Bringing a mobile app idea to life takes more than just writing code. It requires smart strategy, thoughtful design, and strong technical execution. Every stage, from the first sketch to the final launch, is handled by our in-house team.
-This includes product planning, UI/UX design, development, testing, deployment, and long-term support. Whether you’re building a new product or upgrading an existing one, we create solutions tailored to your goals and your users.
+This includes product planning, UI/UX design, development, testing, deployment, and long-term support. Whether you're building a new product or upgrading an existing one, we create solutions tailored to your goals and your users.
 Each app is built to be scalable, secure, and high-performing. It works seamlessly across both iOS and Android platforms. We use modern technologies like Flutter and React Native to ensure your app is future-ready.
-With agile sprints and real-time updates, you’ll always know what’s happening. Our process is transparent, collaborative, and designed to keep you involved every step of the way.`,
+With agile sprints and real-time updates, you'll always know what's happening. Our process is transparent, collaborative, and designed to keep you involved every step of the way.`,
             image: "/assets/App.png",
             alt: "Mobile App Development"
         },
@@ -44,25 +44,27 @@ With agile sprints and real-time updates, you’ll always know what’s happenin
     const currentContent = content[variant];
 
     return (
-        <div className=" md:p-6 flex items-center justify-center" style={{ backgroundColor: '#F1F0FF' }}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 w-full  items-center">
-                <div className="order-2 lg:order-1  lg:w-[750px]">
-                    <div className="bg-gradient-to-b from-[#E1DFFF] to-[#EAE9FF] backdrop-blur-sm p-6 md:p-8 lg:p-12 rounded-2xl shadow-2xl border border-white/20">
-                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mb-4 md:mb-6 leading-tight" style={{ color: '#2A2A2A' }}>
+        <div className="px-6 md:px-8 py-12 md:py-16 flex items-center justify-center" style={{ backgroundColor: '#F1F0FF' }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 max-w-7xl w-full items-center">
+                {/* Left side - Content */}
+                <div className="order-2 lg:order-1">
+                    <div className="bg-gradient-to-b from-[#E1DFFF] to-[#EAE9FF] backdrop-blur-sm p-6 md:p-8 lg:p-10 rounded-2xl shadow-2xl border border-white/20 h-full flex flex-col justify-center">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 md:mb-6 leading-tight" style={{ color: '#2A2A2A' }}>
                             {currentContent.title}
                         </h2>
-                        <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-medium" style={{ color: '#2A2A2A' }}>
+                        <p className="text-sm sm:text-base md:text-lg leading-relaxed font-medium" style={{ color: '#2A2A2A' }}>
                             {currentContent.description}
                         </p>
                     </div>
                 </div>
 
+                {/* Right side - Image */}
                 <div className="order-1 lg:order-2 flex justify-center items-center">
-                    <div className="sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+                    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                         <img
                             src={currentContent.image}
                             alt={currentContent.alt}
-                            className="w-full h-auto drop-shadow-2xl"
+                            className="w-full h-auto object-contain drop-shadow-2xl max-h-80 lg:max-h-96"
                         />
                     </div>
                 </div>
