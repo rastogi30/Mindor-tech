@@ -33,7 +33,7 @@ const MindorTechHomepage: React.FC = () => {
               <h1 className="text-4xl xl:text-5xl font-semibold leading-tight tracking-tight lg:max-w-[55%]" style={{ color: 'ffffff' }}>
                 Web, Mobile, AI & Digital Solutions to power smarter enterprises.
               </h1>
-              <div className="mt-6 lg:mt-0 lg:max-w-[40%] lg:text-right">
+              <div className="mt-6 lg:mt-0 lg:max-w-[40%] lg:text-left">
                 <p className="text-lg text-white leading-relaxed font-medium">
                   Great apps, seamless websites, intelligent automation and digital growth. Mindor delivers scalable digital solutions that transform ideas into results. We don't just build tech, we build what your business truly needs to grow.
                 </p>
