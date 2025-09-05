@@ -283,8 +283,8 @@ const Business: React.FC<BusinessProps> = ({ variant = 'business' }) => {
   };
 
   return (
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 relative" style={{ backgroundColor: '#F9FBFF' }}>
-      <div className="w-full mx-auto">
+<section className="py-16 px-4 sm:px-6 lg:px-8 relative" style={{ backgroundColor: '#F9FBFF' }}>
+  <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12 space-y-6 lg:space-y-0">
           <div className="lg:max-w-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#2A2A2A' }}>
