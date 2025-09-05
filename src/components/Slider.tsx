@@ -257,7 +257,7 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
   const content = getContent();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className=" bg-gray-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
 
@@ -274,9 +274,9 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
             {content.items.map((item, index) => (
               <div
                 key={item.id}
-                className={`sticky rounded-2xl p-8 mb-8 shadow-lg transition-all duration-300 hover:shadow-xl ${item.bgColor}`}
+                className={`sticky rounded-2xl p-8 mb-4 shadow-lg transition-all duration-300 hover:shadow-xl ${item.bgColor}`}
                 style={{
-                  top: `${4}rem`,
+                  top: `${4 + index * 1.5}rem`,
                   zIndex: index + 1
                 }}
               >
