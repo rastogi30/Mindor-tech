@@ -7,6 +7,7 @@ import FAQ from '@/components/webcomponents/faq'
 import AIDevelopmentSuccess from '@/components/aicomponents/developement'
 import Mindor from '@/components/Mindor'
 import Business from '@/components/Business'
+import Footer from '@/components/Footer'
 
 const App: React.FC = () => {
     return(
@@ -19,6 +20,7 @@ const App: React.FC = () => {
             <Process variant='app'/>
             <Business variant='app'/>
             <FAQ variant='app'/>
+            <Footer/>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import Process from '@/components/aicomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import Services from '@/components/aicomponents/services';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
+import Footer from '@/components/Footer';
 
 const AI: React.FC = () => {
     return (
@@ -19,6 +20,7 @@ const AI: React.FC = () => {
             <Business variant="ai" />
             <Process />
             <FAQ variant="ai" />
+            <Footer />
         </div>
     );
 };
