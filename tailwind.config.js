@@ -31,9 +31,9 @@ export default {
         border: '#e2e8f0',
       },
       fontFamily: {
-        // 'montserrat': ['Montserrat', 'sans-serif'],
-        'primary': ['Pacifico', 'system-ui', '-apple-system', 'sans-serif'],
-        'secondary': ['Pacifico', 'system-ui', '-apple-system', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        primary: ['Pacifico', 'system-ui', '-apple-system', 'sans-serif'],
+        secondary: ['Pacifico', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         'light': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
