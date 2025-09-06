@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <Link href="/about" passHref>
+        <Link href="/" passHref>
           <span className="text-white/80 hover:text-white transition-colors text-md cursor-pointer">
             About
           </span>
@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
               </div>
             </div>
 
-            <Link href="/about" passHref>
+            <Link href="/" passHref>
               <div className="text-white font-medium text-lg py-3 px-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer" onClick={() => setNavOpen(false)}>
                 About
               </div>
