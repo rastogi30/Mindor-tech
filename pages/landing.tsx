@@ -48,21 +48,27 @@ const MindorTechHomepage: React.FC = () => {
 
           <div className="relative flex items-center justify-center">
             <div className="absolute top-10 left-2 z-30">
-              <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
+              <div className="backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl" style={{
+                background: 'linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)'
+              }}>
                 <p className="text-white text-sm font-semibold">Website Development</p>
               </div>
               <div className="absolute top-8 left-full w-40 h-0.5 bg-white/70"></div>
               <div className="absolute top-8 left-[calc(100%+160px)] w-0.5 h-24 bg-white/70"></div>
             </div>
             <div className="absolute top-25 right-2 z-25">
-              <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
+              <div className="backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl" style={{
+                background: 'linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)'
+              }}>
                 <p className="text-white text-sm font-semibold">Mobile App Development</p>
               </div>
               <div className="absolute top-8 right-full w-44 h-0.5 bg-white/70"></div>
               <div className="absolute top-8 right-[calc(100%+176px)] w-0.5 h-32 bg-white/70"></div>
             </div>
-            <div className="absolute bottom-15 left-4 z-25">
-              <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
+              <div className="absolute bottom-15 left-4 z-25">
+              <div className="backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl" style={{
+                background: 'linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)'
+              }}>
                 <p className="text-white text-sm font-semibold">AI Powered Solutions</p>
               </div>
               <div className="absolute bottom-8 left-full w-36 h-0.5 bg-white/70"></div>
