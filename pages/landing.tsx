@@ -47,32 +47,30 @@ const MindorTechHomepage: React.FC = () => {
           </div>
 
           <div className="relative flex items-center justify-center">
-            <div className="absolute top-10 left-10 z-30">
+            <div className="absolute top-10 left-2 z-30">
               <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
                 <p className="text-white text-sm font-semibold">Website Development</p>
               </div>
-              <div className="absolute top-8 left-full w-32 h-0.5 bg-white/70"></div>
+              <div className="absolute top-8 left-full w-40 h-0.5 bg-white/70"></div>
+              <div className="absolute top-8 left-[calc(100%+160px)] w-0.5 h-24 bg-white/70"></div>
             </div>
-
-            <div className="absolute top-32 right-16 z-30">
+            <div className="absolute top-25 right-2 z-25">
               <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
                 <p className="text-white text-sm font-semibold">Mobile App Development</p>
               </div>
-              <div className="absolute top-8 right-full w-36 h-0.5 bg-white/70"></div>
+              <div className="absolute top-8 right-full w-44 h-0.5 bg-white/70"></div>
+              <div className="absolute top-8 right-[calc(100%+176px)] w-0.5 h-32 bg-white/70"></div>
             </div>
-
-            <div className="absolute bottom-20 left-20 z-30">
+            <div className="absolute bottom-15 left-4 z-25">
               <div className="bg-white/15 backdrop-blur-md border border-white/30 px-6 py-4 rounded-xl shadow-xl">
                 <p className="text-white text-sm font-semibold">AI Powered Solutions</p>
               </div>
-              <div className="absolute bottom-8 left-full w-28 h-0.5 bg-white/70"></div>
+              <div className="absolute bottom-8 left-full w-36 h-0.5 bg-white/70"></div>
+              <div className="absolute bottom-8 left-[calc(100%+144px)] w-0.5 h-20 bg-white/70"></div>
             </div>
-
-            <div className="absolute top-24 left-44 w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
-            <div className="absolute top-48 right-56 w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
-            <div className="absolute bottom-36 left-52 w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
-            <div className="absolute bottom-48 right-44 w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
-
+            <div className="absolute top-[72px] left-[242px] w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
+            <div className="absolute top-[160px] right-[242px] w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
+            <div className="absolute bottom-[112px] left-[246px] w-3 h-3 bg-white/80 rounded-full z-30 shadow-lg"></div>
             <img
               src="/assets/hero.png"
               alt="Dashboard preview"
