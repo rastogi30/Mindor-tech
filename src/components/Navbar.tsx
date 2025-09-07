@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   const isActive = (href: string) => router.pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-3 sm:px-6 md:px-12 py-3 sm:py-2 w-full" style={{ backgroundColor: "#232D66" }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-3 sm:px-6 md:px-20 py-3 sm:py-2 w-full" style={{ backgroundColor: "#232D66" }}>
       <Link href="/" passHref>
         <div className="flex items-center">
           <div className="rounded-lg flex items-center justify-center">
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
         </div>
       </Link>
 
-      <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
+      <div className="hidden lg:flex space-x-6 mr-36 ">
         <Link href="/" passHref>
           <span className="text-white font-medium hover:text-blue-200 transition-colors text-lg cursor-pointer">
             Home
