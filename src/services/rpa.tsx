@@ -8,7 +8,6 @@ import FAQ from '@/components/webcomponents/faq';
 import ChooseUs from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
-import Tech from '@/components/Tech';
 
 const RPA: React.FC = () => {
   return (
@@ -22,7 +21,6 @@ const RPA: React.FC = () => {
       <Business variant="rpa" />    
       <Process variant="rpa" />
       <FAQ variant="rpa" />
-      <Tech/>
     </div>
   )
 }
