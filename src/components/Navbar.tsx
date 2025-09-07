@@ -103,9 +103,9 @@ const Navbar: React.FC = () => {
         rel="noopener noreferrer"
         className="hidden lg:block"
       >
-        <button className="bg-white/20 backdrop-blur-md border border-white/30 px-8 xl:px-12 py-1 rounded-full text-white hover:bg-white/30 transition-all text-lg font-medium shadow-lg flex items-center">
-          <span className="inline-flex items-center justify-center bg-white rounded-full mr-2" style={{ width: 28, height: 28 }}>
-            <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-5 h-5" />
+        <button className="bg-white backdrop-blur-md border border-white/30 px-8 xl:px-12 py-1 rounded-full text-gray-900 hover:bg-white/30 transition-all text-lg font-medium shadow-lg flex items-center">
+          <span className="inline-flex items-center justify-center rounded-full mr-2" style={{ width: 28, height: 28 }}>
+            <img src="/assets/whatsapp.png" alt="WhatsApp Icon" className="w-9 h-8 filter brightness-0 saturate-100" style={{ filter: 'invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)' }} />
           </span>
           Contact Us
         </button>
