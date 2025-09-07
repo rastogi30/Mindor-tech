@@ -68,8 +68,8 @@ export default function Method() {
 							tabIndex={0}
 						>
 							<div
-								className={`w-10 h-10 flex items-center justify-center rounded-md text-sm font-semibold border ${selected === idx
-										? 'bg-blue-100 text-blue-700 border-blue-200'
+								className={`w-20 h-10 flex items-center justify-center rounded-lg text-sm font-semibold border ${selected === idx
+										? 'bg-blue-100 text-blue-700 '
 										: 'bg-gray-100 text-gray-600 border-gray-200'
 									}`}
 							>
@@ -85,9 +85,6 @@ export default function Method() {
 								</div>
 							</div>
 
-							{selected === idx && (
-								<span className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-blue-300" />
-							)}
 						</button>
 					))}
 				</div>
