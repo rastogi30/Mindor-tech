@@ -21,7 +21,7 @@ const MindorTechHomepage: React.FC = () => {
 
       <Navbar />
 
-      <div className="relative z-20 px-12 w-full mx-auto pt-20">
+      <div className="relative z-20 px-12 w-full mx-auto pt-20 ml-6" >
         <div className="grid grid-cols-1 gap-24 items-center min-h-[80vh]">
 
           <div className="space-y-10 pt-10">
