@@ -8,10 +8,10 @@ const Footer = dynamic(() => import('../src/components/Footer'));
 const SuccessModal = dynamic(() => import('../src/components/SuccessModal'));
 const CTASection = dynamic(() => import('../src/components/CTASection'));
 const Founder = dynamic(() => import('../src/components/Founder'));
-const Business  = dynamic(() => import('../src/components/Business'));
+const Business = dynamic(() => import('../src/components/Business'));
 const Mindor = dynamic(() => import('../src/components/Mindor'));
 const Service = dynamic(() => import('../src/components/Service'));
-const LandingPage = dynamic(()=> import('../pages/landing')); 
+const LandingPage = dynamic(() => import('../pages/landing'));
 const Slider = dynamic(() => import('../src/components/Slider'));
 const Method = dynamic(() => import('../src/components/Method'));
 
@@ -43,9 +43,9 @@ const HomePage: React.FC = () => {
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 80; 
+      const navbarHeight = 80;
       const elementPosition = element.offsetTop - navbarHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -59,16 +59,16 @@ const HomePage: React.FC = () => {
         {/* <Hero scrollToSection={scrollToSection} /> */}
         {/* <WhyMindor /> */}
         {/* <Contact setShowSuccessModal={setShowSuccessModal} /> */}
-        <SuccessModal 
-          isOpen={showSuccessModal} 
-          onClose={() => setShowSuccessModal(false)} 
+        <SuccessModal
+          isOpen={showSuccessModal}
+          onClose={() => setShowSuccessModal(false)}
         />
         <LandingPage />
         <Mindor />
         <Slider />
         <Service />
-        <Business />
         <Method />
+        <Business />
         <Founder />
         <CTASection />
         <Footer />
