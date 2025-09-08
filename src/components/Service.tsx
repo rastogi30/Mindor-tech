@@ -69,10 +69,10 @@ export default function ServicesAccordion() {
           {services.map((service, index) => (
             <div key={service.id} className="group cursor-pointer">
 
-              <div className="block group-hover:hidden">
+              <div className={`${index === 0 ? 'hidden' : 'block'} group-hover:hidden`}>
                 <div className="bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
 
-                  <div className="relative h-32 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl mb-6 flex items-center justify-center">
+                  <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
                     <div className="absolute top-4 right-4 w-2 h-2 bg-red-400 rounded-full"></div>
                     
                     <div className={`w-12 h-12 ${service.bgColor} rounded-lg flex items-center justify-center shadow-lg`}>
@@ -91,13 +91,13 @@ export default function ServicesAccordion() {
                 </div>
               </div>
 
-              <div className="hidden group-hover:block">
+              <div className={`${index === 0 ? 'block' : 'hidden'} group-hover:block`}>
                 <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
                   <div className="flex h-full">
-                    <div className={`w-32 h-full ${service.bgColor} flex items-center justify-center`}>
-                      <div className="text-white">
+                    <div className="w-32 h-full flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+                      <div className="text-gray-700">
                         {React.cloneElement(service.icon as React.ReactElement, { 
-                          className: "w-12 h-12 text-white" 
+                          className: "w-12 h-12 text-gray-700" 
                         })}
                       </div>
                     </div>
