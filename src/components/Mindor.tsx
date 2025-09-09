@@ -131,7 +131,7 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
                 <div className="order-2 lg:order-1">
                     <div className="relative">
                         <div className="absolute -right-2 -top-2 w-[96%] h-[92%] insert-0" style={{
-                            background: 'linear-gradient(135deg, rgba(198,193,255,0.55), rgba(243,242,255,0.3))',
+                            background: 'linear-gradient(135deg, rgba(198,193,255,0.75), rgba(243,242,255,0.55))',
                            
                         }} />
                         <div className="relative bg-gradient-to-b from-[#E6E4FF] to-[#F1F0FF] p-6 md:p-8 lg:p-10  shadow-2xl border border-white/40 backdrop-blur-sm">
