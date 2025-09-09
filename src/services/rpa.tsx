@@ -8,6 +8,7 @@ import FAQ from '@/components/webcomponents/faq';
 import ChooseUs from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
+import Footer from '@/components/Footer';
 
 const RPA: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const RPA: React.FC = () => {
       <Business variant="rpa" />    
       <Process variant="rpa" />
       <FAQ variant="rpa" />
+      <Footer />
     </div>
   )
 }
