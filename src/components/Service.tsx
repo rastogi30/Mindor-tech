@@ -96,11 +96,18 @@ export default function ServicesAccordion() {
               <div className={`${index === 0 ? 'block' : 'hidden'} group-hover:block`}>
                 <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
                   <div className="flex h-full">
-                    <div className="w-32 h-full flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
-                      <div className="text-gray-700">
-                        {React.cloneElement(service.icon as React.ReactElement, { 
-                          className: "w-12 h-12 text-gray-700" 
-                        })}
+                    <div className="w-32 h-full flex items-center justify-center p-2">
+                      <div className="relative h-full w-40 rounded-xl flex items-center justify-center " style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+                        <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
+                          {React.cloneElement(service.icon as React.ReactElement, { 
+                            className: "w-6 h-6 text-gray-700" 
+                          })}
+                        </div>
+                        
+                        <div className="absolute inset-0 opacity-10">
+                          <div className="absolute top-4 left-4 w-6 h-0.5 bg-gray-300 rotate-45"></div>
+                          <div className="absolute bottom-4 right-4 w-4 h-0.5 bg-gray-300 -rotate-45"></div>
+                        </div>
                       </div>
                     </div>
                     
