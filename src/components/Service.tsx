@@ -75,7 +75,7 @@ export default function ServicesAccordion() {
                   <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
 
                     
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
+                    <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
                       {React.cloneElement(service.icon as React.ReactElement, { 
                         className: "w-6 h-6 text-gray-700" 
                       })}
