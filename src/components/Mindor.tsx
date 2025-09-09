@@ -123,21 +123,20 @@ const Mindor: React.FC<MindorProps> = ({ variant = 'default' }) => {
         },
     } as const;
 
-    const currentContent = (content as any)[variant];
+    const currentContent = content[variant];
 
     return (
         <section className="px-6 md:px-8 py-12 md:py-16 flex items-center justify-center" style={{ backgroundColor: '#F1F0FF' }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 max-w-7xl w-full items-center">
                 <div className="order-2 lg:order-1">
                     <div className="relative">
-
-                        <div className="absolute -right-2 -top-2 w-[92%] h-[92%] rounded-2xl" style={{
+                        <div className="absolute -right-2 -top-2 w-[96%] h-[92%] insert-0" style={{
                             background: 'linear-gradient(135deg, rgba(198,193,255,0.55), rgba(243,242,255,0.3))',
-                            filter: 'blur(0.2px)'
+                           
                         }} />
-                        <div className="relative bg-gradient-to-b from-[#E6E4FF] to-[#F1F0FF] p-6 md:p-8 lg:p-10 rounded-2xl shadow-2xl border border-white/40 backdrop-blur-sm">
-                            <div className="rounded-2xl">
-                                <div className="p-1.5 md:p-2 rounded-2xl">
+                        <div className="relative bg-gradient-to-b from-[#E6E4FF] to-[#F1F0FF] p-6 md:p-8 lg:p-10  shadow-2xl border border-white/40 backdrop-blur-sm">
+                            <div className="">
+                                <div className="p-1.5 md:p-2">
                                     <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] leading-snug font-semibold text-[#2A2A2A] mb-4">
                                         {currentContent.title}
                                     </h2>
