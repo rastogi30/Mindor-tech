@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Smartphone, Globe, Brain, Cog, Blocks, BarChart3 } from 'lucide-react';
 
 interface Service {
@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     id: 'ai',
     title: 'AI-Powered Solutions',
-    icon: <img src='/assets/AI.png'className="w-6 h-6 text-white" />,
+    icon: <img src='/assets/AI.png' className="w-6 h-6 text-white" />,
     description: 'Harness the power of artificial intelligence to automate and optimize your business processes with machine learning models and intelligent automation.',
     bgColor: 'bg-green-600'
   },
@@ -55,6 +55,12 @@ const services: Service[] = [
 ];
 
 export default function ServicesAccordion() {
+  const [expandedCard, setExpandedCard] = useState<number>(0);
+
+  const handleCardClick = (index: number) => {
+    setExpandedCard(expandedCard === index ? -1 : index);
+  };
+
   return (
    <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -67,9 +73,10 @@ export default function ServicesAccordion() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={service.id} className="group cursor-pointer">
+            <div key={service.id} className="group cursor-pointer" onClick={() => handleCardClick(index)}>
 
-              <div className={`${index === 0 ? 'hidden' : 'block'} group-hover:hidden`}>
+              {/* Compact card - hidden on mobile when expanded, hidden on desktop hover */}
+              <div className={`${expandedCard === index ? 'hidden md:hidden' : 'block md:block'} md:group-hover:hidden`}>
                 <div className="bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
 
                   <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
@@ -93,7 +100,8 @@ export default function ServicesAccordion() {
                 </div>
               </div>
 
-              <div className={`${index === 0 ? 'block' : 'hidden'} group-hover:block`}>
+              {/* Expanded card - shows on mobile click, shows on desktop hover */}
+              <div className={`${expandedCard === index ? 'block md:block' : 'hidden md:hidden'} md:group-hover:block`}>
                 <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
                   <div className="flex h-full">
                     <div className="w-32 h-full flex items-center justify-center p-2">
