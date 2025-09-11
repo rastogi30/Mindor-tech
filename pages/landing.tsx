@@ -56,57 +56,9 @@ const MindorTechHomepage: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center">
-            <div className="hidden md:block absolute top-10 left-2 z-30">
-              <div
-                className="backdrop-blur-md border border-white/30 px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)",
-                }}
-              >
-                <p className="text-white text-xs md:text-sm font-semibold">
-                  Website Development
-                </p>
-              </div>
-              <div className="absolute top-8 left-full w-24 md:w-40 h-0.5 bg-white/70"></div>
-              <div className="absolute top-8 left-[calc(100%+96px)] md:left-[calc(100%+160px)] w-0.5 h-16 md:h-24 bg-white/70"></div>
-            </div>
-
-            <div className="hidden md:block absolute top-28 right-2 z-25">
-              <div
-                className="backdrop-blur-md border border-white/30 px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)",
-                }}
-              >
-                <p className="text-white text-xs md:text-sm font-semibold">
-                  Mobile App Development
-                </p>
-              </div>
-              <div className="absolute top-8 right-full w-28 md:w-44 h-0.5 bg-white/70"></div>
-              <div className="absolute top-8 right-[calc(100%+112px)] md:right-[calc(100%+176px)] w-0.5 h-20 md:h-32 bg-white/70"></div>
-            </div>
-
-            <div className="hidden md:block absolute bottom-12 left-4 z-25">
-              <div
-                className="backdrop-blur-md border border-white/30 px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(65, 80, 147, 0.92) 0%, rgba(88, 101, 165, 0.92) 100%)",
-                }}
-              >
-                <p className="text-white text-xs md:text-sm font-semibold">
-                  AI Powered Solutions
-                </p>
-              </div>
-              <div className="absolute bottom-8 left-full w-28 md:w-36 h-0.5 bg-white/70"></div>
-              <div className="absolute bottom-8 left-[calc(100%+112px)] md:left-[calc(100%+144px)] w-0.5 h-16 md:h-20 bg-white/70"></div>
-            </div>
-
+          <div className="relative hidden md:flex items-center justify-center">
             <img
-              src="/assets/hero.png"
+              src="/assets/hero4.png "
               alt="Dashboard preview"
               className="relative z-20 w-full max-w-[320px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] h-auto rounded-2xl md:rounded-3xl shadow-2xl"
             />

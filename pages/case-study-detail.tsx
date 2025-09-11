@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/Footer';
 
-const Footer = dynamic(() => import('../src/components/Footer'));
 
 interface CaseStudy {
   id: string;
