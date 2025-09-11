@@ -193,7 +193,7 @@ const Navbar: React.FC = () => {
                     </div>
                   </Link>
                   <Link href="/services/rpa">
-                    <span className={`block px-4 py-3 transition-colors cursor-pointer ${isActive('/services/rpa') ? 'bg-blue-50 text-blue-600' : 'text-gray-800 hover:bg-blue-50 hover:text-blue-600'}`}>
+                    <span className={`block px-2 py-2 transition-colors cursor-pointer ${isActive('/services/rpa') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5'}`}>
                       Robotic Process Automation
                     </span>
                   </Link>
