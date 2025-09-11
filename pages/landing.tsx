@@ -60,7 +60,7 @@ const MindorTechHomepage: React.FC = () => {
             <img
               src="/assets/hero4.png "
               alt="Dashboard preview"
-              className="relative z-20 w-full max-w-[320px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] h-auto rounded-2xl md:rounded-3xl shadow-2xl"
+              className="relative z-20 w-full max-w-[320px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[1100px] h-auto rounded-2xl md:rounded-3xl shadow-2xl"
             />
           </div>
         </div>
