@@ -241,7 +241,7 @@ const services: React.FC = () => {
                                 {tabContent[activeTab].content.map((service, index) => (
                                     <div
                                         key={index}
-                                        className="rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border" style={{ backgroundColor: '#C0C3D4', borderColor: '#000000' }}
+                                        className="rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border" style={{ backgroundColor: '#f4f4f7ff', borderColor: '#000000' }}
                                     >
                                         <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#102D47' }}>
                                             {service.title}
