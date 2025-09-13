@@ -68,7 +68,7 @@ const Services: React.FC = () => {
     };
 
     return (
-        <section className="w-full py-12 md:py-16">
+        <section className="max-w-7xl mx-auto py-12 md:py-16">
             <div className="max-w-6xl mx-auto px-6 text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                     <span className="text-gray-900">Our AI Development Services:</span>{' '}
