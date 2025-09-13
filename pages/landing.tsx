@@ -32,13 +32,13 @@ const MindorTechHomepage: React.FC = () => {
                 One Partner. Infinite Possibilities.
               </span>
             </div>
-            
+
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-5 gap-12">
               <h1 className="text-3xl md:text-4xl xl:text-5xl font-semibold leading-snug md:leading-tight tracking-tight lg:max-w-[55%] text-white lg:ml-8">
                 Web, Mobile, AI & Digital Solutions to power smarter enterprises.
               </h1>
 
-              <div className="mt-6 lg:mt-0 lg:max-w-[60%]">
+              <div className="mt-6 lg:mt-0 lg:max-w-[50%]">
                 <p className="text-base md:text-lg text-white leading-relaxed font-medium">
                   Great apps, seamless websites, intelligent automation and digital
                   growth. Mindor delivers scalable digital solutions that transform
@@ -50,9 +50,12 @@ const MindorTechHomepage: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="bg-white text-blue-900 px-6 md:px-10 py-2 rounded-full font-bold text-lg md:text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
-                    Get Free Consultation
-                  </button>
+                  <div className="flex justify-end">
+                    <button className="bg-white text-blue-900 px-6 md:px-10 py-2 rounded-full font-bold text-lg md:text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
+                      Get Free Consultation
+                    </button>
+                  </div>
+
                 </a>
               </div>
             </div>
