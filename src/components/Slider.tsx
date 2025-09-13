@@ -258,7 +258,7 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
 
   return (
     <div className=" bg-gray-50 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
 
           <div className="lg:sticky lg:top-12">
