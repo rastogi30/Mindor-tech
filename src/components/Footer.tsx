@@ -7,7 +7,7 @@ import Logo from "../../public/assets/Logo.png"
 const Footer = () => {
   return (
     <footer className="w-full py-12 px-4 rounded-2xl" style={{ backgroundColor: '#D9DDEA' }}>
-      <div className="w-full mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4 lg:ml-3">
