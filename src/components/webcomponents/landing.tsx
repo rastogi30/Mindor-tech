@@ -276,7 +276,7 @@ Service Interested: ${currentContent.badge.text}`;
 
             {currentContent.floatingElements}
 
-            <div className=" mx-auto w-full relative z-10">
+            <div className=" mx-auto max-w-6xl relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     <div className="text-white space-y-6">
