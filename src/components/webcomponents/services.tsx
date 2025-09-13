@@ -206,7 +206,7 @@ const services: React.FC = () => {
 
     return (
         <div className="bg-gray-50 p-8">
-            <div className="w-full mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
                     Scalable Web Development Services Built for Your Growth
                 </h1>
