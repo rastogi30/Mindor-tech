@@ -129,11 +129,11 @@ export default function ServicesAccordion() {
                   {/* Expanded card - shows on mobile click, shows on desktop hover */}
                   <div className={`${expandedCard === index ? 'block md:block' : 'hidden'} md:hidden md:group-hover:block transition-all duration-300`}>
                     <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden h-64 p-6">
-                      <div className="h-full flex flex-col">
+                      <div className="h-full flex flex-col justify-center items-center text-center">
                         <h3 className="text-lg font-semibold text-gray-900 mb-4">
                           {service.title}
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed flex-1">
+                        <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">
                           {service.description}
                         </p>
                       </div>
