@@ -9,6 +9,7 @@ import ChooseUs from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
 import Footer from '@/components/Footer';
+import Tech4 from 'svgs/tech-stacks/tech4';
 
 const RPA: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const RPA: React.FC = () => {
       <ChooseUs variant="rpa" />
       <Business variant="rpa" />    
       <Process variant="rpa" />
+      <Tech4 />
       <FAQ variant="rpa" />
       <Footer />
     </div>

@@ -8,6 +8,7 @@ import AIDevelopmentSuccess from '@/components/aicomponents/developement'
 import Mindor from '@/components/Mindor'
 import Business from '@/components/Business'
 import Footer from '@/components/Footer'
+import Tech2 from 'svgs/tech-stacks/tech2'
 
 const App: React.FC = () => {
     return(
@@ -19,6 +20,7 @@ const App: React.FC = () => {
             <ChooseUs variant='app'/>
             <Process variant='app'/>
             <Business variant='app'/>
+            <Tech2 />
             <FAQ variant='app'/>
             <Footer/>
         </div>

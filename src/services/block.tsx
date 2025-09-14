@@ -8,6 +8,7 @@ import Process from '@/components/blockcomponents/process';
 import Slider from '@/components/Slider';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
 import Footer from '@/components/Footer'; 
+import Tech5 from 'svgs/tech-stacks/tech5';
 
 const Block: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const Block: React.FC = () => {
       <AIDevelopmentSuccess variant="blockchain" />
       <Process/>
       <Business variant="blockchain" />
+      <Tech5 />
       <FAQ variant="blockchain" />
       <Footer/>
     </div>
