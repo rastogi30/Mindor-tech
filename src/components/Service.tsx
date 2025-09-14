@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Smartphone, Globe, Brain, Cog, Blocks, BarChart3 } from 'lucide-react';
 
 interface Service {
   id: string;
@@ -75,61 +74,73 @@ export default function ServicesAccordion() {
           {services.map((service, index) => (
             <div key={service.id} className="group cursor-pointer" onClick={() => handleCardClick(index)}>
 
-              {/* Compact card - hidden on mobile when expanded, hidden on desktop hover */}
-              <div className={`${expandedCard === index ? 'hidden md:hidden' : 'block md:block'} md:group-hover:hidden`}>
-                <div className="bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
-
-                  <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
-
-                    
-                    <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
-                      {React.cloneElement(service.icon as React.ReactElement, { 
-                        className: "w-6 h-6 text-gray-700" 
-                      })}
-                    </div>
-                    
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-8 left-8 w-8 h-0.5 bg-gray-300 rotate-45"></div>
-                      <div className="absolute bottom-8 right-8 w-6 h-0.5 bg-gray-300 -rotate-45"></div>
+             {index === 0 && (
+                <div className="transition-all duration-300">
+                  <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
+                    <div className="flex h-full">
+                      <div className="w-32 h-full flex items-center justify-center p-2">
+                        <div className="relative h-full w-40 rounded-xl flex items-center justify-center " style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+                          <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
+                            {React.cloneElement(service.icon as React.ReactElement, { 
+                              className: "w-6 h-6 text-gray-700" 
+                            })}
+                          </div>
+                          <div className="absolute inset-0 opacity-10">
+                            <div className="absolute top-4 left-4 w-6 h-0.5 bg-gray-300 rotate-45"></div>
+                            <div className="absolute bottom-4 right-4 w-4 h-0.5 bg-gray-300 -rotate-45"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1 p-4 flex flex-col justify-center">
+                        <h3 className="text-base font-semibold text-gray-900 mb-3">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 text-xs leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">
-                    {service.title}
-                  </h3>
                 </div>
-              </div>
+              )}
 
-              {/* Expanded card - shows on mobile click, shows on desktop hover */}
-              <div className={`${expandedCard === index ? 'block md:block' : 'hidden md:hidden'} md:group-hover:block`}>
-                <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
-                  <div className="flex h-full">
-                    <div className="w-32 h-full flex items-center justify-center p-2">
-                      <div className="relative h-full w-40 rounded-xl flex items-center justify-center " style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+              {/* Other cards (index 1-5) - New hover behavior */}
+              {index !== 0 && (
+                <>
+                  <div className={`${expandedCard === index ? 'hidden md:group-hover:hidden' : 'block'} md:group-hover:hidden transition-all duration-300`}>
+                    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
+                      <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
                         <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
                           {React.cloneElement(service.icon as React.ReactElement, { 
                             className: "w-6 h-6 text-gray-700" 
                           })}
                         </div>
-                        
                         <div className="absolute inset-0 opacity-10">
-                          <div className="absolute top-4 left-4 w-6 h-0.5 bg-gray-300 rotate-45"></div>
-                          <div className="absolute bottom-4 right-4 w-4 h-0.5 bg-gray-300 -rotate-45"></div>
+                          <div className="absolute top-8 left-8 w-8 h-0.5 bg-gray-300 rotate-45"></div>
+                          <div className="absolute bottom-8 right-8 w-6 h-0.5 bg-gray-300 -rotate-45"></div>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex-1 p-4 flex flex-col justify-center">
-                      <h3 className="text-base font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-xs leading-relaxed">
-                        {service.description}
-                      </p>
                     </div>
                   </div>
-                </div>
-              </div>
+
+                  {/* Expanded card - shows on mobile click, shows on desktop hover */}
+                  <div className={`${expandedCard === index ? 'block md:block' : 'hidden'} md:hidden md:group-hover:block transition-all duration-300`}>
+                    <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden h-64 p-6">
+                      <div className="h-full flex flex-col">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed flex-1">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
