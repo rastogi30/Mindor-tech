@@ -8,6 +8,7 @@ import Timeline from '@/components/webcomponents/timeline';
 import Business from '@/components/Business';
 import Mindor from '@/components/Mindor';
 import Landing from '@/components/webcomponents/landing';
+import Tech1 from 'svgs/tech-stacks/tech1';
 
 const Webd: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const Webd: React.FC = () => {
       <Timeline />
       <Business variant="services" />
       <ChooseUs />
+      <Tech1 />
       <FAQ />
       <Footer />
     </div>
