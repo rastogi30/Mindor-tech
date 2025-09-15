@@ -1,25 +1,8 @@
 "use client"
 import React, { useEffect } from 'react'
-import gsap from 'gsap'
 
 const Anim = () => {
-    function animate() {
-        const tl = gsap.timeline({repeat:-1})
-        tl.to([".f1", ".f2", ".f3"], {
-            x: -115,
-            ease: "power1.inOut",
-            duration: 3,
-        })
-        .to([".f1",".f2",".f3"],{
-             x: -115,
-            ease: "power1.inOut",
-            duration: 3,
-        })
-    }
-
-    useEffect(() => {
-        animate()
-    }, [])
+   
     return (
         <div className='md:flex items-center justify-center hidden'>
             <svg width="566" height="670" viewBox="0 0 566 670" fill="none" xmlns="http://www.w3.org/2000/svg">
