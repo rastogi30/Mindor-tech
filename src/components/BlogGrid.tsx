@@ -134,12 +134,12 @@ const BlogGrid: React.FC = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-          <div className="hidden lg:block w-80 flex-shrink-0">
+        <div className="hidden lg:block w-80 flex-shrink-0">
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h2>
               <div className="space-y-4">
                 {recentPosts.map((post) => (
-                  <div key={post.id} className="border pb-4 last:border-b-0">
+                  <div key={post.id} className="border-b border-gray-100 pb-4 last:border-b-0">
                     <h3 className="text-sm font-medium text-gray-900 mb-2 leading-snug">
                       {post.title}
                     </h3>
