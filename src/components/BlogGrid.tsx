@@ -11,9 +11,8 @@ interface BlogPost {
 const BlogGrid: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const postsPerPage = 6; // Show 6 posts per page on mobile
+  const postsPerPage = 6; 
 
-  // Check if screen is mobile size
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -104,7 +103,6 @@ const BlogGrid: React.FC = () => {
     }
   ];
 
-  // Calculate pagination for mobile
   const totalPages = Math.ceil(mainPosts.length / postsPerPage);
   const startIndex = (currentPage - 1) * postsPerPage;
   const paginatedPosts = mainPosts.slice(startIndex, startIndex + postsPerPage);
@@ -114,7 +112,6 @@ const BlogGrid: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Show paginated posts on mobile, all posts on desktop
   const postsToShow = isMobile ? paginatedPosts : mainPosts;
 
   return (
@@ -142,7 +139,7 @@ const BlogGrid: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h2>
               <div className="space-y-4">
                 {recentPosts.map((post) => (
-                  <div key={post.id} className="border-b border-gray-100 pb-4 last:border-b-0">
+                  <div key={post.id} className="border pb-4 last:border-b-0">
                     <h3 className="text-sm font-medium text-gray-900 mb-2 leading-snug">
                       {post.title}
                     </h3>
