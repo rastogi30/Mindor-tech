@@ -206,7 +206,7 @@ const services: React.FC = () => {
 
     return (
         <div className="bg-gray-50 p-8">
-            <div className="w-full mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
                     Scalable Web Development Services Built for Your Growth
                 </h1>
@@ -241,7 +241,7 @@ const services: React.FC = () => {
                                 {tabContent[activeTab].content.map((service, index) => (
                                     <div
                                         key={index}
-                                        className="rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border" style={{ backgroundColor: '#C0C3D4', borderColor: '#000000' }}
+                                        className="rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border" style={{ backgroundColor: '#f4f4f7ff', borderColor: '#000000' }}
                                     >
                                         <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#102D47' }}>
                                             {service.title}

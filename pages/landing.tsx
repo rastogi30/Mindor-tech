@@ -23,20 +23,22 @@ const MindorTechHomepage: React.FC = () => {
 
       <Navbar />
 
-      <div className="relative z-20 px-6 md:px-12 w-full mx-auto pt-20">
+      <div className="relative z-20 px-6 md:px-12 max-w-7xl mx-auto pt-20">
         <div className="grid grid-cols-1 gap-16 md:gap-24 items-center min-h-[80vh]">
           {/* left section */}
-          <div className="space-y-8 md:space-y-10 pt-6 md:pt-10">
-            <div className="inline-block backdrop-blur-md border border-white/25 px-4 py-1 rounded-full text-sm md:text-base font-medium shadow-lg">
-              One Partner. Infinite Possibilities.
+          <div className="space-y-8 md:space-y-10 pt-6 md:pt-16">
+            <div className="inline-block backdrop-blur-md border border-white/25 px-4 py-1 rounded-full lg:ml-8">
+              <span className="text-white text-sm font-medium">
+                One Partner. Infinite Possibilities.
+              </span>
             </div>
 
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-5">
-              <h1 className="text-3xl md:text-4xl xl:text-5xl font-semibold leading-snug md:leading-tight tracking-tight lg:max-w-[55%] text-white">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-5 gap-12">
+              <h1 className="text-3xl md:text-4xl xl:text-5xl font-semibold leading-snug md:leading-tight tracking-tight lg:max-w-[55%] text-white lg:ml-8">
                 Web, Mobile, AI & Digital Solutions to power smarter enterprises.
               </h1>
 
-              <div className="mt-6 lg:mt-0 lg:max-w-[40%]">
+              <div className="mt-6 lg:mt-0 lg:max-w-[50%]">
                 <p className="text-base md:text-lg text-white leading-relaxed font-medium">
                   Great apps, seamless websites, intelligent automation and digital
                   growth. Mindor delivers scalable digital solutions that transform
@@ -48,9 +50,12 @@ const MindorTechHomepage: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="bg-white text-blue-900 px-6 md:px-10 py-2 rounded-full font-bold text-lg md:text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
-                    Get Free Consultation
-                  </button>
+                  <div className="flex justify-end">
+                    <button className="bg-white text-blue-900 px-6 md:px-10 py-2 rounded-full font-bold text-lg md:text-xl hover:bg-white/90 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105 mt-6">
+                      Get Free Consultation
+                    </button>
+                  </div>
+
                 </a>
               </div>
             </div>
@@ -58,9 +63,9 @@ const MindorTechHomepage: React.FC = () => {
 
           <div className="relative hidden md:flex items-center justify-center">
             <img
-              src="/assets/hero4.png "
+              src="/assets/hero4.png"
               alt="Dashboard preview"
-              className="relative z-20 w-full max-w-[320px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] h-auto rounded-2xl md:rounded-3xl shadow-2xl"
+              className="relative z-20 w-full max-w-[320px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[1100px] h-auto rounded-2xl md:rounded-3xl shadow-2xl"
             />
           </div>
         </div>

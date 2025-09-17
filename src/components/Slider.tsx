@@ -258,11 +258,11 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
 
   return (
     <div className=" bg-gray-50 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
 
           <div className="lg:sticky lg:top-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mt-5">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mt-12">
               {content.title}
             </h1>
             <p className="text-gray-600 mt-6 text-lg leading-relaxed">
@@ -270,7 +270,7 @@ const PromiseProgress: React.FC<PromiseProgressProps> = ({ variant = 'web' }) =>
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative ">
             {content.items.map((item, index) => (
               <div
                 key={item.id}
