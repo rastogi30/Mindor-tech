@@ -12,7 +12,7 @@ const Blog = () => {
       <Navbar />
 
       {/* Push content below the fixed navbar */}
-      <main className="flex-1 pt-20">
+      <main className="flex-">
         <BlogPage />
         <BlogCard />
         <BlogGrid />
