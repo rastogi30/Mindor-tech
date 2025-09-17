@@ -21,8 +21,6 @@ const MindorTechHomepage: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-blue-600/10 rounded-full blur-3xl"></div>
       </div>
 
-      <Navbar />
-
       <div className="relative z-20 px-6 md:px-12 max-w-7xl mx-auto pt-20">
         <div className="grid grid-cols-1 gap-16 md:gap-24 items-center min-h-[80vh]">
           {/* left section */}
