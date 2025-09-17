@@ -9,10 +9,9 @@ import BlogPage from './blog/blog-page'
 const Blog = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
 
       {/* Push content below the fixed navbar */}
-      <main className="flex-">
+      <main className="flex-1">
         <BlogPage />
         {/* <BlogCard /> */}
         <BlogGrid />

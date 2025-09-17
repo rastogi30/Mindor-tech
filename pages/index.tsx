@@ -71,7 +71,6 @@ const HomePage: React.FC = () => {
         <Business />
         <Founder />
         <CTASection />
-        <Footer />
       </main>
     </div>
   );
