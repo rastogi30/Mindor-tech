@@ -54,8 +54,8 @@ export default function Method() {
 	const indicatorLeft = `calc(${(selected / (steps.length - 1)) * 100}% - 30px)`;
 
 	return (
-		<section className="w-full bg-white py-14 md:py-16 flex justify-center">
-			<div className="max-w-7xl w-full flex flex-col md:flex-row items-start gap-10 md:gap-12 px-4 md:px-0">
+		<section className=" bg-white py-14 md:py-16 flex justify-center">
+			<div className="max-w-6xl flex flex-col md:flex-row items-start gap-10 md:gap-12 px-4 md:px-0">
 
 				<div className="flex-1 flex flex-col gap-4 md:gap-5">
 					<h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">The Mindor Method</h2>

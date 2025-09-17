@@ -1,5 +1,4 @@
-import React from 'react';
-import { Smartphone, Globe, Brain, Cog, Blocks, BarChart3 } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface Service {
   id: string;
@@ -27,7 +26,7 @@ const services: Service[] = [
   {
     id: 'ai',
     title: 'AI-Powered Solutions',
-    icon: <img src='/assets/AI.png'className="w-6 h-6 text-white" />,
+    icon: <img src='/assets/AI.png' className="w-6 h-6 text-white" />,
     description: 'Harness the power of artificial intelligence to automate and optimize your business processes with machine learning models and intelligent automation.',
     bgColor: 'bg-green-600'
   },
@@ -55,9 +54,15 @@ const services: Service[] = [
 ];
 
 export default function ServicesAccordion() {
+  const [expandedCard, setExpandedCard] = useState<number>(0);
+
+  const handleCardClick = (index: number) => {
+    setExpandedCard(expandedCard === index ? -1 : index);
+  };
+
   return (
-   <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="max-w-7xl w-full px-6 py-16">
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
@@ -65,63 +70,80 @@ export default function ServicesAccordion() {
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {services.map((service, index) => (
-            <div key={service.id} className="group cursor-pointer">
+            <div key={service.id} className="group cursor-pointer w-full max-w-sm" onClick={() => handleCardClick(index)}>
 
-              <div className={`${index === 0 ? 'hidden' : 'block'} group-hover:hidden`}>
-                <div className="bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
-
-                  <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
-
-                    
-                    <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
-                      {React.cloneElement(service.icon as React.ReactElement, { 
-                        className: "w-6 h-6 text-gray-700" 
-                      })}
-                    </div>
-                    
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-8 left-8 w-8 h-0.5 bg-gray-300 rotate-45"></div>
-                      <div className="absolute bottom-8 right-8 w-6 h-0.5 bg-gray-300 -rotate-45"></div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">
-                    {service.title}
-                  </h3>
-                </div>
-              </div>
-
-              <div className={`${index === 0 ? 'block' : 'hidden'} group-hover:block`}>
-                <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
-                  <div className="flex h-full">
-                    <div className="w-32 h-full flex items-center justify-center p-2">
-                      <div className="relative h-full w-40 rounded-xl flex items-center justify-center " style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
-                        <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
-                          {React.cloneElement(service.icon as React.ReactElement, { 
-                            className: "w-6 h-6 text-gray-700" 
-                          })}
-                        </div>
-                        
-                        <div className="absolute inset-0 opacity-10">
-                          <div className="absolute top-4 left-4 w-6 h-0.5 bg-gray-300 rotate-45"></div>
-                          <div className="absolute bottom-4 right-4 w-4 h-0.5 bg-gray-300 -rotate-45"></div>
+              {index === 0 && (
+                <div className="transition-all duration-300">
+                  <div className="bg-white rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden h-64">
+                    <div className="flex h-full">
+                      <div className="w-32 h-full flex items-center justify-center p-2">
+                        <div className="relative h-full w-40 rounded-xl flex items-center justify-center " style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+                          <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
+                            {React.cloneElement(service.icon as React.ReactElement, {
+                              className: "w-6 h-6 text-gray-700"
+                            })}
+                          </div>
+                          <div className="absolute inset-0 opacity-10">
+                            <div className="absolute top-4 left-4 w-6 h-0.5 bg-gray-300 rotate-45"></div>
+                            <div className="absolute bottom-4 right-4 w-4 h-0.5 bg-gray-300 -rotate-45"></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex-1 p-4 flex flex-col justify-center">
-                      <h3 className="text-base font-semibold text-gray-900 mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 text-xs leading-relaxed">
-                        {service.description}
-                      </p>
+                      <div className="flex-1 p-4 flex flex-col justify-center">
+                        <h3 className="text-base font-semibold text-gray-900 mb-3">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 text-xs leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
+              {index !== 0 && (
+                <>
+                  <div className={`${expandedCard === index ? 'hidden md:group-hover:hidden' : 'block'} md:group-hover:hidden transition-all duration-300`}>
+                    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 relative overflow-hidden h-64">
+                      <div className="relative h-32 rounded-xl mb-6 flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #E6EDF9 0%, #F0F6FF 100%)' }}>
+                        <div className="w-16 h-16 rounded-lg flex items-center justify-center shadow-lg" style={{ background: '#DEE7F7' }}>
+                          {React.cloneElement(service.icon as React.ReactElement, {
+                            className: "w-6 h-6 text-gray-700"
+                          })}
+                        </div>
+                        <div className="absolute inset-0 opacity-10">
+                          <div className="absolute top-8 left-8 w-8 h-0.5 bg-gray-300 rotate-45"></div>
+                          <div className="absolute bottom-8 right-8 w-6 h-0.5 bg-gray-300 -rotate-45"></div>
+                        </div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className={`${expandedCard === index ? 'block md:block' : 'hidden'} md:hidden md:group-hover:block transition-all duration-300`}>
+                    <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-64 p-6">
+                      <div className="relative h-full flex flex-col rounded-lg p-7 overflow-hidden">
+                        <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-200 to-transparent rounded-tl-lg" />
+                        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-blue-200 to-transparent rounded-br-lg" />
+
+                        <h3 className="text-lg font-semibold text-gray-900 mb-4 relative z-10">
+                          {service.title}
+                        </h3>
+                        <div className="flex items-center mb-4 relative z-10">
+                          <p className="text-gray-700 text-sm leading-relaxed flex-1">
+                            {service.description}
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
