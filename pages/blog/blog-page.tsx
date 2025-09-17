@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import SearchBar from "./search";
-import CategoryTabs from "./category-tabs";
+import CategoryTabs from "../../pages/blog/category-tabs";
 
 const BlogPage = () => {
   const [searchQuery, setSearchQuery] = useState("");

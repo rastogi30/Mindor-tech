@@ -17,7 +17,6 @@ const Blog = () => {
         <BlogGrid />
         <CTASection />
       </main>
-
     </div>
   );
 };
