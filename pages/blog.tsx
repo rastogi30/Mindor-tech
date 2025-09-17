@@ -18,8 +18,6 @@ const Blog = () => {
         <BlogGrid />
         <CTASection />
       </main>
-
-      <Footer />
     </div>
   );
 };
