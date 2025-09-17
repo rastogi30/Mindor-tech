@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import BlogCard from '@/components/BlogCard';
 import BlogGrid from '@/components/BlogGrid';
+import BlogPage from './blog/blog-page'
 
 const Blog = () => {
   return (
@@ -12,6 +13,7 @@ const Blog = () => {
 
       {/* Push content below the fixed navbar */}
       <main className="flex-1 pt-20">
+        <BlogPage />
         <BlogCard />
         <BlogGrid />
         <CTASection />
