@@ -7,7 +7,6 @@ import FAQ from '@/components/webcomponents/faq'
 import AIDevelopmentSuccess from '@/components/aicomponents/developement'
 import Mindor from '@/components/Mindor'
 import Business from '@/components/Business'
-import Footer from '@/components/Footer'
 import Tech2 from 'svgs/tech-stacks/tech2'
 
 const App: React.FC = () => {

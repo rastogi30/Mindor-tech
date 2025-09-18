@@ -7,7 +7,6 @@ import FAQ from '@/components/webcomponents/faq';
 import Chooseus from '@/components/digitalcomponents/Chooseus';
 import Need from '@/components/digitalcomponents/Need';
 import Home from '@/components/digitalcomponents/Solution';
-import Footer from '@/components/Footer';
 
 const Digital: React.FC = () => {
   return (

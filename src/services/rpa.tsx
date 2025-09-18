@@ -8,7 +8,6 @@ import FAQ from '@/components/webcomponents/faq';
 import ChooseUs from '@/components/webcomponents/chooseus';
 import Business from '@/components/Business';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
-import Footer from '@/components/Footer';
 import Tech4 from 'svgs/tech-stacks/tech4';
 
 const RPA: React.FC = () => {

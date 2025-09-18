@@ -7,7 +7,6 @@ import Process from '@/components/aicomponents/process';
 import FAQ from '@/components/webcomponents/faq';
 import Services from '@/components/aicomponents/services';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
-import Footer from '@/components/Footer';
 import Tech3 from 'svgs/tech-stacks/tech3';
 
 const AI: React.FC = () => {

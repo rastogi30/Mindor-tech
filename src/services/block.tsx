@@ -7,7 +7,6 @@ import Business from '@/components/Business';
 import Process from '@/components/blockcomponents/process';
 import Slider from '@/components/Slider';
 import AIDevelopmentSuccess from '@/components/aicomponents/developement';
-import Footer from '@/components/Footer'; 
 import Tech5 from 'svgs/tech-stacks/tech5';
 
 const Block: React.FC = () => {
