@@ -52,7 +52,7 @@ const Loader: React.FC = () => {
           />
         </div>
         <div className="relative z-10 text-center">
-          {/* Logo/Brand */}
+         
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
