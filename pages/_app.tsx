@@ -1,10 +1,23 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Loader from "@/components/Loader";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // Show loader for 2.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Head>
@@ -21,9 +34,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+
+      <AnimatePresence>
+        {isLoading && <Loader />}
+      </AnimatePresence>
+
+      {!isLoading && (
+        <>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
