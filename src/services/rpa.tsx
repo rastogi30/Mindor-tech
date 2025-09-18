@@ -24,7 +24,6 @@ const RPA: React.FC = () => {
       <Process variant="rpa" />
       <Tech4 />
       <FAQ variant="rpa" />
-      <Footer />
     </div>
   )
 }

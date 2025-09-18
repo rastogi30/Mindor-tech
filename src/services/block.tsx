@@ -22,7 +22,6 @@ const Block: React.FC = () => {
       <Business variant="blockchain" />
       <Tech5 />
       <FAQ variant="blockchain" />
-      <Footer/>
     </div>
   );
 };

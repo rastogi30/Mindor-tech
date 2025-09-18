@@ -20,7 +20,6 @@ const Digital: React.FC = () => {
       <Process variant='digital' />
       <Chooseus />
       <FAQ variant='digital' />
-      <Footer/>
     </div>
   );
 };

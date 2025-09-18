@@ -22,7 +22,6 @@ const Webd: React.FC = () => {
       <ChooseUs />
       <Tech1 />
       <FAQ />
-      <Footer />
     </div>
   );
 };

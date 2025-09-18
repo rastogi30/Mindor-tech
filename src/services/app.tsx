@@ -22,7 +22,6 @@ const App: React.FC = () => {
             <Business variant='app'/>
             <Tech2 />
             <FAQ variant='app'/>
-            <Footer/>
         </div>
     )
 }

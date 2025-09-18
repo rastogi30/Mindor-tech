@@ -22,7 +22,6 @@ const AI: React.FC = () => {
             <Process />
             <Tech3 />
             <FAQ variant="ai" />
-            <Footer />
         </div>
     );
 };
