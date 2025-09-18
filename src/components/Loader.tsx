@@ -51,8 +51,6 @@ const Loader: React.FC = () => {
             className="w-20 h-20 bg-indigo-400/30 rounded-full absolute top-8 right-8"
           />
         </div>
-
-        {/* Main loader content */}
         <div className="relative z-10 text-center">
           {/* Logo/Brand */}
           <motion.div
