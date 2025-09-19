@@ -45,10 +45,12 @@ const BlogMain = () => {
     );
   }
 
-  if (!blog) {
-    return (
-      <div className="min-h-screen flex flex-col bg-white">
-        <Navbar />
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Navbar />
+
+      {/* If blog not found */}
+      {!blog ? (
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -65,32 +67,38 @@ const BlogMain = () => {
             </button>
           </div>
         </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
-
-      {/* Banner Section - starts below navbar */}
-      <div className="relative w-full bg-black bg-opacity-90 flex flex-col justify-center items-center min-h-[30vh] mt-10 md:mt-20">
+      ) : (
+        <>
+  {/* Banner Section */}
+      <div className="relative w-full flex flex-col justify-center items-center min-h-[20vh] md:min-h-[60vh] mt-10 md:mt-19">
+        {/* Blog Image as background */}
         <img
-          src="/assets/Rectangle.png"
-          alt="Banner background"
+          src={blog.image || "/assets/Blog.png"}
+          alt="Blog background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative z-10 px-4 text-center py-12 md:py-16">
+
+        {/* Rectangle overlay */}
+        <img
+          src="/assets/Rectangle.png"
+          alt="Overlay background"
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+        />
+
+        {/* Black overlay with opacity */}
+        <div className="absolute inset-0 bg-black opacity-85"></div>
+
+        {/* Banner Content */}
+        <div className="relative z-10 px-4 text-center py-8 md:py-12">
           <h1 className="text-white font-bold text-2xl md:text-4xl lg:text-5xl drop-shadow-lg max-w-4xl mx-auto">
             {blog.title}
           </h1>
-          <p className="text-gray-200 text-sm md:text-base mt-3">{blog.date}</p>
         </div>
       </div>
 
+
       {/* Blog Image */}
-      <div className="w-full flex justify-center relative z-10 mt-6 md:mt-10">
+      <div className="w-full flex justify-center relative z-20 -mt-20">
         <img
           src={blog.image || "/assets/Blog.png"}
           alt="Blog main visual"
@@ -98,50 +106,50 @@ const BlogMain = () => {
         />
       </div>
 
-      {/* Blog Content */}
-      <div className="w-full flex flex-col items-center px-4">
-        <div className="w-full max-w-3xl py-10 md:py-14">
-          {/* Intro */}
-          <section className="mb-10">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-              Intro
-            </h2>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              {blog.content}
-            </p>
-          </section>
+          {/* Blog Content */}
+          <div className="w-full flex flex-col items-center px-4">
+            <div className="w-full max-w-3xl py-10 md:py-14">
+              {/* Intro */}
+              <section className="mb-10">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  Intro
+                </h2>
+                <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                  {blog.content}
+                </p>
+              </section>
 
-          {/* Supporting Image */}
-          <section className="mb-10">
-            <img
-              src="/assets/Brand.png"
-              alt="Supporting visual"
-              className="w-full h-auto rounded-lg shadow-md object-cover"
-            />
-          </section>
+              {/* Supporting Image */}
+              <section className="mb-10">
+                <img
+                  src="/assets/Brand.png"
+                  alt="Supporting visual"
+                  className="w-full h-auto rounded-lg shadow-md object-cover"
+                />
+              </section>
 
-          {/* Second Paragraph */}
-          <section className="mb-10">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-              Second Paragraph
-            </h2>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              Second paragraph of blog… You can continue writing here.
-            </p>
-          </section>
+              {/* Second Paragraph */}
+              <section className="mb-10">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  Second Paragraph
+                </h2>
+                <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                  Second paragraph of blog… You can continue writing here.
+                </p>
+              </section>
 
-          {/* Another Supporting Image */}
-          <section className="mb-10">
-            <img
-              src="/assets/Brand.png"
-              alt="Supporting visual"
-              className="w-full h-auto rounded-lg shadow-md object-cover"
-            />
-          </section>
-        </div>
-      </div>
-
-      <Footer />
+              {/* Another Supporting Image */}
+              <section className="mb-10">
+                <img
+                  src="/assets/Brand.png"
+                  alt="Supporting visual"
+                  className="w-full h-auto rounded-lg shadow-md object-cover"
+                />
+              </section>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
