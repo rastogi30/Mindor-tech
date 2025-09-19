@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 interface BlogPost {
   id: number;
@@ -9,6 +10,7 @@ interface BlogPost {
 }
 
 const BlogGrid: React.FC = () => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const postsPerPage = 6; 
@@ -28,12 +30,12 @@ const BlogGrid: React.FC = () => {
     {
       id: 1,
       title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "April 16, 2024"
+      date: "November 16, 2023"
     },
     {
       id: 2,
-      title: "5 Different Ways To Do Bulk Updates On WordPress", 
-      date: "April 16, 2024"
+      title: "How to Make Marketing Decisions in the AI Era", 
+      date: "November 16, 2023"
     }
   ];
 
@@ -42,64 +44,73 @@ const BlogGrid: React.FC = () => {
       id: 1,
       title: "5 Different Ways To Do Bulk Updates On WordPress",
       date: "16 November 2023",
-      image: "/api/placeholder/300/200"
+      image: "/assets/Blog.png"
     },
     {
       id: 2,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "How to Make Marketing Decisions in the AI Era",
+      date: "16 November 2023",
+      image: "/assets/AI.png"
     },
     {
       id: 3,
-      title: "5 Different Ways To Do Bulk Updates On WordPress", 
-      date: "16 November 2023"
+      title: "The Future of Web Development: Trends to Watch", 
+      date: "15 November 2023",
+      image: "/assets/web.png"
     },
     {
       id: 4,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "Mobile App Development: Best Practices for 2024",
+      date: "14 November 2023",
+      image: "/assets/App.png"
     },
     {
       id: 5,
-      title: "How to Decisions Marketing in the AI era",
-      date: "16 November 2023",
-      image: "/api/placeholder/300/200"
+      title: "Blockchain Technology: Beyond Cryptocurrency",
+      date: "13 November 2023",
+      image: "/assets/block.png"
     },
     {
       id: 6,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "Digital Marketing Strategies for Small Business",
+      date: "12 November 2023",
+      image: "/assets/Media.png"
     },
     {
       id: 7,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "RPA: Automating Business Processes for Efficiency",
+      date: "11 November 2023",
+      image: "/assets/rpa.png"
     },
     {
       id: 8,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "E-commerce Solutions for Modern Business",
+      date: "10 November 2023",
+      image: "/assets/Shopping.png"
     },
     {
       id: 9,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023",
-      image: "/api/placeholder/300/200"
+      title: "Finance Technology: The Digital Revolution",
+      date: "9 November 2023",
+      image: "/assets/Finance.png"
     },
     {
       id: 10,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "Healthcare Technology: Improving Patient Care",
+      date: "8 November 2023",
+      image: "/assets/Health.png"
     },
     {
       id: 11,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "Education Technology: Learning in the Digital Age",
+      date: "7 November 2023",
+      image: "/assets/Education.png"
     },
     {
       id: 12,
-      title: "5 Different Ways To Do Bulk Updates On WordPress",
-      date: "16 November 2023"
+      title: "Gaming Industry: Trends and Technologies",
+      date: "6 November 2023",
+      image: "/assets/Game.png"
     }
   ];
 
@@ -112,6 +123,10 @@ const BlogGrid: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleBlogClick = (blogId: number) => {
+    router.push(`/blog/${blogId}`);
+  };
+
   const postsToShow = isMobile ? paginatedPosts : mainPosts;
 
   return (
@@ -122,7 +137,11 @@ const BlogGrid: React.FC = () => {
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h2>
             <div className="space-y-4">
               {recentPosts.map((post) => (
-                <div key={post.id} className="border-b border-gray-100 pb-4 last:border-b-0">
+                <div 
+                  key={post.id} 
+                  className="border-b border-gray-100 pb-4 last:border-b-0 cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
+                  onClick={() => handleBlogClick(post.id)}
+                >
                   <h3 className="text-sm font-medium text-gray-900 mb-2 leading-snug">
                     {post.title}
                   </h3>
@@ -139,7 +158,11 @@ const BlogGrid: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h2>
               <div className="space-y-4">
                 {recentPosts.map((post) => (
-                  <div key={post.id} className="border-b border-gray-100 pb-4 last:border-b-0">
+                  <div 
+                    key={post.id} 
+                    className="border-b border-gray-100 pb-4 last:border-b-0 cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
+                    onClick={() => handleBlogClick(post.id)}
+                  >
                     <h3 className="text-sm font-medium text-gray-900 mb-2 leading-snug">
                       {post.title}
                     </h3>
@@ -153,17 +176,25 @@ const BlogGrid: React.FC = () => {
           <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {postsToShow.map((post) => (
-                <div key={post.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
+                <div 
+                  key={post.id} 
+                  className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer"
+                  onClick={() => handleBlogClick(post.id)}
+                >
                   {post.image ? (
                     <div className="aspect-[4/3] bg-gray-200 relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                          <div className="w-8 h-8 bg-white/40 rounded"></div>
-                        </div>
-                      </div>
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      />
                     </div>
                   ) : (
-                    <div className="aspect-[4/3] bg-gray-100"></div>
+                    <div className="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                      <div className="text-gray-400 text-sm">No Image</div>
+                    </div>
                   )}
                   
                   <div className="p-3 sm:p-4">
